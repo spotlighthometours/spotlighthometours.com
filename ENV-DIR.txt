@@ -1,0 +1,45 @@
+ALLUSERSPROFILE=C:\ProgramData
+APPDATA=C:\Users\spotlighthometours\AppData\Roaming
+CLIENTNAME=dude-seriously
+CommonProgramFiles=C:\Program Files\Common Files
+CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+CommonProgramW6432=C:\Program Files\Common Files
+COMPUTERNAME=CFD342
+ComSpec=C:\Windows\system32\cmd.exe
+FP_NO_HOST_CHECK=NO
+HOMEDRIVE=C:
+HOMEPATH=\Users\spotlighthometours
+LOCALAPPDATA=C:\Users\spotlighthometours\AppData\Local
+LOGONSERVER=\\CFD177
+NUMBER_OF_PROCESSORS=4
+OS=Windows_NT
+Path=C:\Python27\;C:\Program Files (x86)\PHP\v5.4;D:\ColdFusion9\verity\k2\_nti
+0\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System
+2\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Dell\SysMgt\oma\bin;C:\Program
+Files (x86)\Dell\SysMgt\idrac;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Pr
+gram Files\Microsoft\Web Platform Installer\;C:\Program Files\Amazon\AWSCLI\
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+PROCESSOR_ARCHITECTURE=AMD64
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 58 Stepping 9, GenuineIntel
+PROCESSOR_LEVEL=6
+PROCESSOR_REVISION=3a09
+ProgramData=C:\ProgramData
+ProgramFiles=C:\Program Files
+ProgramFiles(x86)=C:\Program Files (x86)
+ProgramW6432=C:\Program Files
+PROMPT=$P$G
+PSModulePath=C:\Windows\system32\WindowsPowerShell\v1.0\Modules\
+PUBLIC=C:\Users\Public
+SESSIONNAME=RDP-Tcp#0
+SystemDrive=C:
+SystemRoot=C:\Windows
+TEMP=C:\Users\SPOTLI~1\AppData\Local\Temp\2
+TMP=C:\Users\SPOTLI~1\AppData\Local\Temp\2
+USERDNSDOMAIN=CFDYNAMICS.NET
+USERDOMAIN=CFD
+USERNAME=spotlighthometours
+USERPROFILE=C:\Users\spotlighthometours
+VERITY_CFG=D:\ColdFusion9\verity\k2\common\verity.cfg
+windir=C:\Windows
+windows_tracing_flags=3
+windows_tracing_logfile=C:\BVTBin\Tests\installpackage\csilogfile.log

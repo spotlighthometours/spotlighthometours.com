@@ -1,0 +1,1299 @@
+
+ Fri, 03 Nov 2017 13:45:50 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Fri, 03 Nov 2017 13:45:50 -0600 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1509738350
+)
+
+ Fri, 03 Nov 2017 13:45:50 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Fri, 03 Nov 2017 13:45:50 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Fri, 03 Nov 2017 13:45:50 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1509738350]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Fri, 03 Nov 2017 13:45:50 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Fri, 03 Nov 2017 13:45:50 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Fri, 03 Nov 2017 13:45:51 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1509738350</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>143</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-1611</accountNumber><invoice /><amount>26.98</amount><currencyCode>USD</currencyCode><customerProfileId>1901427310</customerProfileId><customerPaymentProfileId>1912931103</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Fri, 03 Nov 2017 13:45:51 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Fri, 03 Nov 2017 13:45:51 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Fri, 03 Nov 2017 13:47:56 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Fri, 03 Nov 2017 13:47:56 -0600 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1509738475
+)
+
+ Fri, 03 Nov 2017 13:47:56 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Fri, 03 Nov 2017 13:47:56 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Fri, 03 Nov 2017 13:47:56 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1509738475]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Fri, 03 Nov 2017 13:47:56 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Fri, 03 Nov 2017 13:47:56 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Fri, 03 Nov 2017 13:47:56 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1509738475</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>143</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-1611</accountNumber><invoice /><amount>26.98</amount><currencyCode>USD</currencyCode><customerProfileId>1901427310</customerProfileId><customerPaymentProfileId>1912931103</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Fri, 03 Nov 2017 13:47:56 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Fri, 03 Nov 2017 13:47:56 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Fri, 03 Nov 2017 14:30:06 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Fri, 03 Nov 2017 14:30:06 -0600 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1509741006
+)
+
+ Fri, 03 Nov 2017 14:30:06 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Fri, 03 Nov 2017 14:30:06 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Fri, 03 Nov 2017 14:30:06 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1509741006]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Fri, 03 Nov 2017 14:30:06 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Fri, 03 Nov 2017 14:30:06 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Fri, 03 Nov 2017 14:30:06 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1509741006</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>143</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-1611</accountNumber><invoice /><amount>26.98</amount><currencyCode>USD</currencyCode><customerProfileId>1901427310</customerProfileId><customerPaymentProfileId>1912931103</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Fri, 03 Nov 2017 14:30:06 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Fri, 03 Nov 2017 14:30:06 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Fri, 03 Nov 2017 14:53:48 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Fri, 03 Nov 2017 14:53:48 -0600 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1509742427
+)
+
+ Fri, 03 Nov 2017 14:53:48 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Fri, 03 Nov 2017 14:53:48 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Fri, 03 Nov 2017 14:53:48 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1509742427]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Fri, 03 Nov 2017 14:53:48 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Fri, 03 Nov 2017 14:53:48 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Fri, 03 Nov 2017 14:53:48 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1509742427</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>143</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-1611</accountNumber><invoice /><amount>26.98</amount><currencyCode>USD</currencyCode><customerProfileId>1901427310</customerProfileId><customerPaymentProfileId>1912931103</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Fri, 03 Nov 2017 14:53:48 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Fri, 03 Nov 2017 14:53:48 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Fri, 03 Nov 2017 14:53:53 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Fri, 03 Nov 2017 14:53:53 -0600 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1509742433
+)
+
+ Fri, 03 Nov 2017 14:53:53 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Fri, 03 Nov 2017 14:53:53 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Fri, 03 Nov 2017 14:53:53 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1509742433]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Fri, 03 Nov 2017 14:53:53 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Fri, 03 Nov 2017 14:53:53 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Fri, 03 Nov 2017 14:53:54 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1509742433</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>143</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-1611</accountNumber><invoice /><amount>26.98</amount><currencyCode>USD</currencyCode><customerProfileId>1901427310</customerProfileId><customerPaymentProfileId>1912931103</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Fri, 03 Nov 2017 14:53:54 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Fri, 03 Nov 2017 14:53:54 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Fri, 03 Nov 2017 15:26:44 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Fri, 03 Nov 2017 15:26:44 -0600 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1509744404
+)
+
+ Fri, 03 Nov 2017 15:26:44 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Fri, 03 Nov 2017 15:26:44 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Fri, 03 Nov 2017 15:26:44 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1509744404]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Fri, 03 Nov 2017 15:26:44 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Fri, 03 Nov 2017 15:26:44 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Fri, 03 Nov 2017 15:26:45 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1509744404</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>143</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-1611</accountNumber><invoice /><amount>26.98</amount><currencyCode>USD</currencyCode><customerProfileId>1901427310</customerProfileId><customerPaymentProfileId>1912931103</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Fri, 03 Nov 2017 15:26:45 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Fri, 03 Nov 2017 15:26:45 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Sat, 04 Nov 2017 12:52:52 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Sat, 04 Nov 2017 12:52:52 -0600 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1509821572
+)
+
+ Sat, 04 Nov 2017 12:52:52 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Sat, 04 Nov 2017 12:52:52 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Sat, 04 Nov 2017 12:52:52 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1509821572]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Sat, 04 Nov 2017 12:52:52 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Sat, 04 Nov 2017 12:52:52 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Sat, 04 Nov 2017 12:52:53 -0600 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1509821572</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>144</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-8811</accountNumber><invoice /><amount>59.00</amount><currencyCode>USD</currencyCode><customerProfileId>1901760586</customerProfileId><customerPaymentProfileId>1913309939</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Sat, 04 Nov 2017 12:52:53 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Sat, 04 Nov 2017 12:52:53 -0600 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Mon, 06 Nov 2017 11:13:49 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Mon, 06 Nov 2017 11:13:49 -0700 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1509992028
+)
+
+ Mon, 06 Nov 2017 11:13:49 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Mon, 06 Nov 2017 11:13:49 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Mon, 06 Nov 2017 11:13:49 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1509992028]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Mon, 06 Nov 2017 11:13:49 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Mon, 06 Nov 2017 11:13:49 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Mon, 06 Nov 2017 11:13:50 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1509992028</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>144</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-8811</accountNumber><invoice /><amount>59.00</amount><currencyCode>USD</currencyCode><customerProfileId>1901760586</customerProfileId><customerPaymentProfileId>1913309939</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Mon, 06 Nov 2017 11:13:50 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Mon, 06 Nov 2017 11:13:50 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Tue, 07 Nov 2017 11:03:08 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Tue, 07 Nov 2017 11:03:08 -0700 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1510077788
+)
+
+ Tue, 07 Nov 2017 11:03:08 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Tue, 07 Nov 2017 11:03:08 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Tue, 07 Nov 2017 11:03:08 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1510077788]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Tue, 07 Nov 2017 11:03:08 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Tue, 07 Nov 2017 11:03:08 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Tue, 07 Nov 2017 11:03:09 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1510077788</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>142</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-8811</accountNumber><invoice /><amount>59.00</amount><currencyCode>USD</currencyCode><customerProfileId>1901760586</customerProfileId><customerPaymentProfileId>1913309939</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Tue, 07 Nov 2017 11:03:09 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Tue, 07 Nov 2017 11:03:09 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Tue, 07 Nov 2017 14:14:19 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Tue, 07 Nov 2017 14:14:19 -0700 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1510089259
+)
+
+ Tue, 07 Nov 2017 14:14:19 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Tue, 07 Nov 2017 14:14:19 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Tue, 07 Nov 2017 14:14:19 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1510089259]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Tue, 07 Nov 2017 14:14:19 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Tue, 07 Nov 2017 14:14:19 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Tue, 07 Nov 2017 14:14:20 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1510089259</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>142</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-8811</accountNumber><invoice /><amount>59.00</amount><currencyCode>USD</currencyCode><customerProfileId>1901760586</customerProfileId><customerPaymentProfileId>1913309939</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Tue, 07 Nov 2017 14:14:20 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Tue, 07 Nov 2017 14:14:20 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Wed, 08 Nov 2017 10:27:33 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Wed, 08 Nov 2017 10:27:33 -0700 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1510162053
+)
+
+ Wed, 08 Nov 2017 10:27:34 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Wed, 08 Nov 2017 10:27:34 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Wed, 08 Nov 2017 10:27:34 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1510162053]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Wed, 08 Nov 2017 10:27:34 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Wed, 08 Nov 2017 10:27:34 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Wed, 08 Nov 2017 10:27:35 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1510162053</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>141</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-8811</accountNumber><invoice /><amount>59.00</amount><currencyCode>USD</currencyCode><customerProfileId>1901760586</customerProfileId><customerPaymentProfileId>1913309939</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Wed, 08 Nov 2017 10:27:35 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Wed, 08 Nov 2017 10:27:35 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Wed, 08 Nov 2017 10:29:16 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Wed, 08 Nov 2017 10:29:16 -0700 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1510162156
+)
+
+ Wed, 08 Nov 2017 10:29:17 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Wed, 08 Nov 2017 10:29:17 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Wed, 08 Nov 2017 10:29:17 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1510162156]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Wed, 08 Nov 2017 10:29:17 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Wed, 08 Nov 2017 10:29:17 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Wed, 08 Nov 2017 10:29:17 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1510162156</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>141</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-8811</accountNumber><invoice /><amount>59.00</amount><currencyCode>USD</currencyCode><customerProfileId>1901760586</customerProfileId><customerPaymentProfileId>1913309939</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Wed, 08 Nov 2017 10:29:17 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Wed, 08 Nov 2017 10:29:17 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Wed, 08 Nov 2017 10:30:00 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Wed, 08 Nov 2017 10:30:00 -0700 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1510162200
+)
+
+ Wed, 08 Nov 2017 10:30:00 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Wed, 08 Nov 2017 10:30:00 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Wed, 08 Nov 2017 10:30:00 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1510162200]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Wed, 08 Nov 2017 10:30:00 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Wed, 08 Nov 2017 10:30:00 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Wed, 08 Nov 2017 10:30:01 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1510162200</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>141</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-8811</accountNumber><invoice /><amount>59.00</amount><currencyCode>USD</currencyCode><customerProfileId>1901760586</customerProfileId><customerPaymentProfileId>1913309939</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Wed, 08 Nov 2017 10:30:01 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Wed, 08 Nov 2017 10:30:01 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Wed, 08 Nov 2017 10:30:28 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Wed, 08 Nov 2017 10:30:28 -0700 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1510162228
+)
+
+ Wed, 08 Nov 2017 10:30:28 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Wed, 08 Nov 2017 10:30:28 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Wed, 08 Nov 2017 10:30:28 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1510162228]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Wed, 08 Nov 2017 10:30:28 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Wed, 08 Nov 2017 10:30:28 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Wed, 08 Nov 2017 10:30:29 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1510162228</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>141</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-8811</accountNumber><invoice /><amount>59.00</amount><currencyCode>USD</currencyCode><customerProfileId>1901760586</customerProfileId><customerPaymentProfileId>1913309939</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Wed, 08 Nov 2017 10:30:29 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Wed, 08 Nov 2017 10:30:29 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Wed, 08 Nov 2017 10:31:34 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Wed, 08 Nov 2017 10:31:34 -0700 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1510162294
+)
+
+ Wed, 08 Nov 2017 10:31:34 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Wed, 08 Nov 2017 10:31:34 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Wed, 08 Nov 2017 10:31:34 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1510162294]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Wed, 08 Nov 2017 10:31:34 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Wed, 08 Nov 2017 10:31:34 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Wed, 08 Nov 2017 10:31:34 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1510162294</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>141</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-8811</accountNumber><invoice /><amount>59.00</amount><currencyCode>USD</currencyCode><customerProfileId>1901760586</customerProfileId><customerPaymentProfileId>1913309939</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Wed, 08 Nov 2017 10:31:34 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Wed, 08 Nov 2017 10:31:34 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Wed, 08 Nov 2017 10:36:55 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Wed, 08 Nov 2017 10:36:55 -0700 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1510162615
+)
+
+ Wed, 08 Nov 2017 10:36:55 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Wed, 08 Nov 2017 10:36:55 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Wed, 08 Nov 2017 10:36:55 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1510162615]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Wed, 08 Nov 2017 10:36:55 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Wed, 08 Nov 2017 10:36:55 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Wed, 08 Nov 2017 10:36:56 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1510162615</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>141</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-8811</accountNumber><invoice /><amount>59.00</amount><currencyCode>USD</currencyCode><customerProfileId>1901760586</customerProfileId><customerPaymentProfileId>1913309939</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Wed, 08 Nov 2017 10:36:56 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Wed, 08 Nov 2017 10:36:56 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Wed, 08 Nov 2017 10:41:09 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Wed, 08 Nov 2017 10:41:09 -0700 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1510162869
+)
+
+ Wed, 08 Nov 2017 10:41:09 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Wed, 08 Nov 2017 10:41:09 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Wed, 08 Nov 2017 10:41:09 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1510162869]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Wed, 08 Nov 2017 10:41:09 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Wed, 08 Nov 2017 10:41:09 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Wed, 08 Nov 2017 10:41:10 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1510162869</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>141</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-8811</accountNumber><invoice /><amount>59.00</amount><currencyCode>USD</currencyCode><customerProfileId>1901760586</customerProfileId><customerPaymentProfileId>1913309939</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Wed, 08 Nov 2017 10:41:10 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Wed, 08 Nov 2017 10:41:10 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Fri, 10 Nov 2017 17:00:15 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Fri, 10 Nov 2017 17:00:15 -0700 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1510358415
+)
+
+ Fri, 10 Nov 2017 17:00:15 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Fri, 10 Nov 2017 17:00:15 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Fri, 10 Nov 2017 17:00:15 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1510358415]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Fri, 10 Nov 2017 17:00:15 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Fri, 10 Nov 2017 17:00:15 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Fri, 10 Nov 2017 17:00:16 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1510358415</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>145</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-4253</accountNumber><invoice /><amount>49.00</amount><currencyCode>USD</currencyCode><customerProfileId>1902501464</customerProfileId><customerPaymentProfileId>1914119061</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Fri, 10 Nov 2017 17:00:16 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Fri, 10 Nov 2017 17:00:16 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Mon, 13 Nov 2017 16:26:58 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Mon, 13 Nov 2017 16:26:58 -0700 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1510615618
+)
+
+ Mon, 13 Nov 2017 16:26:58 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Mon, 13 Nov 2017 16:26:58 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Mon, 13 Nov 2017 16:26:58 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1510615618]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Mon, 13 Nov 2017 16:26:58 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Mon, 13 Nov 2017 16:26:58 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Mon, 13 Nov 2017 16:26:58 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1510615618</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>142</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-2057</accountNumber><invoice /><amount>59.00</amount><currencyCode>USD</currencyCode><customerProfileId>1902219928</customerProfileId><customerPaymentProfileId>1913817908</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Mon, 13 Nov 2017 16:26:58 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Mon, 13 Nov 2017 16:26:59 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Thu, 16 Nov 2017 16:22:53 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Thu, 16 Nov 2017 16:22:53 -0700 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1510874573
+)
+
+ Thu, 16 Nov 2017 16:22:53 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Thu, 16 Nov 2017 16:22:53 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Thu, 16 Nov 2017 16:22:53 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1510874573]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Thu, 16 Nov 2017 16:22:53 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Thu, 16 Nov 2017 16:22:53 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Thu, 16 Nov 2017 16:22:54 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1510874573</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>144</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>4</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-1505</accountNumber><invoice /><amount>59.00</amount><currencyCode>USD</currencyCode><customerProfileId>1903114914</customerProfileId><customerPaymentProfileId>1914802483</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Thu, 16 Nov 2017 16:22:54 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Thu, 16 Nov 2017 16:22:54 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Tue, 19 Dec 2017 02:39:17 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Tue, 19 Dec 2017 02:39:17 -0700 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1513676357
+)
+
+ Tue, 19 Dec 2017 02:39:17 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Tue, 19 Dec 2017 02:39:17 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Tue, 19 Dec 2017 02:39:17 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1513676357]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Tue, 19 Dec 2017 02:39:17 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Tue, 19 Dec 2017 02:39:17 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Tue, 19 Dec 2017 02:39:18 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1513676357</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>130</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>5</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-5656</accountNumber><invoice /><amount>1.00</amount><currencyCode>USD</currencyCode><customerProfileId>1906473004</customerProfileId><customerPaymentProfileId>1918540478</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Tue, 19 Dec 2017 02:39:18 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Tue, 19 Dec 2017 02:39:18 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End
+ Wed, 20 Dec 2017 08:37:03 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 114) - Request Serialization Begin
+ Wed, 20 Dec 2017 08:37:03 -0700 DEBUG : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 115) - net\authorize\api\contract\v1\ARBGetSubscriptionListRequest Object
+(
+    [searchType:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => subscriptionActive
+    [sorting:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType Object
+        (
+            [orderBy:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => id
+            [orderDescending:net\authorize\api\contract\v1\ARBGetSubscriptionListSortingType:private] => 
+        )
+
+    [paging:net\authorize\api\contract\v1\ARBGetSubscriptionListRequest:private] => net\authorize\api\contract\v1\PagingType Object
+        (
+            [limit:net\authorize\api\contract\v1\PagingType:private] => 1000
+            [offset:net\authorize\api\contract\v1\PagingType:private] => 1
+        )
+
+    [merchantAuthentication:net\authorize\api\contract\v1\ANetApiRequestType:private] => net\authorize\api\contract\v1\MerchantAuthenticationType Object
+        (
+            [name:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 5Ge8r7zSkf
+            [transactionKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => xxxx
+            [sessionToken:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [password:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [impersonationAuthentication:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [fingerPrint:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [clientKey:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+            [mobileDeviceId:net\authorize\api\contract\v1\MerchantAuthenticationType:private] => 
+        )
+
+    [clientId:net\authorize\api\contract\v1\ANetApiRequestType:private] => sdk-php-1.9.3
+    [refId:net\authorize\api\contract\v1\ANetApiRequestType:private] => ref1513784222
+)
+
+ Wed, 20 Dec 2017 08:37:03 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 118) - Request  Serialization End
+ Wed, 20 Dec 2017 08:37:03 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 75) -  Url: https://api2.authorize.net/xml/v1/request.api
+ Wed, 20 Dec 2017 08:37:03 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 77) - Request to AnetApi: 
+<?xml version="1.0" encoding="UTF-8"?>
+<ARBGetSubscriptionListRequest xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+  <merchantAuthentication>
+    <name><![CDATA[5Ge8r7zSkf]]></name>
+    <transactionKey>xxxx</transactionKey>
+  </merchantAuthentication>
+  <clientId><![CDATA[sdk-php-1.9.3]]></clientId>
+  <refId><![CDATA[ref1513784222]]></refId>
+  <searchType><![CDATA[subscriptionActive]]></searchType>
+  <sorting>
+    <orderBy><![CDATA[id]]></orderBy>
+    <orderDescending>false</orderDescending>
+  </sorting>
+  <paging>
+    <limit>1000</limit>
+    <offset>1</offset>
+  </paging>
+</ARBGetSubscriptionListRequest>
+
+ Wed, 20 Dec 2017 08:37:03 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 89) - Sending 'XML' Request type
+ Wed, 20 Dec 2017 08:37:03 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 94) - Sending http request via Curl
+ Wed, 20 Dec 2017 08:37:04 -0700 INFO : [_sendRequest] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\util\HttpClient.php : 96) - Response from AnetApi: ﻿<?xml version="1.0" encoding="utf-8"?><ARBGetSubscriptionListResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"><refId>ref1513784222</refId><messages><resultCode>Ok</resultCode><message><code>I00001</code><text>Successful.</text></message></messages><totalNumInResultSet>129</totalNumInResultSet><subscriptionDetails><subscriptionDetail><id>34550780</id><name>Realtor Website</name><status>active</status><createTimeStampUTC>2017-07-14T16:33:21.163</createTimeStampUTC><firstName>Tamara</firstName><lastName>Anderson</lastName><totalOccurrences>9999</totalOccurrences><pastOccurrences>5</pastOccurrences><paymentMethod>creditCard</paymentMethod><accountNumber>xxxx-2577</accountNumber><invoice /><amount>99.00</amount><currencyCode>USD</currencyCode><customerProfileId>1906868927</customerProfileId><customerPaymentProfileId>1918980357</customerPaymentProfileId></subscriptionDetail></subscriptionDetails></ARBGetSubscriptionListResponse>
+ Wed, 20 Dec 2017 08:37:04 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 128) - Response De-Serialization Begin
+ Wed, 20 Dec 2017 08:37:04 -0700 INFO : [execute] (D:\websites\spotlighthometours\public\repository_inc\classes\authorizenet\lib\net\authorize\api\controller\base\ApiOperationBase.php : 130) - Response De-Serialization End

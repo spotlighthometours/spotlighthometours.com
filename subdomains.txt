@@ -1,0 +1,24 @@
+2015-05-14 12:49:57::array (
+  0 => 'ERROR ( message:Configuration error ',
+  1 => 'Filename: redirection.config',
+  2 => 'Line Number: 0',
+  3 => 'Description: Cannot read configuration file due to insufficient permissions',
+  4 => '. )',
+  5 => '',
+)
+2015-05-14 12:50:49::array (
+  0 => 'ERROR ( message:Configuration error ',
+  1 => 'Filename: redirection.config',
+  2 => 'Line Number: 0',
+  3 => 'Description: Cannot read configuration file due to insufficient permissions',
+  4 => '. )',
+  5 => '',
+)
+2015-05-14 12:59:43::array (
+  0 => 'SITE "Default Web Site" (id:1,bindings:http/*:80:cfd318.cfdynamics.com,http/*:80:cfd318.cfdynamics.net,net.tcp/808:*,net.pipe/*,net.msmq/localhost,msmq.formatname/localhost,state:Started)',
+  1 => 'SITE "SpotLightHomeTours.com" (id:2,bindings:http/69.56.156.77:80:,https/69.56.156.77:443:,state:Started)',
+  2 => 'SITE "spotlight_ftp" (id:3,bindings:ftp/*:21:,state:Unknown)',
+  3 => 'SITE "Test Subdomain" (id:4,bindings:http/*:80:willstest.spotlighthometours.com,state:Started)',
+  4 => 'SITE "Foobar" (id:5,bindings:http/*:80:foobar.spotlighthometours.com,state:Started)',
+  5 => '',
+)

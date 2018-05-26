@@ -1,0 +1,1 @@
+Error: Please make sure at least one of the options is selected. <a href="/admin/mail/">Return Back</a>

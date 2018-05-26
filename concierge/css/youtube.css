@@ -1,0 +1,286 @@
+#setup {
+  font-size: 25px;
+  font-family:Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  line-height: 3.2;
+  text-align: justifyLeft;
+  position: relative;
+  top:75px;
+  left:20px;
+  font-weight: normal;
+}
+#setup strong{
+	font-size:30px;
+}
+#leftbar {
+	float:left;
+}
+#form {
+	float:left;
+}
+#concierge-line {
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  width: 768px;
+  height: 1px;
+  top:60px;
+  left:20px;
+  float:left;
+}
+#concierge-logo {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 227px;
+  height: 142px;
+  z-index: 76;
+  float:left;
+}
+#topbar-logo {
+  float:left;
+  clear:left;
+}
+#topbar-text {
+	float:left;
+}
+#youtube-logo {
+  position: relative;
+  left: 45px;
+  top: 10px;
+  z-index: 71;
+}
+#youtube-manager {
+  float:left;
+  font-size: 25px;
+  color: rgb(255, 255, 255);
+  line-height: 3.624;
+  text-align: justifyLeft;
+  position:relative;
+  left: 100px;
+  top: 5px;
+  z-index: 47;
+}
+#youtube-text {
+	clear:left;
+  float:left;
+  font-size: 14.75px;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  line-height: ;
+  text-align: justifyLeft;
+  position:relative;
+  left: 100px;
+  top: 0px;
+  z-index: 48;
+  width:700px;
+}
+#concierge-line2 {
+	clear:left;
+	float:left;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  left: 20px;
+  top: 40px;
+  width: 965px;
+  height: 1px;
+  z-index: 41;
+}
+#link-accounts {
+  clear:left;
+  float:left;
+  font-size: 21px;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  font-style: italic;
+  line-height: 3.624;
+  text-align: justifyLeft;
+  position: relative;
+  left: 95px;
+  top: 100px;
+  z-index: 45;
+}
+#concierge-line3 {
+	clear:left;
+	float:left;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  left: 85px;
+  top: 85px;
+  width: 830px;
+  height: 1px;
+  z-index: 41;
+}
+#connect-youtube {
+	clear:left;
+	float:left;
+	margin-top:150px;
+	margin-left:152px;
+}
+#add-channel {
+	float:left;
+	margin-top:155px;
+	margin-left:80px;
+}
+#add-channel img {
+	width:120px;
+}
+
+#previous-step {
+  clear:left;
+  float:left;
+  position: relative;
+  left: 240px;
+  top: 125px;
+  width: 179px;
+  height: 36px;
+  z-index: 49;
+  margin-bottom:225px;
+}
+#save-exit {
+  float:left;
+  position: relative;
+  left: 260px;
+  top: 125px;
+  width: 179px;
+  height: 36px;
+  z-index: 49;
+  margin-bottom:225px;
+}
+#next-step {
+  float:left;
+  position: relative;
+  left: 280px;
+  top: 125px;
+  width: 179px;
+  height: 36px;
+  z-index: 49;
+  margin-bottom:225px;
+}
+#my-channels {
+  clear:left;
+  float:left;
+  font-size: 21px;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  font-style: italic;
+  line-height: 3.624;
+  text-align: justifyLeft;
+  position: relative;
+  left: 95px;
+  top: 100px;
+  z-index: 45;
+}
+#connected-channels {
+  clear:left;
+  float:left;
+  font-size: 16px;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  font-style: italic;
+  line-height: 3.624;
+  text-align: justifyLeft;
+  position: relative;
+  left: 95px;
+  top: 100px;
+  z-index: 45;
+  margin-left:50px;
+}
+#connection-status {
+  float:left;
+  font-size: 16px;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  font-style: italic;
+  line-height: 3.624;
+  text-align: justifyLeft;
+  position: relative;
+  left: 95px;
+  top: 100px;
+  z-index: 45;
+  margin-left:170px;
+}
+#autopost {
+  float:left;
+  font-size: 16px;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  font-style: italic;
+  line-height: 3.624;
+  text-align: justifyLeft;
+  position: relative;
+  left: 95px;
+  top: 100px;
+  z-index: 45;
+  margin-left:170px;
+}
+#add-youtube-account {
+	clear:left;
+	float:left;
+	width:900px;
+	margin-left:50px;
+	margin-top:100px;
+}
+#add-youtube-account h2 {
+	padding:7px;
+	background-color:#D3D3D3;
+	font-weight:normal;
+	color:#706E6E;
+	margin:0;
+	border-radius: 8px 8px 0px 0px;
+}
+#add-youtube-account #intro {
+	background-color:white;
+	height:40px;
+	padding-top:10px;
+	margin:0;
+	border-radius: 0px 0px 8px 8px;
+}
+#add-youtube-account img {
+	margin-left:20px;
+	margin-right:20px;
+}
+#my-youtube-accounts {
+	clear:left;
+	float:left;
+	width:900px;
+	margin-left:50px;
+	margin-top:100px;
+}
+#my-youtube-accounts h2 {
+	padding:7px;
+	background-color:#D3D3D3;
+	font-weight:normal;
+	color:#706E6E;
+	margin:0;
+	border-radius: 8px 8px 0px 0px;
+}
+#my-youtube-accounts #status-list {
+	background-color:white;
+	height:125px;
+	padding-top:10px;
+	margin:0;
+	border-radius: 0px 0px 8px 8px;
+	padding:10px;
+}
+#my-youtube-accounts th {
+	color:#494848;
+}
+#my-youtube-accounts tr {
+	line-height:25px;
+}
+#my-youtube-accounts a {
+	text-decoration:none;
+	color:gray;
+	font-style:italic;
+}
+#youtube-frame {
+	clear:left;
+	float:left;
+	margin-top:100px;
+	margin-left:40px;
+}
+#youtube-frame iframe {
+	border-radius:12px;
+	padding:10px;
+	background-color:white;
+}

@@ -1,0 +1,8 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.floating-title{
+	top:98px;
+	background-color:white;
+	padding-top:5px;
+}

@@ -1,0 +1,99 @@
+.pr_frame {
+    position: relative;
+    width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pr_frame .pricing {
+    position: relative;
+    width: 100%;
+    font-size: 12px;
+    font-family: helvetica;
+    border: 0px;
+}
+
+.pr_frame table tr {
+    background-color: #A9A9A9;
+    border: 0px;
+}
+
+.pr_frame table th {
+    background-color: #A9A9A9;
+    border: 1px solid white;
+    padding: 3px;
+}
+
+.pr_frame table td {
+    background-color: #DEDEDE;
+    border: 1px solid white;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.pr_frame table .dol {
+    text-align: center;
+    width: 50px;
+    height: 40px;
+}
+
+.pr_frame .totals {
+    position: relative;
+    float: right;
+    font-size: 10px;
+    font-family: helvetica;
+    border: 0px;
+}
+
+.pr_frame .totals td {
+    width: 120px;
+}
+
+.pr_frame .blank {
+    background-color: white;
+    border: 0px;
+}
+
+.pr_frame .h_monthly {
+    background-color: #83ccc8;
+}
+
+.pr_frame .l_monthly {
+    background-color: #b4d4d6;
+}
+
+.pr_frame .h_broker {
+    background-color: #cc83c7;
+}
+
+.pr_frame .l_broker {
+    background-color: #d6b4d4;
+}
+
+.pr_frame .h_user {
+    background-color: #cbcc83;
+}
+
+.pr_frame .l_user {
+    background-color: #d5d6b4;
+}
+
+.pr_frame .l_broker_tot {
+    font-weight: bold;
+    background-color: #e883e2;
+}
+
+.pr_frame .l_monthly_tot {
+    font-weight: bold;
+    background-color: #6de1e8;
+}
+
+.pr_frame .l_user_tot {
+    font-weight: bold;
+    background-color: #e8ea5d;
+}
+
+.pr_frame .l_coupon {
+    text-align: center;
+    height: 40px;
+}

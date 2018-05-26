@@ -1,0 +1,63 @@
+.main-heading{
+	display:block;
+}
+.saved-content{
+  width:500px;
+}
+.saved-content .panel-body{
+	margin-top:30px;
+}
+.saved-content .panel .panel-body .imgframe{
+	max-height:500px;/*500px;*/
+	overflow:hidden;
+}
+.saved-content .panel.facebook .panel-body, #cContentModal .content-preview .preview.facebook{
+	width:506px;
+	margin:auto;
+}
+.saved-content .panel.facebook .panel-body img, #cContentModal .content-preview .preview.facebook img, #cContentModal .content-preview .preview.facebook video{
+	width:476px !important;
+	height:auto;
+}
+.saved-content .panel.twitter .panel-body, #cContentModal .content-preview .preview.twitter{
+	width:546px;
+	margin:auto;
+	font-size: 14px;
+}
+.saved-content .panel.twitter .panel-body img, #cContentModal .content-preview .preview.twitter img, #cContentModal .content-preview .preview.twitter video{
+	width:506px !important;
+	height:auto;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 1.3em;
+	color: #292F33;
+    font-size: 14px;
+}
+.saved-content .panel.twitter .panel-body h2 a, .saved-content .panel.twitter .panel-body h2{
+	white-space: nowrap;
+}
+.saved-content .panel.video.twitter .panel-body img, #cContentModal .content-preview .preview.video.twitter img, #cContentModal .content-preview .preview.video.twitter video{
+	width:125px !important;
+	height:125px !important;
+}
+.saved-content .panel.linkedin .panel-body, #cContentModal .content-preview .preview.linkedin{
+	width:538px;
+	margin:auto;
+	padding:10px;
+}
+.saved-content .panel.linkedin .panel-body img, #cContentModal .content-preview .preview.linkedin img, #cContentModal .content-preview .preview.linkedin video{
+	width:518px !important;
+	height:auto;
+	
+}
+.carousel-control.right{
+	margin-right:-70px;
+	background:none;
+	color:white;
+	top:0px;
+}
+.carousel-control.left{
+	margin-left:-70px;
+	background:none;
+	color:white;
+	top:0px;
+}

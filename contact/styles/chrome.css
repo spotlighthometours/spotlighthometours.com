@@ -1,0 +1,273 @@
+/* CSS Document */
+
+body{
+	background:url(../images/template-2-bg.gif) top repeat-x #e8e8e8;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.clear{
+	clear:both;
+}
+.top-nav{
+	width:996px;
+	height:40px;
+	margin:auto;
+	position:relative;
+}
+.top-nav ul{
+	position:absolute;
+	right:0px;
+	top:5px;
+}
+.top-nav ul, .top-nav ul li{
+	margin:0px;
+	padding:0px;
+	list-style:none;
+}
+.top-nav ul li{
+	float:left;
+}
+.top-nav ul li a{
+	color:#8a8989;
+	text-decoration:none;
+	margin-left:5px;
+	padding:10px;
+}
+.top-nav ul li a:hover, .top-nav ul li a.selected{
+	color:white;
+}
+.header, .content{
+	width:996px;
+	margin:auto;
+}
+.header .left-column h1{
+	color:white;
+	font-size:30px;
+	white-space:nowrap;
+}
+.header .left-column{
+	color:white;
+	font-size:16px;
+	line-height:25px;
+	width:364px;
+	float:left;
+	overflow:hidden;
+}
+.header .left-column .price{
+	font-size:20px;
+}
+.header .left-column h2{
+	font-size:16px;
+	margin-top:60px;
+}
+.header .left-column .share-icons a{
+	line-height: 0; 
+	font-size: 0;
+	color: transparent; 
+}
+.header .left-column .share-icons a{
+	display:block;
+	background:url(../images/icon/twitter2.gif);
+	width:28px;
+	height:28px;
+	float:left;
+	margin-left:10px;
+}
+.header .left-column .share-icons a.twitter{
+	margin-left:0px;
+}
+.header .left-column .share-icons a:hover{
+	background:url(../images/icon/twitter2-hl.gif);
+}
+.header .left-column .share-icons a.facebook{
+	background:url(../images/icon/facebook2.gif);
+}
+.header .left-column .share-icons a.pinterest{
+	background:url(../images/icon/pinterest2.gif);
+}
+.header .left-column .share-icons a.googleplus{
+	background:url(../images/icon/gplus2.gif);
+}	
+.header .left-column .share-icons a:hover.facebook{
+	background:url(../images/icon/facebook2-hl.gif);
+}
+.header .left-column .share-icons a:hover.pinterest{
+	background:url(../images/icon/pinterest2-hl.gif);
+}
+.header .left-column .share-icons a:hover.googleplus{
+	background:url(../images/icon/gplus2-hl.gif);
+}
+.header .right-column{
+	float:left;
+	padding-top:20px;
+}
+.content{
+	color:#272a33;
+	font-size:12px;
+}
+.content h2{
+	margin-top:60px;
+	font-size:26px;
+}
+.content .featured-rooms .room{
+	background-color:#dadada;
+	float:left;
+	font-style:italic;
+	cursor:pointer;
+	margin-right:20px;
+}
+
+.content .featured-rooms .room h3{
+	color:#000;
+	padding:10px;
+	margin:0px;
+}
+
+.content .featured-rooms .room .view-gallery{
+	text-align:right;
+	padding:3px;
+	padding-right:25px;
+	color:#000;
+	font-style:italic;
+	background:url(../images/icon/featured-arrow2.gif) right center no-repeat #d4d4d4;
+	font-weight:bold;
+}
+.content .property-details .details{
+	color:#484848;
+	font-style:italic;
+	font-size:12px;
+	white-space:nowrap;
+}
+.content .property-details .details td{
+	padding:10px;
+}
+.content .property-details .details tr:nth-child(even) {
+	background: #dadada;
+}
+.content .property-details .details span{
+	color:#272a33;
+	font-style:normal;
+	white-space:normal;
+	font-weight:bold;
+}
+.content .property-details .description{
+	background-color:#dadada;
+	padding:20px;
+	color:#272a33;
+	font-size:14px;
+	font-style:italic;
+	margin-left:5px;
+	margin-top:20px;
+}
+.content .property-details .description h3{
+	font-size:12px;
+	color:#000;
+	margin-top:0px;
+}
+
+/* SLIDER */
+
+.slideme_container, .slideme{
+	width:695px;
+	height:463px;
+}
+
+.slideme_container .next, .slideme_container .prev{
+	position:absolute;
+	top:220px;
+	right:20px;
+	z-index:999;
+	background:url(../images/icon/next.png);
+	width:41px;
+	height:41px;
+	border:0px;
+	cursor:pointer;
+	outline:0;
+}
+
+.slideme_container .prev{
+	left:20px;
+	background:url(../images/icon/prev.png);
+}
+
+.slideme_container h4{
+	position:absolute;
+	top:0px;
+	left:0px;
+	background-color: black;
+	padding: 10px;
+	height: auto;
+	bottom: auto;
+	width: auto !important;
+	opacity: 0.6;
+	margin:0px;
+	font-size:20px;
+	color:white;
+}
+
+.slideme_container .next:disabled, .slideme_container .prev:disabled{
+	display:none;
+}
+
+/* FEATURED GALLERIES + MODAL */
+.featured-room-gals{
+	display:none;
+}
+.popup-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -347px;
+  margin-top: -231px;
+  z-index: 1005;
+  width: 695px;
+  height: 463px;
+  border: 3px solid #414244;
+}
+.popup-modal-bg {
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: black;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+  filter: alpha(opacity=70);
+  -moz-opacity: 0.7;
+  -khtml-opacity: 0.7;
+  opacity: 0.7;
+  z-index: 1000;
+}
+.map-view iframe{
+	width:991px;
+}
+
+.agent-info{
+	padding-top:10px;
+	text-align:right;
+	float:right;
+	margin-right:20px;
+}
+
+.agent-info .agent-name{
+	color:white;
+	font-size:20px;
+	margin-top:10px;
+}
+
+.agent-info .brokerage-logo{
+	margin-bottom:10px;
+	max-height:100px;
+	overflow:hidden;
+}
+
+.agent-info .agent-photo{
+	background:url(http://www.spotlighthometours.com/tours/images/2013-window/icons/avatar.png) no-repeat right;
+}
+
+.agent-info .agent-number{
+	color:#a4a4a4;
+	font-size:14px;
+	margin-top:0px;
+}

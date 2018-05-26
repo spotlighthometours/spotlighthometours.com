@@ -1,0 +1,259 @@
+#setup {
+  font-size: 25px;
+  font-family:Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  line-height: 3.2;
+  text-align: justifyLeft;
+  position: relative;
+  top:75px;
+  left:20px;
+  font-weight: normal;
+}
+#setup strong{
+	font-size:30px;
+}
+#leftbar {
+	float:left;
+}
+#form {
+	float:left;
+}
+#concierge-line {
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  width: 768px;
+  height: 1px;
+  top:60px;
+  left:20px;
+  float:left;
+}
+#concierge-logo {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 227px;
+  height: 142px;
+  z-index: 76;
+  float:left;
+}
+#topbar-logo {
+  float:left;
+  clear:left;
+}
+#topbar-text {
+	float:left;
+}
+#brochure-creator-logo {
+  position: relative;
+  left: 45px;
+  top: 10px;
+  z-index: 71;
+}
+#brochure-creator {
+  float:left;
+  font-size: 25px;
+  color: rgb(255, 255, 255);
+  line-height: 3.624;
+  text-align: justifyLeft;
+  position:relative;
+  left: 100px;
+  top: 5px;
+  z-index: 47;
+}
+#brochure-creator-text {
+	clear:left;
+  float:left;
+  font-size: 14.75px;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  line-height: ;
+  text-align: justifyLeft;
+  position:relative;
+  left: 100px;
+  top: 0px;
+  z-index: 48;
+  width:700px;
+}
+#concierge-line2 {
+	clear:left;
+	float:left;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  left: 20px;
+  top: 40px;
+  width: 965px;
+  height: 1px;
+  z-index: 41;
+}
+#link-accounts {
+  clear:left;
+  float:left;
+  font-size: 21px;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  font-style: italic;
+  line-height: 3.624;
+  text-align: justifyLeft;
+  position: relative;
+  left: 95px;
+  top: 100px;
+  z-index: 45;
+}
+#concierge-line3 {
+	clear:left;
+	float:left;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  left: 85px;
+  top: 85px;
+  width: 830px;
+  height: 1px;
+  z-index: 41;
+}
+#previous-step {
+  clear:left;
+  float:left;
+  position: relative;
+  left: 240px;
+  top: 125px;
+  width: 179px;
+  height: 36px;
+  z-index: 49;
+  margin-bottom:225px;
+}
+#save-exit {
+  float:left;
+  position: relative;
+  left: 260px;
+  top: 125px;
+  width: 179px;
+  height: 36px;
+  z-index: 49;
+  margin-bottom:225px;
+}
+#next-step {
+  float:left;
+  position: relative;
+  left: 280px;
+  top: 125px;
+  width: 179px;
+  height: 36px;
+  z-index: 49;
+  margin-bottom:225px;
+}
+#my-channels {
+  clear:left;
+  float:left;
+  font-size: 21px;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  font-style: italic;
+  line-height: 3.624;
+  text-align: justifyLeft;
+  position: relative;
+  left: 95px;
+  top: 100px;
+  z-index: 45;
+}
+#auto-respond {
+	clear:left;
+	float:left;
+	margin-left:100px;
+	margin-top:130px;
+}
+#auto-respond textarea {
+	margin-left:60px;
+	border-radius:7px;
+	width:700px;
+	height:150px;
+}
+#cell-phone {
+	clear:left;
+	float:left;
+	margin-left:190px;
+	margin-top:100px;
+}
+#cell-phone input {
+	width:175px;
+	margin-left:10px;
+}
+#cell-provider {
+	float:left;
+	margin-left:20px;
+	margin-top:100px;
+}
+#cell-provider input {
+	width:175px;
+}
+form label {
+  font-size: 16.667px;
+  font-family: "Arial";
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  line-height: 4.53;
+  text-align: justifyLeft;
+  -moz-transform: matrix( 0.84556574923547,0,0,0.8457981942653,0,0);
+  -webkit-transform: matrix( 0.84556574923547,0,0,0.8457981942653,0,0);
+  -ms-transform: matrix( 0.84556574923547,0,0,0.8457981942653,0,0);
+}
+form input {
+	clear:left;
+	height:23px;
+	width:200px;
+	border-radius:7px;
+	margin:0px;
+	margin-top:10px;
+}
+#email {
+	clear:left;
+	float:left;
+	margin-left:190px;
+	margin-top:0px;
+}
+#email input {
+	width:516px;
+	margin-left:47px;
+}
+#accent-color {
+	clear:left;
+	float:left;
+	margin-top:130px;
+	margin-left:120px;
+	color:white;
+}
+#accent-color input {
+	margin-left:20px;
+}
+#font-color {
+	clear:left;
+	float:left;
+	margin-top:30px;
+	margin-left:120px;
+	color:white;
+}
+#font-color input {
+	margin-left:34px;
+}
+table.list {
+	color:white;
+}
+form {
+	clear:left;
+	float:left;
+	margin-left:160px;
+	margin-top:100px;
+}
+table.list input.check {
+	margin-left:0px;
+}
+ #listing-syndication-frame {
+	clear:left;
+	float:left;
+	margin-top:100px;
+	margin-left:40px;
+}
+#listing-syndication-frame iframe {
+	border-radius:12px;
+	padding:10px;
+	background-color:white;
+}

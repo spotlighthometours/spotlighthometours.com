@@ -1,0 +1,233 @@
+#setup {
+  font-size: 25px;
+  font-family:Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  line-height: 3.2;
+  text-align: justifyLeft;
+  position: relative;
+  top:75px;
+  left:20px;
+  font-weight: normal;
+}
+#setup strong{
+	font-size:30px;
+}
+#concierge-line {
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  width: 768px;
+  height: 1px;
+  top:60px;
+  left:20px;
+  float:left;
+}
+#concierge-logo {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 227px;
+  height: 142px;
+  z-index: 76;
+  float:left;
+}
+#profile-logo {
+  position: relative;
+  left: 120px;
+  top: 30px;
+  z-index: 71;
+  float:left;
+  clear:left;
+}
+#tour-window-logo {
+  position: relative;
+  left: 195px;
+  top: 30px;
+  z-index: 71;
+  float:left;
+}
+#microsite-logo {
+  position: relative;
+  left: 275px;
+  top: 30px;
+  z-index: 71;
+  float:left;
+}
+#social-hub-logo {
+  position: relative;
+  left: 365px;
+  top: 30px;
+  z-index: 71;
+  float:left;
+}
+#youtube-logo {
+  position: relative;
+  left: 120px;
+  top: 70px;
+  z-index: 71;
+  float:left;
+  clear:left;
+}
+#spotlight-preview-logo {
+  position: relative;
+  left: 195px;
+  top: 70px;
+  z-index: 71;
+  float:left;
+}
+#brochure-creator-logo {
+  position: relative;
+  left: 275px;
+  top: 70px;
+  z-index: 71;
+  float:left;
+}
+#listing-syndication-logo {
+  position: relative;
+  left: 275px;
+  top: 70px;
+  z-index: 71;
+  float:left;
+}
+#profile-text a {
+  font-size: 18.75px;
+  text-decoration:none;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  line-height: 4.027;
+  text-align: justifyLeft;
+  position: relative;
+  left: 155px;
+  top: 10px;
+  z-index: 70;
+  clear:left;
+  float:left;
+}
+#tour-window-text a {
+  font-size: 18.75px;
+  text-decoration:none;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  line-height: 4.027;
+  text-align: justifyLeft;
+  position: relative;
+  left: 278px;
+  top: 10px;
+  z-index: 70;
+  float:left;
+}
+#microsite-text a {
+  font-size: 18.75px;
+  text-decoration:none;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  line-height: 4.027;
+  text-align: justifyLeft;
+  position: relative;
+  left: 388px;
+  top: 10px;
+  z-index: 70;
+  float:left;
+}
+#social-hub-text a {
+  font-size: 18.75px;
+  text-decoration:none;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  line-height: 4.027;
+  text-align: justifyLeft;
+  position: relative;
+  left: 516px;
+  top: 10px;
+  z-index: 70;
+  float:left;
+}
+#youtube-text a {
+  font-size: 18.75px;
+  text-decoration:none;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  line-height: 4.027;
+  text-align: justifyLeft;
+  position: relative;
+  left: 146px;
+  top: 52px;
+  z-index: 70;
+  clear:left;
+  float:left;
+}
+#spotlight-preview-text a {
+  font-size: 18.75px;
+  text-decoration:none;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  line-height: 4.027;
+  text-align: justifyLeft;
+  position: relative;
+  left: 239px;
+  top: 52px;
+  z-index: 70;
+  float:left;
+}
+#brochure-creator-text a {
+  font-size: 18.75px;
+  text-decoration:none;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  line-height: 4.027;
+  text-align: justifyLeft;
+  position: relative;
+  left: 299px;
+  top: 52px;
+  z-index: 70;
+  float:left;
+}
+#listing-syndication-text a {
+  font-size: 18.75px;
+  text-decoration:none;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  line-height: 4.027;
+  text-align: justifyLeft;
+  position: relative;
+  left: 290px;
+  top: 52px;
+  z-index: 70;
+  float:left;
+}
+#set-up-later-button {
+  position: relative;
+  left: 420px;
+  top: 160px;
+  width: 179px;
+  height: 36px;
+  z-index: 49;
+  clear:left;
+  margin-bottom:225px;
+}
+#email-logo {
+  position: relative;
+  left: 120px;
+  top: 115px;
+  z-index: 71;
+  float:left;
+  clear:left;
+}
+#email-text a {
+  font-size: 18.75px;
+  text-decoration:none;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  line-height: 4.027;
+  text-align: justifyLeft;
+  position: relative;
+  left: 138px;
+  top: 100px;
+  z-index: 70;
+  clear:left;
+  float:left;
+}
+
+
+
+
+

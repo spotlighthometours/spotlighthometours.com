@@ -1,0 +1,65 @@
+les</a></p>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec173d0-7ff9" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec173d0-7ff9"><!-- --></a><h2 class="topictitle2">Client variables</h2><div><p>The following client variables are reserved:</p>
+<pre>Client.CFID 
+Client.CFToken 
+Client.HitCount 
+Client.LastVisit 
+Client.TimeCreated 
+Client.URLToken</pre>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec173d0-7ff4" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec173d0-7ff4"><!-- --></a><h2 class="topictitle2">Server variables</h2><div><p>Use the Server prefix to reference server variables, as
+follows:</p>
+<pre>Server.ColdFusion.ProductName 
+Server.ColdFusion.ProductVersion 
+Server.ColdFusion.ProductLevel  
+Server.ColdFusion.SerialNumber  
+Server.ColdFusion.SupportedLocales 
+Server.ColdFusion.AppServer 
+Server.ColdFusion.Expiration 
+Server.ColdFusion.RootDir 
+Server.OS.Name  
+Server.OS.AdditionalInformation  
+Server.OS.Version  
+Server.OS.BuildNumber</pre>
+</div></div>
+<div id="WSc3ff6d0ea77859461172e0811cbec173d0-7ff3" class="nochunk"><a name="WSc3ff6d0ea77859461172e0811cbec173d0-7ff3"><!-- --></a><h2 class="topictitle2">Application and session variables</h2><div><p>To enable application and session variables, use the <samp class="codeph">cfapplication</samp> tag
+or Application.cfc. Reference them as follows:</p>
+<pre><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Application.myvariable</i> 
+<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Session.myvariable</i></pre>
+<p>To ensure that modifications to shared data occur in the intended
+sequence, use the <samp class="codeph">cflock</samp> tag. For more information,
+see <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7f5d.html">cflock</a>.</p>
+<p>ColdFusion provides the following predefined application and
+session variables:</p>
+<pre>Application.ApplicationName 
+Session.CFID 
+Session.CFToken 
+Session.URLToken</pre>
+</div></div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+        <div id="userprefs">
+        </div>
+<!-- END USER PREFERENCES -->
+
+        <div id="related">
+          <div class="separator"><a href="#top"><img src="images/BTT.jpg" /></a>&#160;</div>
+          
+          
+        </div>
+        <div id="footer">
+          <p><img src="images/Community.png" />&#160;<a title="community help (adobe.com)" href="http://www.adobe.com/go/lr_ColdFusion_community_en">community help (adobe.com)</a></p>
+<!-- BEGIN IONCOMMENTS -->
+          <div id="ionComHere">
+          </div>
+<!-- END IONCOMMENTS -->
+<!--#include virtual="ionComments.ssi" -->
+          <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a></p>
+        </div>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WSc3ff6d0ea77859461172e0811cbec173d0-7fff.html" title="Reserved words in q

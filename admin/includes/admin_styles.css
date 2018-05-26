@@ -1,0 +1,61 @@
+body {
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333333;
+	margin: 0px;
+	padding: 15px;
+	line-height: 20px;
+}
+
+a { color: #0066FF; }
+.msg { color: #090; }
+sup { font-size: 10px; }
+h2 { font-size: 13px; font-weight: bold; }
+td, th { font-family:  Arial, Helvetica, sans-serif; font-size: 12px; }
+th { color: #0000CC; font-weight: bold; text-align: left; height: 35px; background: #C3D9FF; }
+th a { color: #0000CC; }
+.container { padding: 15px; background-color: #f5f5f5; border: solid 1px #aaa; width: 400px; }
+.description { line-height: 13px; }
+.error { font-family:  Arial, Helvetica, sans-serif; font-size: 12px; color: #990000; }
+
+input, select, textarea {
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333333;
+	border: 1px solid #B2B2B2;
+}
+
+
+.dashedBox {
+	border: 1px dashed #A2A2A2;
+	padding: 5px;
+}
+.tourlist_nav {float:right;margin-right:30px;}
+
+strong {
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333333;
+	font-weight: bold;
+	line-height: 11px;
+}
+
+
+
+.rowHead { background: #C3D9FF; font-weight: bold; }
+
+.rowData { background: #E8EEF7; }
+.sectionHead { background: #B3C7EA; font-weight: bold; }
+
+table.form { width:100%; }
+table.form th { padding:.75em .5em; vertical-align:top; color:#00c; font-weight:bold; text-align:left; background:#C3D9FF; width:25%; }
+table.form td { padding:.25em .5em; vertical-align:middle; background:#E8EEF7; }
+table.form td img.thumb { display:block; margin:.5em 0; border:1px solid #333; }
+
+.tabular { width:100%; }
+.tabular tr.alt { background:#E8EEF7; }
+.tabular td { padding:.25em; }
+.tabular th { padding:.25em; color:#00c; font-weight:bold; text-align:left; height:35px; background:#C3D9FF; }
+.tabular td.active { color:#060; }
+.tabular td.inactive { color:#900; }
+.tabular td em { font-style:normal; font-weight:bold; font-size:18px; color:#f90; padding:0 .25em; }

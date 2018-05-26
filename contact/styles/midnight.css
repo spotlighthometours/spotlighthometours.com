@@ -1,0 +1,268 @@
+/* CSS Document */
+
+body{
+	background-color:#1c1c1c;
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.clear{
+	clear:both;
+}
+.wrapper{
+	width:1020px;
+	margin:auto;
+}
+.wrapper .left-column{
+	width:200px;
+	float:left;
+}
+.wrapper .left-column h1{
+	color:#8a8989;
+	text-align:right;
+	font-size:20px;
+	margin-top:65px;
+	font-weight:normal;
+}
+.wrapper .left-column ul, .wrapper .left-column ul li{
+	list-style:none;
+	padding:0px;
+	margin:0px;
+	border-bottom:1px solid #333333;
+}
+.wrapper .left-column ul li a:hover, .wrapper .left-column ul li:hover h1, .wrapper .left-column ul li a.active{
+	color:#4ba8fd;
+}
+.wrapper .left-column ul li a{
+	color:#8a8989;
+	text-decoration:none;
+	display:block;
+	text-align:right;
+	padding:17px;
+	padding-right:0px;
+	font-weight:600;
+	font-size:15px;
+}
+.wrapper .left-column h2{
+	color:#8a8989;
+	font-size:16px;
+	text-align:center;
+	margin-top:30px;
+}
+.wrapper .left-column .share-icons{
+	padding-left:18px;
+	border-bottom:1px solid #333333;
+	padding-bottom:30px;
+}
+.wrapper .left-column .share-icons a{
+	line-height: 0; 
+	font-size: 0;
+	color: transparent; 
+}
+.wrapper .left-column .share-icons a{
+	display:block;
+	background:url(../images/icon/twitter.gif);
+	width:28px;
+	height:28px;
+	float:left;
+	margin-left:10px;
+}
+.wrapper .left-column .share-icons a:hover{
+	background:url(../images/icon/twitter-hl.gif);
+}
+.wrapper .left-column .share-icons a.facebook{
+	background:url(../images/icon/facebook.gif);
+}
+.wrapper .left-column .share-icons a.pinterest{
+	background:url(../images/icon/pinterest.gif);
+}
+.wrapper .left-column .share-icons a.googleplus{
+	background:url(../images/icon/gplus.gif);
+}	
+.wrapper .left-column .share-icons a:hover.facebook{
+	background:url(../images/icon/facebook-hl.gif);
+}
+.wrapper .left-column .share-icons a:hover.pinterest{
+	background:url(../images/icon/pinterest-hl.gif);
+}
+.wrapper .left-column .share-icons a:hover.googleplus{
+	background:url(../images/icon/gplus-hl.gif);
+}
+.wrapper .right-column{
+	width:798px;
+	float:left;
+	margin-left:22px;
+	color:#cacaca;
+	font-style:italic;
+}
+.wrapper .right-column h1, .wrapper .right-column h2{
+	color:white;
+	font-size:32px;
+}
+
+.wrapper .right-column h1, .wrapper .right-column h2, .wrapper .right-column h3, .wrapper .right-column h4{
+	font-style:normal;
+}
+
+.wrapper .right-column .section{
+	border-bottom:1px solid #333333;
+	padding-bottom:40px;
+}
+
+.wrapper .right-column .featured-rooms .room{
+	background-color:#171717;
+	float:left;
+	font-style:italic;
+	cursor:pointer;
+	margin-right:8px;
+}
+
+.wrapper .right-column .featured-rooms .room h3{
+	color:#75c9f4;
+	padding:10px;
+	margin:0px;
+}
+
+.wrapper .right-column .featured-rooms .room .view-gallery{
+	text-align:right;
+	padding:3px;
+	padding-right:25px;
+	color:#5d5d5d;
+	font-style:italic;
+	background:url(../images/icon/featured-arrow.gif) right center no-repeat #111;
+	font-weight:bold;
+}
+.wrapper .right-column .property-details .details{
+	color:#7f7f7f;
+	font-style:italic;
+	font-size:12px;
+	white-space:nowrap;
+}
+.wrapper .right-column .property-details .details td{
+	padding:10px;
+}
+.wrapper .right-column .property-details .details tr:nth-child(even) {
+	background: #212121;
+}
+.wrapper .right-column .property-details .details span{
+	color:#75c9f4;
+	font-style:normal;
+	white-space:normal;
+}
+.wrapper .right-column .property-details .description{
+	background-color:#171717;
+	padding:20px;
+	color:#cacaca;
+	font-size:11px;
+	font-style:italic;
+	margin-left:5px;
+}
+.wrapper .right-column .property-details .description h3{
+	font-size:12px;
+	color:#75c9f4;
+	margin-top:0px;
+}
+
+/* SLIDER */
+
+.slideme_container, .slideme{
+	width:695px;
+	height:463px;
+}
+
+.slideme_container .next, .slideme_container .prev{
+	position:absolute;
+	top:220px;
+	right:20px;
+	z-index:999;
+	background:url(../images/icon/next.png);
+	width:41px;
+	height:41px;
+	border:0px;
+	cursor:pointer;
+	outline:0;
+}
+
+.slideme_container .prev{
+	left:20px;
+	background:url(../images/icon/prev.png);
+}
+
+.slideme_container h4{
+	position:absolute;
+	top:0px;
+	left:0px;
+	background-color: black;
+	padding: 10px;
+	height: auto;
+	bottom: auto;
+	width: auto !important;
+	opacity: 0.6;
+	margin:0px;
+	font-size:20px;
+	color:white;
+}
+
+.slideme_container .next:disabled, .slideme_container .prev:disabled{
+	display:none;
+}
+
+/* FEATURED GALLERIES + MODAL */
+.featured-room-gals{
+	display:none;
+}
+.popup-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -347px;
+  margin-top: -231px;
+  z-index: 1005;
+  width: 695px;
+  height: 463px;
+  border: 3px solid #414244;
+}
+.popup-modal-bg {
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: black;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+  filter: alpha(opacity=70);
+  -moz-opacity: 0.7;
+  -khtml-opacity: 0.7;
+  opacity: 0.7;
+  z-index: 1000;
+}
+
+.map-view iframe{
+	width:793px;
+}
+
+.agent-info{
+	padding-top:30px;
+	text-align:center;
+}
+
+.agent-info .agent-name{
+	color:#75c9f4;
+	font-size:20px;
+	margin-top:10px;
+}
+
+.agent-info .brokerage-logo{
+	margin-bottom:10px;
+}
+
+.agent-info .agent-photo{
+	background:url(http://www.spotlighthometours.com/tours/images/2013-window/icons/avatar.png) no-repeat center;
+}
+
+.agent-info .agent-number{
+	color:#8a8989;
+	font-size:14px;
+	margin-top:10px;
+}

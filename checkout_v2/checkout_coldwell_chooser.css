@@ -1,0 +1,73 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.choice_frame {
+	position: relative;
+	width: 550px;	
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	text-align: center;
+	font-size: 13px;
+	z-index: 1;
+}
+
+.left {
+	float: left;	
+}
+
+.right {
+	float: right;	
+}
+.choice_button {
+	position: relative;
+	width: 263px;
+	height: 86px;
+	margin-top: 20px;
+	background-repeat: no-repeat;
+	background-image: url("images/coldwell_chooser_button.png");	
+	cursor: pointer;
+}
+
+.choice_button:hover {
+	background-image: url("images/coldwell_chooser_button_hl.png");
+}
+
+.choice_button .logo {
+	position: absolute;
+	width: 105px;
+	height: 78px;
+	top: 50%;
+	margin-top: -39px;
+	left: 5px;
+	background-repeat: no-repeat;
+}
+
+.standard .logo {
+	background-image: url("images/coldwell_standard.png");	
+}
+
+.preview .logo {
+	background-image: url("images/coldwell_preview.png");	
+}
+
+.choice_button .text {
+	position: absolute;
+	width: 200px;
+	height: 36px;
+	top: 40%;
+	right: 0px;
+	margin-top: -18px;
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 19px;
+}
+
+.notice{
+	width:600px;
+	margin:auto;
+}
+
+.notice h2, .notice strong{
+	color:red;
+}

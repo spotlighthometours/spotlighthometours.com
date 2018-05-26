@@ -1,0 +1,52 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.title{
+	text-align:center;
+}
+
+.agree{
+	color:red;
+	text-align:center;
+	margin-left:65px;
+	margin-right:65px;
+	padding-top:15px;
+}
+
+.agree p{
+	text-align:left;
+}
+
+h2{
+	font-size:26px;
+	margin-left:65px;
+}
+
+.option-tbl{
+	margin-left:65px;
+	margin-right:65px;	
+}
+
+.option-txt{
+	font-size:16px;
+	font-weight:bold;	
+}
+
+.option-btn{
+	float:left;
+	background-color:#62c0fb;
+	padding:5px;
+	padding-left:30px;
+	padding-right:30px;
+	-webkit-border-radius:7px;
+	-moz-border-radius:7px;
+	border-radius:7px;
+	color:white;
+	cursor:pointer;
+	border:1px solid #3fa2e1;
+}
+
+.option-btn.selected{
+	background-color:#0087cc !important;
+	border:1px solid #006294 !important;
+}

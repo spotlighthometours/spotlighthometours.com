@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--#config errmsg="" --><!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion * GetWriteableImageFormats</title>
+    <link rel="shortcut icon" href="images/ColdFusion.ico" />
+    <meta name="book" content="ColdFusion&#160;9&#160;CFML&#160;Reference" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" />
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WSc3ff6d0ea77859461172e0811cbec22c24-7979.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> 
+<script type="text/javascript">
+<!--[CDATA[
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+    hideElement("col1");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    hideElement("notyourversion");
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+<!--#include virtual="/ssi/globalheader.ssi" -->
+<!--#include virtual="/en_US/ssi/localheader.ssi" -->
+<!--#include virtual="header.ssi" -->
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content-fonts.css" />
+    <link rel="stylesheet" type="text/css" href="content-hyperlinks.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <div class="ColdFusion"><div class="banner">Adobe&#160;ColdFusion</div></div>
+    </div>
+    
+    <div id="searchbar">
+      <div id="pdf"><img src="images/PDF.gif" width="16" height="16" hspace="10" />&#160;
+           <a title="View Help PDF" href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/coldfusion_9_cfmlref.pdf">View Help PDF (adobe.com)</a></div>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+    terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+    document.location.href.indexOf(".adobe.com") > 0){
+    if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+        document.write('<div id="searchscope"> \
+            <input onchange="setAHSearchPref();" \
+            class="gsa" \
+            name="gsa" \
+            id="gsa" \
+            type="checkbox" \
+            checked="checked" \
+            value="1" ><\/input>'); 
+            
+    // Leave the "Search this help system only" checkbox unckecked
+    }else{    
+        document.write('<div id="searchscope"> \
+            <input onchange="setAHSearchPref();" \
+            class="gsa" \
+            name="gsa" \
+            id="gsa" \
+            type="checkbox" \
+            value="1" ><\/input>'); 
+    }
+    document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+}
+document.write('<input class="searchinput" \
+    name="q" \
+    id="q" \
+    type="text" \
+    maxlength="256" \
+    value="' + terms_AHV_SEARCH_BUTTON + '" \
+    onclick="clearSearch()"><\/input><input \
+    type="button" \
+    name="searchbutton" \
+    class="searchbutton" \
+    onclick="submit()" />'); 
+ 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+<td id="col1">
+<!--#include virtual="navheader.ssi" -->
+<!-- BEGIN GROUP TOC WRAPPER -->
+      <div id="booklist"><p>ColdFusion 9.0 Resources</p><ul xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema"><li><p><a href="../Admin/index.html" target="_self">Configuring
+and Administering Adobe ColdFusion 9</a></p>
+</li><li><p><a href="../CFMLRef/index.html" target="_self">Adobe ColdFusion
+9 CFML Reference</a></p>
+</li><li><p><a href="../Developing/index.html" target="_self">Developing
+Adobe ColdFusion 9 Applications</a></p>
+</li><li><p><a href="../Installing/index.html" target="_self">Installing
+Adobe ColdFusion 9</a></p>
+</li></ul></div>
+<!-- END GROUP TOC WRAPPER -->
+<!-- BEGIN NAV WRAPPER -->
+      <div id="group_toc">
+<script type="text/javascript">
+<!--[CDATA[
+if ( typeof(terms_BOOK_SHORT) != 'undefined' ) {
+  document.write("<p>" + terms_BOOK_SHORT + "<\/p>");
+}
+// ]]-->
+
+
+</script> 
+      </div>
+      <div id="nav_content">
+      </div>
+<!-- END NAV WRAPPER -->
+<!--#include virtual="navfooter.ssi" -->
+</td>
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WS2c2b6b5d2efbc2ce-731e5f6a122ff1509d6-8000.html" title="GetVFSMetaData"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec1d039-7ffe.html" title="Functions h-im"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ff8.html">ColdFusion Functions</a> /
+     <a href="WSc3ff6d0ea77859461172e0811cbec1bb49-7d63.html"><b>Functions e-g</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>
+          GetWriteableImageFormats
+        </h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<!--#include virtual="contentheader.ssi" -->
+        <div><div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7979__WSc3ff6d0ea77859461172e0811cbec1bb49-7db9"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7979__WSc3ff6d0ea77859461172e0811cbec1bb49-7db9"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Returns
+a list of image formats that ColdFusion can write on the operating
+system where ColdFusion is deployed.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7979__WSc3ff6d0ea77859461172e0811cbec1bb49-7db8"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7979__WSc3ff6d0ea77859461172e0811cbec1bb49-7db8"><!-- --></a><h4 class="sectiontitle">Returns</h4><p>A list
+of image file formats.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7979__WSc3ff6d0ea77859461172e0811cbec1bb49-7db7"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7979__WSc3ff6d0ea77859461172e0811cbec1bb49-7db7"><!-- --></a><h4 class="sectiontitle">Category</h4><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-69b7.html">System functions</a></p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7979__WSc3ff6d0ea77859461172e0811cbec1bb49-7db6"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7979__WSc3ff6d0ea77859461172e0811cbec1bb49-7db6"><!-- --></a><h4 class="sectiontitle">History</h4><p>ColdFusion
+8: Added this function.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7979__WSc3ff6d0ea77859461172e0811cbec1bb49-7db5"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7979__WSc3ff6d0ea77859461172e0811cbec1bb49-7db5"><!-- --></a><h4 class="sectiontitle">Function syntax</h4><pre>GetWriteableImageFormats()</pre>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7979__WSc3ff6d0ea77859461172e0811cbec1bb49-7db4"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7979__WSc3ff6d0ea77859461172e0811cbec1bb49-7db4"><!-- --></a><h4 class="sectiontitle">See also</h4><p><samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-797a.html">GetReadableImageFormats</a></samp>, <a href="WSc3ff6d0ea77859461172e0811cbec22c24-7945.html">cfimage</a> (for supported image file
+formats)</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7979__WSc3ff6d0ea77859461172e0811cbec1bb49-7db3"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7979__WSc3ff6d0ea77859461172e0811cbec1bb49-7db3"><!-- --></a><h4 class="sectiontitle">Usage</h4><p>Use this
+function to determine image file compatibility on the ColdFusion
+server.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7979__WSc3ff6d0ea77859461172e0811cbec1bb49-7db2"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7979__WSc3ff6d0ea77859461172e0811cbec1bb49-7db2"><!-- --></a><h4 class="sectiontitle">Example</h4><pre>&lt;cfoutput&gt;#GetWriteableImageFormats()#&lt;/cfoutput&gt;</pre>
+</div>
+</div>
+
+
+<!-- BEGIN USER PREFERENCES -->
+        <div id="userprefs">
+        </div>
+<!-- END USER PREFERENCES -->
+
+        <div id="related">
+          <div class="separator">&#160;</div>
+          
+          
+        </div>
+        <div id="footer">
+          <p><img src="images/Community.png" />&#160;<a title="community help (adobe.com)" href="http://www.adobe.com/go/lr_ColdFusion_community_en">community help (adobe.com)</a></p>
+<!-- BEGIN IONCOMMENTS -->
+          <div id="ionComHere">
+          </div>
+<!-- END IONCOMMENTS -->
+<!--#include virtual="ionComments.ssi" -->
+          <p id="creativecommons"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" id="creativecommons_text"><img id="creativecommons_img" src="images/CC.png" alt="This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License" /></a></p>
+        </div>
+      </div>
+<!-- BEGIN BREADCRUMBS -->
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WS2c2b6b5d2efbc2ce-731e5f6a122ff1509d6-8000.html" title="GetVFSMetaData"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WSc3ff6d0ea77859461172e0811cbec1d039-7ffe.html" title="Functions h-im"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-7ff8.html">ColdFusion Functions</a> /
+     <a href="WSc3ff6d0ea77859461172e0811cbec1bb49-7d63.html"><b>Functions e-g</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+<!-- END CONTENT WRAPPER -->
+<!--#include virtual="contentfooter.ssi" -->
+</td>
+</tr>
+</table>
+    </div>
+<!-- END PAGE CONTENT WRAPPER -->
+<script type="text/javascript">
+<!--[CDATA[
+scrollToNameAnchor();
+// ]]-->
+</script> 
+<!--#include virtual="/en_US/ssi/productmenu.ssi" -->
+<!--#include virtual="/ssi/globalfooter.ssi" -->
+<!--#include virtual="/en_US/ssi/localfooter.ssi" -->
+<!--#include virtual="footer.ssi" -->
+<!--#include virtual="/ubi/analytics/analytics_ssi.html" -->
+  </body>
+</html>                                      ¿|”OÕ$÷’¿ªÜ~%`yw"›VÏ…2`ôdR‰ÿ ~yDÂHøøñ¡ä7bkú†VÛ(5Í&,ó«MSÉeDv¼c…{d£ËÜƒ]Ş¹_FsEY	ee ÷íÄ÷ğÁ†7/ˆFO¥õ&‰ú  O¼¨$©ğñÏF‡/€x‚zù”ş4’¡Fâƒ—Ø(8÷ÅnÑQ)QIîw¥7öş8±­•>/*ò'·Ja˜É3Œ8lÛ Ûç– ‹Gğøh ëSÈûvÉ†61ïJ¦´#
+
+æ%WmÁÛï>Ø¡`!v €v?IÅ[õJ¯$4cM¾•ÆĞE¸1bU€jÿ .ÛwÂ
+¥ñ¹$3 Aé¿µ?·%lJ¸jîÕPá{ûí„n´¨¿ËÉ‡R<qaÕ¥%‡&PA=O¶Ø²m¥øK–Úœ·=«ß%2Sm¾"jÃÄ×è¦IŠé9è›÷qp+Á–Œ¹öíŠ­fãÒ ¸=+M>Õì:m³Ö1©EÂ©[$ô¨¨p<Nÿ «
+b‡Cu=JxĞSïÅ©¤’ÜÕ"œàH÷8Òy¥×ºÕ–Üuø!•?`È$zWz"rb~ŒªY¡rq„¥È$“ù²×û›+{Ë¦4âJ‹hêNÕ2UÇÈG˜²í\£r>AÈgr@÷£íì¼ß­2Ë§YÃgO&àÒWÂ¦c}Êr>.£!ô@ŞOèI8}R¿ œEù[ªêjÌš¬^•é^ß^šĞ{×'ùÙ?¼U™„>˜ß¿vS¦~Uy{K] ik³ˆÁ¥:˜À'éc“ÅÙx£õ\ì%¬™úM{™½¦‘e¦×ôu¬‘ATAËşÔæt1ÇÒ ø8Ò™—4Ä‚õRÇ`-_Ã'l[ ¡MHø’ÿ NŸ	ÿ PØBüqJş°>$®	á°ï‡„* Jô÷÷Æ•pJ¸Ò·Çñü=ğJ¨ïÅWp=qM;ÓéCß¦(Tô‹€ì7ÅWH¢õ'tEİ‚§}ğG1÷"Çö%RëšlF†~mBxÂ…öù³&§>gå»dqHò	=Çœ­c¹…˜íF–E^½ø­NbË´£ü2nY$¹ó¥È¯¦ÑÂ§² ­?ÖÕƒóçÊ }«ácÍû˜í×™.®éÎYø;µ(O€ ?~#M–\«İ²<hGéïc·:•ßª‘ÁÆ"íM›Ö»¶ÿ <Ogcş/W¼’©—M›\JÜæ*jzµ÷l¶£¢Ë!<Õ…‘?–pH ñ èrø†6‹ †Jñ$iÜäÄPwE*M^[WoX¥2YtŒ´ãé€8&Ê"‘Kd´Û`v5ÈD¢ÖÙÀ]É`İ:×l 0&—‹>4%CPw¦J‘mZ@*®ûŸÇ´¾æ*ÈQÔ‘AÖ½¼0¨æÉL šÖ68%Q‘D #¾4Ä•†½~/zá[AImÈn§âî´±µ¶?u	iÆ¾ıv÷É²+HQè)o´E½|ëÈÌ'H€åÛ§Úëß ÅQM!KÒ½|j*T¶
+j	«ßä;bÆĞf0jñ€O/–-i\Zïa…$âLñ¨rj¢§j¹8³ÕË–ñHZâä¹¯ûª*ã»Ÿl±€6™Å§éĞoé³zÉ1ûÈP1¥5h"§Õã	î#ıæ¸HA*ÍxÍ±%¼*Ä~E©«€ >Ã|Š±ÿ 5ÈÇMnNÍIc4¥\,£Í€Û¡2¶àPwÎT¢®‰øºoŠ¡™V†®X´7ëM©Škl#B‘"…äj ïâqU³"’ª’;T“’R‘h/M8¡+,R£ Ôo‰?†]›F^OÌ¿ùÁ7ê¾Ló%¬J};4ŞÁRw<U@ú@eT~'ïg”úşé}å¥G_Õßm±ñÀWogŒ‘°¨øA?}züñd~vÀOåG£pH:D´¡¡ Ò»ûS,Óÿ yët<ßhşP <å¾*EÚQ@ Ò]©í?ïçï-ĞúG¸}ÏDfã¾`¤šbsDÒ$’5ı¤å]¨+™:AêøŞ%ë¸@Aç·|¦ú*“OÆ§r»T‚)ï(@;z„¼ …é¸4ğï‹5&¸… ÛlUa^F ğÔïßläñ÷ïßÃ'ÆR ^‘ù`´¼¿mÿ º„{wÉËéø•Pö>ùK&†ıqUF<Cì?·UØ|±U«Š°ï?0]!Ëuõ#§Ï–gvq¬Ÿ÷1—'Ï·PM6aJÿ olÛHIn Uˆ èw Å,ÏÈãıÆl=y:}'ÍC+aíd£(<×z‡¾©U%PiÛ"Í^	éíáïŠªt )oZoŠ´óäSRuÀJ­`JTñî "{áWVª õä[ğ8°‹ÿÔö"µJ‚¦„¹ ¦ÙÍskÊ ü^ä(=*)<N-û`Z‡å¸§aNµÃLmLI@Õ#sCQ]ûFÄbÌ8rfâNáˆG_„öv>ÍF3Ç‹‚	QÄoÅZ½¾ƒÇ ]Å	"2{8ûÖŸ®¸@Rm±»Z’MT²»îÌ}Ø•^­I,A4*½ßgåïÙ ŒVşô‘ÅI$€Fÿ /sß´Q•m£b "„–î+Ö˜XjKÈ‚™cP¤µ¯V®ôöX®<WœŸ‰OÚ­µ<F)ŠÖÁßÀ+xÔõ¯]¾X¦Ê»¨gõ	‘¨Tô5ö÷È…!GŠ­Úª° )oÄÔawRx°ø[®İ+÷ïã¹ÀYMÊMP‚ÕXj£Ã¿Ó_£‚±ƒ’î6Z‰jv= V8BaUIF älH¥Şp!g-¹*òUCZ…}ğ¥o§PcZr£jt#¡¡î?B­!S—&  iE=ëQöq*=dø¹0ZŠÈ ÿ ˜X'æmÉaf,²1¨-Ä$€)˜}£¾s~Œ~ö>÷åWæL¦KMŞN>ª^F¡9h7©ğ®s˜1í";¦Rõ½ÇM´Ô£j†;Ğ2ì)ĞÔtßïÌ.W0Ñ;£ßÉÚÊ™Í’/$Æ†€†¥+ó?«#ãÊ'šøq=7_–únZ8^ˆ‰|+CßÇÃµ—r¥3ş_B#ÿ q·SÃÊœBHH¥{’w¦e—V³Œ-$ê
+A«HÌB”_‹j >]}òg0şoÚ“‡Í
+ÚºÎ+‹Y@P(Ê0&£u={î2ÈfŠ"ƒ›ËÚš©k½6ÎuUÔ0ßf«ş¡’ñãŞXœRIeĞbW) 7-©é€AîH¡¯Ğq9¸·¶>îAK¥é1rÚê¥T.kğŸÛÉîApÇ§ÈÜ­õ«¸!@2Šÿ ¬*FÛâGğ„	ğõNa}N2^ÃÌ¡È3Æ¤ÔšPoBPpÀá!°f—B™Å¨ù®Ò¿W¾³¸;q0-^£—aâ<zde‚{—Ã“!šIŠy£ÍVªãOµœT±1ø€ñ½~œ|R,Æb:š(~a^Â==OA¹Vañp~@ü»ş¼‰Óñr!#8;Q~ié’$qŞi×ÀıH«·JƒMüKòÓB<h”t_™úÒú$qì¤%P×qQO˜Êå†`YLgğ›¿›4MDªı~&¡äx·ÃáÔµXøå|2hï¤ú•ò‰`¼Jı²Xp»‘NßÃsÙ‘ÅÒıGõbš2)Åxôë×¦<V /m6_µ+0ø¨ {q¥iïË)e³¾§r¬©$IÊ´m½?š‡c·\ZÑ8~Ä¨93üF§Ü_|Gz‚O¬V5šêfPÈ=·Ÿù z¤÷#âŠç‡)l`‘€¨qCCÔT÷ù`H	lÖ—\’h-½?ˆ±UÜ ?›q÷ƒ\ŒŠªúî¼Y­Àü<™TV¤çÇÃ!lT§I&‡÷°£È?»cB´®â›ƒNù!É’¬-•^Ü)$@«NµíÊ<?xml version="1.0" encoding="UTF-8"?>
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us" xml:lang="en" lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8" /><title>Help</title><meta name="generator" content="BBEdit 8.6" /><meta name="ROBOTS" content="NOINDEX, FOLLOW" /><meta http-equiv="refresh" content="0;url=WSc3ff6d0ea77859461172e0811cbec0a0e0-7fdf.html#WSc3ff6d0ea77859461172e0811cbec0a0e0-7feb" /><script type="text/javascript" language="javascript" charset="utf-8">
+                    document.location="WSc3ff6d0ea77859461172e0811cbec0a0e0-7fdf.html#WSc3ff6d0ea77859461172e0811cbec0a0e0-7feb";      
+                    </script></head><body><a href="WSc3ff6d0ea77859461172e0811cbec0a0e0-7fdf.html#WSc3ff6d0ea77859461172e0811cbec0a0e0-7feb">WSc3ff6d0ea77859461172e0811cbec0a0e0-7fdf.html#WSc3ff6d0ea77859461172e0811cbec0a0e0-7feb</a></body></html>                                                                                                              aé‘:bÏÇïEÂn\|9ñbUİ¥9!o§dQ+…ìƒy#?~KÅ,ªš„mö'ã18UÖê6ı¬—ŠŠ•«t¦YâŒLH\;7hp¡1¤4Ñ©ë‰Æ4‰8/°Hùm‘à<MüdP·*ÿ 6øœv&3äÍTô–‘§Üê^Ù	÷ÜŒÂÉÙx'Îÿ J/æåC_–<§!şqû˜&©ùä]P5t…¶gKZ;Eÿ 
+÷fOgtòÜ=Çõ¹¸û{Qr¿xy¦©ÿ 8‡äËáÊ­B  ;G"íşÆ¿båöj'hNCŞ¿S•Ú<ƒêŒOÌ0+ïùÃÛ»R?Ãä
+‹öhåB§Äá˜§°sã'†q>r°~AÌ´8ÈõDü+ô±[ßùÆÿ ÌÍ(?Ôuµ% ISqà}EoùL»?WBıÆş@îäcí}6N{|?SÏõoËÏÌ&sªy_ëjß'³V¢û´M+Ş™Še›&Xå_Õ¯¹Í§O=£|ùüÃÎ¯íƒˆµÏ/IdÆÕn2W¡ J´÷æ9Õb2á1ßß_+æßÏœdùıÌ~Ko+ÏÅık»GGÜrceäGa×2Lc‘#ñä‰§˜ñÜŸÚ^Şé´O.y“Ó,ké=åÍ°›’ê!'2qçOæKŒaÎ/Ø£¨^ù„GÏSz¥’€ìÏme|µ=ª¢9‰ÉËQ!ÌDü«ìgà‰râaHR]æ±^yr,x“oİŸ"7Š´«Uëör¿ú >?µŸ¯i¾{/-HÊ¨šË¡ä¿YŠU¯b¾¢ÂÄv;åDb¨ø3¹ãö.6V¶ÉÆËQe„
+«ÜZËƒ¹øâ.÷®ù`ÉôÉîGÉ³jVìRÒúÒqJ‚ué!S_o‡†CÍû…•K¢YÑVi‡ÔVF¥wóÓ°†BãÕDOğŸšJ4/ò2Ú[^X ”ŸÆ ¾Èü«OOlª¢zÓ.)€¥çEÓU·Õ¢G<¸‹‘"-J™c ™¦‡‹é)9hY—ÉzÓ%mÙn=K@ñÌ)Æœ$£~ØŒ¡‰M£]X–MBÍiP¤R% ­ä Û®S(Ğ¶€ì“Şiü~âfì¾—›Z×éÛ#¹O4<©2’^+ˆUèÕBH?ê­H4ñØã‘¸; €PÆöu¢¤Ì`¾¼F‹MÇ:xøıùoŒz±ÁQ:š <.j(´
+7^ í÷`2âæ€•F§h¡ßÑÑK# ÔÆ”¦ù(•ß¢_ª[izªµ¾«bòñø˜Íl“uß—"ãÄäà0kâ‰ÈËc¿Ú“AåmÊeºò­ìÚEê×‡Ô®¦´`OR¼@ê3.ì°êáåÑbÉõD=[Jó¿æw—aX4_:ë²Û¢ÑEÔjPŠÙK…s·Ïß2aÚÙà{ıî$ûO-À"úëàË4ÿ ùÉÍ=/‚jKåıXáMOI{)(w§©k"§†eÃ·&>¡òİÁ—³±—Ó*÷³m7şròæ0?Å>Gõ’mYVøªê%¯ËŸÓ™qíÜ|¤ÅÃŸ³ùyÆ@³»ùË/Ë¹•_X_Ñ˜T«ŞéM4#Å}[G”ïLÎÃÚXrr4àåì­D?„½_ËœEóİÒhşMóF™}ªOQ•àºr#Â‘Š¸‘°Ÿ)[‡“áõD›Ñ¹TšPüOzeZÕÀ§àIBjk…UĞr 4<MA<+LA4Ù +5ØPo¸·Ë¾*ÁAfø{÷ úqJõJJ€vû?N*½X)åRµ­(;ÓÃ$QÄ¸!M¾g®²Ná‡&¨ïãòùûd”/°a¹«nÕ=»}Ø¥oÖ·ûHzÓp;o|XÄ‹em˜Ò„ÔïZôğÉ²*\ÇS' ¨>1AMÏêÈZ"Ò^â€-ĞRº±ÿ 2qºIApàêre¨&ÃÇ~™$¡¤•ˆ#¦‡Ü“¿ÈÓl¢"Ş}ùçíòãLÌ~núW7ŞkX½i§y z’ ÌmNªËg'M¦sPäğ-_ócÏŞjÏ’tk+iT¢ßêî·W/^ëq6©¨Lçu}¾%~Ûß»¹ÅØµ\Rø~×ŠyÊº.³qúGóK_¿ómô.9,ÓmÃ²ªŸİ ²Æ)¶jgÚy2ÏGs‹AL~7ú‘ùòÛGŒÇäí.„¬R¨€„´®KúqØfÊc¸s.lóWÔµ™DzÍä—¿¼XÙ™ÔrèÅ›wö¯Ññx÷HÄ ™&Ÿ-ÀY¦Üª‡æÀF¦†›3R {ué‘á´Ò;;!H¬L·€ñA	 $ÔwÛaá–Õ)’2[¿«ƒ,÷0ÚFwåïe ÿ +e-ğ‰ôSÄäóÎ"7wdñI¦å+p=ŠO…İòÈÊG—F<#“ß/og¿òÎ“{wû§”İTP¼e T½ºf¯êgˆPg)&'u"5€¨õ$ûn:fhEŸŠ33.ìµãZÜTûâ„AUQØ•UZ•½…0¡Y÷4g%Ù¨$ô5½°*ªÉên»•5P>×}ñ%‹ Ü?"¢ Ë¦Â§¦(¤j)0Æ`<İâxAâM]ˆî2r“Ñ¯"±ü*PfÙ‘N§¦@Ò¶ KËW…õã¢ñîwûğHíğJüãº¶ğ½J®µ¬.ş×-]³kÅ0<‡Üàd5o²§*YHÕv®ı;¾gvœcd»QàaBjİEv9NyzcñlÅÊK©ß!¿HËl\)¢òâÃÄ÷;e<TÚòKto4Z$Áäš€–Sxº1Ş¬B Ë´óá–ü·kÍŒ‘CŸ4îÊ(Y¥º¸1¼™„‡‰^'¯^ù,*ØdÊh7oyjc…–8À u?³Ó¦Ù&BÒ]KÌ-¥…š¼÷’W…¼$<¬Riö@ñ4ÀNÅDmå­Rùºµävhô¤6Ô’aş¼‡áàWçÆ@r_şÓQ\K%ëñZk†¨­{ \‡³â=Û)¬}qp­Y‘j7&‡l…Ó+½Ğks£ÚŠ	-ùÀK ¯r‡âğÈã4
+k¹4µ½Ka-Î–#–Úcş“jç÷3§‰î¹<nKøUæ÷ş¤ñqùô*Ú¼S[ş’ÓÙåµ'Ñ>µ°HzEp< û6n¹˜ÿ Š;Ç¿¬|©œd'±ç÷û˜UÔn’zsF  1›¶Äni½z‚Äd’aºGupÓ•EPªÄ)û;jÍÓÛ&&Ë[¥\°Yë²Š±ëSâ;à„¬ÒÉÅ-g18SÕu.Æ† oMúœ™	¦Ç5ê[È%b²z}$ªƒMş;áÁõ|–TA÷Ôš´vVÄ8Cïºš
+’?É9èqú~âé,SÔExŸˆ{Â¸¤f$|$T W¦ıiïôâ‚Š‰—@Ú€Tı¦N,J=ÃÉIb U l²ší ¨@	´ŞŸ*xâ¡W˜N\E
+šP·ıxmFBA è	ä;WV–†&”øW·Ê¸PU7Qµ@éJŠøôÅ9ãr$n?jÇK’øÏÈV¬ ?:õÉ0E<¸îh(6ú}²AV	¥H Ò¾õ=lW“~  g#¨ØÔrş”ÅŒ‡À+àk±ÃÜwÃhq!ÁRÀ^ÛÓÃ$¶°°+ÉãÎ»š½Î¶¤ó‹×u ¯ja;0´+ß-7Üô4¯_é‘ñ ¹eR£úc«x|ü>œ<Å H’K{N³&+»ëpëPR'õœ|Õ9eSÔÂÕ >;ü›qàO¤_Ü—·›"‘Õ4İ>êê^  i>À|nGûÆşR„ö€2>æá¢—RÅ5ƒCó~®?siŸŠ b»ÎE>ˆÎ=FM„DG}±ğñC™'Èrù§QşRŞß(ÿ jòL ï;È´ğãû¸ÿ ár‘É1ûÙü”ê¡¢?6]¦<?xml version="1.0" encoding="UTF-8"?>
+<!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us" xml:lang="en" lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8" /><title>Help</title><meta name="generator" content="BBEdit 8.6" /><meta name="ROBOTS" content="NOINDEX, FOLLOW" /><meta http-equiv="refresh" content="0;url=WSc3ff6d0ea77859461172e0811cbec0a0e0-7fdf.html#WSc3ff6d0ea77859461172e0811cbec0a0e0-7fec" /><script type="text/javascript" language="javascript" charset="utf-8">
+                    document.location="WSc3ff6d0ea77859461172e0811cbec0a0e0-7fdf.html#WSc3ff6d0ea77859461172e0811cbec0a0e0-7fec";      
+                    </script></head><body><a href="WSc3ff6d0ea77859461172e0811cbec0a0e0-7fdf.html#WSc3ff6d0ea77859461172e0811cbec0a0e0-7fec">WSc3ff6d0ea77859461172e0811cbec0a0e0-7fdf.html#WSc3ff6d0ea77859461172e0811cbec0a0e0-7fec</a></body></html>                                                                                                              ökl²_@÷•€ØŸ?ĞÀM2”¬æI CAß¦Eªlw8Ş*¢Ì2ÆhŞ#Aa|.tC+ü²ÆiJ×â§öæwgÆò|ÜÄòxUÈŒ»ÿ Û•Ç“ZK2>™ Û`7=p•f~HßLun¾»õùàŸ5«fÈ2R|$/R%R‡‘Á#~„_»"R…fV
+ŠëQŞİ02Và~õjzoğ£[éÖªç ®Û{÷ÅZ?Äär^µÚ‡èëŠ–ø«V>_Äı8±ÿÕö8ã^#â”â*zĞ{~9Éc/ÅRÈ%\ïÛ­ ı5Å{-EàÛ•V¡¥ÿ M{Ÿ|Y;Ÿ.ô(*¤ûØóetÚ³…*IEP jë¿QmgÄS £í%Ø*vÜR•¯† -oP“»T-G´Ÿ{l 

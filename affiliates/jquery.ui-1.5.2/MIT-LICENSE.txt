@@ -1,0 +1,43 @@
+="top" width="NaN%" headers="d16e117905 "><p>String that specifies the units in which
+to count; for example yyyy requests a date difference in whole years.</p>
+<div class="para"><ul><li><p>yyyy: Years</p>
+</li>
+<li><p>q: Quarters</p>
+</li>
+<li><p>m: Months</p>
+</li>
+<li><p>y: Days of year (same as d)</p>
+</li>
+<li><p>d: Days</p>
+</li>
+<li><p>w: Weekdays (same as ww)</p>
+</li>
+<li><p>ww: Weeks</p>
+</li>
+<li><p>h: Hours</p>
+</li>
+<li><p>n: Minutes</p>
+</li>
+<li><p>s: Seconds</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d16e117902 "><p><samp class="codeph">date1</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d16e117905 "><p>Date/time object, in the range 100 AD–9999
+AD.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d16e117902 "><p><samp class="codeph">date2</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d16e117905 "><p>Date/time object, in the range 100 AD–9999
+AD. </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c2

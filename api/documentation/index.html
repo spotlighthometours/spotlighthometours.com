@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=X-UA-Compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Spotlight Home Tour's API Documentation</title>
+<style>
+element.style {
+}
+@media (min-width: 992px) .bs-docs-header h1, .bs-docs-header p {
+ margin-right: 380px;
+}
+@media (min-width: 768px) .bs-docs-header h1 {
+ font-size: 60px;
+ line-height: 1;
+}
+.bs-docs-header h1 {
+	margin-top: 0;
+	color: #fff;
+}
+.h1, h1 {
+	font-size: 36px;
+}
+.h1, .h2, .h3, h1, h2, h3 {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+	font-family: inherit;
+	font-weight: 500;
+	line-height: 1.1;
+	color: inherit;
+}
+h1 {
+	margin: .67em 0;
+	font-size: 2em;
+}
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+user agent stylesheet h1 {
+	display: block;
+	font-size: 2em;
+	-webkit-margin-before: 0.67em;
+	-webkit-margin-after: 0.67em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	font-weight: bold;
+}
+Inherited from div#content.bs-docs-header @media (min-width: 768px) .bs-docs-header {
+ padding-top: 60px;
+ padding-bottom: 60px;
+ font-size: 24px;
+ text-align: left;
+}
+.bs-docs-header {
+	margin-bottom: 40px;
+	font-size: 20px;
+}
+.bs-docs-header, .bs-docs-masthead {
+	position: relative;
+	padding: 30px 0;
+	color: #cdbfe3;
+	text-align: center;
+	text-shadow: 0 1px 0 rgba(0,0,0,.1);
+	background-color: #6f5499;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#563d7c), to(#6f5499));
+	background-image: -webkit-linear-gradient(top, #563d7c 0, #6f5499 100%);
+	background-image: -o-linear-gradient(top, #563d7c 0, #6f5499 100%);
+	background-image: linear-gradient(to bottom, #563d7c 0, #6f5499 100%);
+ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#563d7c', endColorstr='#6F5499', GradientType=0);
+	background-repeat: repeat-x;
+}
+Inherited from body body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #333;
+	background-color: #fff;
+}
+Inherited from html html {
+	font-size: 10px;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+html {
+	font-family: sans-serif;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+Pseudo ::before element :after, :before {
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ box-sizing: border-box;
+}
+Pseudo ::after element :after, :before {
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ box-sizing: border-box;
+}
+</style>
+<link href=http://getbootstrap.com/dist/css/bootstrap.min.css rel=stylesheet>
+<link href="data:text/css;charset=utf-8," data-href=http://getbootstrap.com/dist/css/bootstrap-theme.min.css rel=stylesheet id=bs-theme-stylesheet>
+<link href=http://getbootstrap.com/assets/css/docs.min.css rel=stylesheet>
+<!--[if lt IE 9]><script src="http://getbootstrap.com/assets/js/ie8-responsive-file-warning.js"></script><![endif]--><script src=http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js></script><!--[if lt IE 9]><script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+<link rel=apple-touch-icon href=/apple-touch-icon.png>
+<link rel=icon href=/favicon.ico>
+</head>
+<body>
+<div class="bs-docs-header" id="content" tabindex="-1">
+	<div class="container">
+		<h1>API Documentation</h1>
+		<p>Get tour information, photos, ID by MLS ID, create tours, get tour types, products, create orders, and much more!</p>
+	</div>
+</div>
+<div class="container bs-docs-container">
+	<div class="row">
+		<div class="col-md-9" role="main">
+			<div class="bs-docs-section">
+				<h1 id="glyphicons" class="page-header"><a class="anchorjs-link " href="#glyphicons" aria-label="Anchor link for: glyphicons" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>How it works</h1>
+				<h2 id=glyphicons-glyphs2>Send a request and get a response in XML/JSON format</h2>
+				<div class="alert alert-danger" role="alert">In order to use this API you will need an API key. You must append your API key to every query.</div>
+				<div class="zero-clipboard"><span class="btn-clipboard">Copy</span></div>
+				<figure class="highlight">
+					<pre><code class="language-html" data-lang="html">http://www.spotlighthometours.com/api/{request type}/?method={method}&amp;format{json/xml}&amp;key{Your API Key}</code></pre>
+				</figure>
+				<p></p>
+				<div class="alert alert-info" role="alert">Some methods require additional parameters. Please reffer to each method below.</div>
+				<h1 id="dropdowns" class="page-header"><a class="anchorjs-link " href="#dropdowns" aria-label="Anchor link for: dropdowns" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>Tours</h1>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title" id="getphotos">getphotos</h3>
+					</div>
+					<div class="panel-body">
+						<pre><code class="language-html" data-lang="html">http://www.spotlighthometours.com/api/tours/?method=getphotos&amp;format=json&amp;(id=theTourID/vid=theVendorID</code>)</pre>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title" id="getphotos">getusertours</h3>
+					</div>
+					<div class="panel-body">
+						<pre><code class="language-html" data-lang="html">http://www.spotlighthometours.com/api/tours/?method=getusertours&amp;format=json&amp;(userID=theUsersID/email=theUsersEmail</code>)</pre>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">gettouridbymlsid</h3>
+					</div>
+					<div class="panel-body">
+						<pre><code class="language-html" data-lang="html">http://www.spotlighthometours.com/api/tours/?method=gettouridbymlsid&amp;format=json&amp;id=theMLSID&amp;state=theState</code></pre>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">create</h3>
+					</div>
+					<div class="panel-body">
+						<pre><code class="language-html" data-lang="html">http://www.spotlighthometours.com/api/tours/?method=create&amp;format=json</code></pre>
+						<div class="panel panel-default"> 
+							<!-- Default panel contents -->
+							<div class="panel-heading">Parameters</div>
+							<div class="panel-body">
+								<p>POST required parameters to create a new tour.</p>
+							</div>
+							<ul class="list-group">
+								<li class="list-group-item">desired_date (Desired shoot date)</li>
+								<li class="list-group-item">desired_time (Desired shoot time)</li>
+								<li class="list-group-item">additionalInstructions</li>
+								<li class="list-group-item">mls</li>
+								<li class="list-group-item">mls_provider</li>
+								<li class="list-group-item">userEmail (This is used to find the userID)</li>
+								<li class="list-group-item">propertyTypeID (Commercial=1, Farm=2, Land=3, Multi=4, Residential=5)</li>
+								<li class="list-group-item">'userID' => 'required|integer|max_len,11', //int(11) (if userEmail is set this parameter is not required)</li>
+								<li class="list-group-item">'tourTypeID' => 'required|integer|max_len,11', //int(11) (use the gettypes method to find the tourTypeID)</li>
+								<li class="list-group-item">'title' => 'required|max_len,50', //varchar(50)</li>
+								<li class="list-group-item">'address' => 'required|max_len,100', //varchar(100)</li>
+								<li class="list-group-item">'unitNumber' => 'max_len,20', //varchar(20)</li>
+								<li class="list-group-item">'city' => 'required|max_len,50', //varchar(50)</li>
+								<li class="list-group-item">'state' => 'required|alpha|max_len,2', //char(2)</li>
+								<li class="list-group-item">'zipCode' => 'required|max_len,10', //varchar(10)</li>
+								<li class="list-group-item">'area' => 'max_len,100', //varchar(100)</li>
+								<li class="list-group-item">'listPrice' => 'float', //decimal(19,4)</li>
+								<li class="list-group-item">'sqFootage' => 'integer|max_len,10', //int(10) unsigned</li>
+								<li class="list-group-item">'acres' => 'float',  //decimal(10,4)</li>
+								<li class="list-group-item">'bedrooms' => 'integer|max_len,4', //tinyint(4)</li>
+								<li class="list-group-item">'bathrooms' => 'float', //double</li>
+								<li class="list-group-item">'description' => 'max_len,65535', //text</li>
+								<li class="list-group-item">'description_sms' => 'max_len,140',  //varchar(140)</li>
+								<li class="list-group-item">'features' => 'max_len,2000', //text</li>
+								<li class="list-group-item">'excerpt' => 'max_len,2000', //text</li>
+								<li class="list-group-item">'walkthrus' => 'integer|max_len,11', //int(11)</li>
+								<li class="list-group-item">'videos' => 'integer|max_len,11', //int(11)</li>
+								<li class="list-group-item">'panoramics' => 'integer|max_len,11', //int(11)</li>
+								<li class="list-group-item">'photos' => 'integer|max_len,11', //int(11)</li>
+								<li class="list-group-item">'videoInstructions' => 'max_len,2000', //text</li>
+								<li class="list-group-item">'additionalInstructions' => 'max_len,2000', //text</li>
+								<li class="list-group-item">'vidDiscretion' => 'integer|max_len,1', //tinyint(4)</li>
+								<li class="list-group-item">'featured' => 'integer|max_len,1', //tinyint(1) unsigned</li>
+								<li class="list-group-item">'sold' => 'integer|max_len,1', //tinyint(1) unsigned</li>
+								<li class="list-group-item">'createdOn' => 'date', //datetime(Y-m-d H:i:s)</li>
+								<li class="list-group-item">'modifiedOn' => 'date', //datetime(Y-m-d H:i:s)</li>
+								
+								<li class="list-group-item">'hideAddress' => 'integer|max_len,1', //tinyint(1) (bool)</li>
+								<li class="list-group-item">'listhubid' => 'max_len,48', //varchar(48)</li>
+								<li class="list-group-item">'lonewolfid' => 'max_len,48', //varchar(48)</li>
+								<li class="list-group-item">'hideprice' => 'integer|max_len,1', //tinyint(1) (bool)</li>
+								<li class="list-group-item">'hidesqfoot' => 'integer|max_len,1', //tinyint(1) (bool)</li>
+								<li class="list-group-item">'hidebeds' => 'integer|max_len,1', //tinyint(1) (bool)</li>
+								<li class="list-group-item">'hidebaths' => 'integer|max_len,1', //tinyint(1) (bool)</li>
+								<li class="list-group-item">'hidecontact' => 'integer|max_len,1', //tinyint(1) (bool)</li>
+								<li class="list-group-item">'codestr' => 'max_len,64', //varchar(64)</li>
+								<li class="list-group-item">'codeval' => 'float', //float unsigned</li>
+								<li class="list-group-item">'couserID' => 'integer|max_len,11', //int(11) unsigned zerofill</li>
+								<li class="list-group-item">'archived' => 'integer|max_len,1', //tinyint(1)</li>
+								<li class="list-group-item">'brokerbilled' => 'float', //decimal(19,4)</li>
+								<li class="list-group-item">'use_secondary_bkr_img' => 'integer|max_len,1', //int(1)</li>
+								<li class="list-group-item">'TourWindowType' => 'max_len,20', //varchar(20)</li>
+							
+								<li class="list-group-item">'previewActive' => 'integer|max_len,1', //tinyint(1)</li>
+								<li class="list-group-item">'autoResponseText' => 'max_len,280', //varchar(280)</li>
+								<li class="list-group-item">'autoResponseOn' => 'integer|max_len,1', //tinyint(1)</li>
+								<li class="list-group-item">'autoplay' => 'integer|max_len,1', //int(1)</li>
+								<li class="list-group-item">'hideFromSearch' => 'integer|max_len,1', //int(1)</li>
+								<li class="list-group-item">'vendor_id' => 'max_len,200', //varchar(200)</li>
+								<li class="list-group-item">'vendor' => 'integer|max_len,11' //int(11)</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src=https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js></script><script>window.jQuery||document.write('<script src="http://www.getbootstrap.com/assets/js/vendor/jquery.min.js"><\/script>');</script><script src=http://www.getbootstrap.com/dist/js/bootstrap.min.js></script><script src=http://www.getbootstrap.com/assets/js/docs.min.js></script><script src=http://www.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js></script><script>var _gauges=_gauges||[];!function(){var e=document.createElement("script");e.async=!0,e.id="gauges-tracker",e.setAttribute("data-site-id","4f0dc9fef5a1f55508000013"),e.src="//secure.gaug.es/track.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}();</script>
+</body>
+</html>

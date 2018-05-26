@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--#config errmsg="" --><!-- saved from url=(0022)http://help.adobe.com/ -->
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="lang" content="en-us" />
+    <meta name="area" content="livedocs" />
+    <title>Adobe&#160;ColdFusion * ColdFusion.JSON.decode</title>
+    <link rel="shortcut icon" href="images/ColdFusion.ico" />
+    <meta name="book" content="ColdFusion&#160;9&#160;CFML&#160;Reference" />
+    <meta name="product" content="ColdFusion" />
+    <meta name="keywords" content="" />
+    
+    <script type="text/javascript" language="Javascript" charset="UTF-8"><!--[CDATA[
+        var currentTreeNode = "WS0ef8c004658c1089-6262c847120f1a3b244-7ff4.html";
+// ]]--></script>
+<script src="terms.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="help.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script>  <script src="utilities.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="event.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="treeview.js" type="text/javascript" language="Javascript" charset="UTF-8">...</script> <script src="toc.js" language="Javascript" type="text/javascript" charset="UTF-8">..</script> 
+<script type="text/javascript">
+<!--[CDATA[
+var headId = document.getElementsByTagName("head")[0];         
+if (use_ie_6_behavior) {
+  var linkId = document.createElement("link");
+  linkId.href = "content-ie6.css";
+  linkId.rel = "stylesheet";
+  linkId.type = "text/css";
+  headId.appendChild(linkId);
+}
+function initRoboHelpDOM() {
+  if (use_chm_behavior) {
+    hideElement("search");
+    hideElement("col1");
+  }
+  if (use_robohelp_behavior) {
+    hideElement("search");
+    hideElement("productmenu");
+    hideElement("notyourversion");
+  }
+}
+var dirname = location.pathname.match( /.*\// );    
+function setSearchUserPref(){
+  if ( document.cookie.indexOf( "ah_searchpref" ) > -1 ) {
+    if ( document.cookie.indexOf( dirname ) > 0 ) {
+      document.search.gsa.checked = true ;
+    }else{
+      document.search.gsa.checked = false ;            
+    }
+  }
+}
+YAHOO.util.Event.onDOMReady(initRoboHelpDOM);
+YAHOO.util.Event.onDOMReady(setSearchUserPref);
+// ]]-->
+</script>
+<!--#include virtual="/ssi/globalheader.ssi" -->
+<!--#include virtual="/en_US/ssi/localheader.ssi" -->
+<!--#include virtual="header.ssi" -->
+    <link rel="stylesheet" type="text/css" href="tree.css" />
+    <link rel="stylesheet" type="text/css" href="content-fonts.css" />
+    <link rel="stylesheet" type="text/css" href="content-hyperlinks.css" />
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <link rel="stylesheet" type="text/css" href="localeSpecific.css" />
+  </head>
+  <body id="content_body" onload="window.focus();">
+    <a name="top" shape="rect"><!--LeaveCommentHere--></a>
+    
+    <div id="mnemonic">
+      <div class="ColdFusion"><div class="banner">Adobe&#160;ColdFusion</div></div>
+    </div>
+    
+    <div id="searchbar">
+      <div id="pdf"><img src="images/PDF.gif" width="16" height="16" hspace="10" />&#160;
+           <a title="View Help PDF" href="http://help.adobe.com/en_US/ColdFusion/9.0/CFMLRef/coldfusion_9_cfmlref.pdf">View Help PDF (adobe.com)</a></div>
+    </div>
+
+<!-- BEGIN SEARCH CONTENT -->
+<form id="search" name="search" action="search.html" target="_self">
+<script type="text/javascript">
+<!--[CDATA[
+if (typeof(terms_AHV_SEARCH_CONSTRAINT) != "undefined" && 
+    terms_AHV_SEARCH_CONSTRAINT.length > 0 && 
+    document.location.href.indexOf(".adobe.com") > 0){
+    if ( typeof(terms_SEARCH_THIS_HELP_ONLY) != "undefined" && terms_SEARCH_THIS_HELP_ONLY == "ON" ) {
+        document.write('<div id="searchscope"> \
+            <input onchange="setAHSearchPref();" \
+            class="gsa" \
+            name="gsa" \
+            id="gsa" \
+            type="checkbox" \
+            checked="checked" \
+            value="1" ><\/input>'); 
+            
+    // Leave the "Search this help system only" checkbox unckecked
+    }else{    
+        document.write('<div id="searchscope"> \
+            <input onchange="setAHSearchPref();" \
+            class="gsa" \
+            name="gsa" \
+            id="gsa" \
+            type="checkbox" \
+            value="1" ><\/input>'); 
+    }
+    document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+}
+document.write('<input class="searchinput" \
+    name="q" \
+    id="q" \
+    type="text" \
+    maxlength="256" \
+    value="' + terms_AHV_SEARCH_BUTTON + '" \
+    onclick="clearSearch()"><\/input><input \
+    type="button" \
+    name="searchbutton" \
+    class="searchbutton" \
+    onclick="submit()" />'); 
+ 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+<td id="col1">
+<!--#include virtual="navheader.ssi" -->
+<!-- BEGIN GROUP TOC WRAPPER -->
+      <div id="booklist"><p>ColdFusion 9.0 Resources</p><ul xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema"><li><p><a href="../Admin/index.html" target="_self">Configuring
+and Administering Adobe ColdFusion 9</a></p>
+</li><li><p><a href="../CFMLRef/index.html" target="_self">Adobe ColdFusion
+9 CFML Reference</a></p>
+</li><li><p><a href="../Developing/index.html" target="_self">Developing
+Adobe ColdFusion 9 Applications</a></p>
+</li><li><p><a href="../Installing/index.html" target="_self">Installing
+Adobe ColdFusion 9</a></p>
+</li></ul></div>
+<!-- END GROUP TOC WRAPPER -->
+<!-- BEGIN NAV WRAPPER -->
+      <div id="group_toc">
+<script type="text/javascript">
+<!--[CDATA[
+if ( typeof(terms_BOOK_SHORT) != 'undefined' ) {
+  document.write("<p>" + terms_BOOK_SHORT + "<\/p>");
+}
+// ]]-->
+
+
+</script> 
+      </div>
+      <div id="nav_content">
+      </div>
+<!-- END NAV WRAPPER -->
+<!--#include virtual="navfooter.ssi" -->
+</td>
+<td id="col2">
+<!-- BEGIN CONTENT WRAPPER -->
+<!-- BEGIN BREADCRUMBS -->
+      
+      <div id="breadcrumb">
+        
+<ul class="navigation"><li class="prev"><a accesskey="p" class="prev" href="WS0ef8c004658c1089-6262c847120f1a3b244-7ff5.html" title="ColdFusion.Grid.sort"><img src="images/blank.gif" alt="Previous" width="17" height="17" /></a></li><li class="next"><a accesskey="n" class="next" href="WS0ef8c004658c1089-6262c847120f1a3b244-7ff3.html" title="ColdFusion.JSON.encode"><img src="images/blank.gif" alt="Next" width="17" height="17" /></a></li></ul><div class="hierarchy" id="hierarchy"><a href="WS0ef8c004658c1089-6262c847120f1a3b244-8000.html"><b>Ajax JavaScript Functions</b></a> 
+     </div>
+
+      </div>
+<!-- END BREADCRUMBS -->
+      <div id="content_wrapper">
+<!-- BEGIN PAGE TITLE -->
+        <h1>
+          ColdFusion.JSON.decode
+        </h1>
+<!-- END PAGE TITLE -->
+<!-- BEGIN IONCOMMENTCOUNT -->
+        <div id="ionCount">
+        </div>
+<!-- END IONCOMMENTCOUNT -->
+<!--#include virtual="contentheader.ssi" -->
+        <div><div class="section"><h4 class="sectiontitle">Description</h4><p>Converts
+a JSON-encoded string to a JavaScript variable.</p>
+</div>
+<div class="section"><h4 class="sectiontitle">Function syntax</h4><pre>ColdFusion.JSON.decode(<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">string</i>)</pre>
+</div>
+<div class="section"><h4 class="sectiontitle">See also</h4><p><samp class="codeph"><a href="WS0ef8c004658c1089-6262c847120f1a3b244-7ff3.html">ColdFusion.JSON.encode</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-79e4.html">DeserializeJSON</a></samp>, <samp class="codeph"><a href="WSc3ff6d0ea77859461172e0811cbec22c24-79fa.html">SerializeJSON</a></samp>, <a href="http://help.adobe.com/en_US/ColdFusion/9.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-7a27.html" target="_self">Using
+Ajax Data and Development Features</a> in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Developing ColdFusion Applications</i>, <a href="http://www.json.org" target="_self">http://www.json.org</a></p>
+</div>
+<div class="section"><h4 class="sectiontitle">History</h4><p>ColdFusion
+8: Added this function</p>
+</div>
+<div class="section"><h4 class="sectiontitle">Parameters</h4>
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d16e172460"><p>Parameter</p>
+</th>
+<th valign="top" width="NaN%" id="d16e172463"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d16e172460 "><p><samp class="codeph">string</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d16e172463 "><p>The string to encode.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h4 class="sectiontitle">Returns</h4><p>A
+Javascript variable containing the data in the JSON encoded string.</p>
+</div>
+<div class="section"><h4 class="sectiontitle">Usage</h4><p>Use
+this function when you must explicitly convert between JavaScript
+and JSON format, for example, when you must call a remote function
+that is not in a CFC.</p>
+<p>If the JSON string has a security prefix
+as defined by the Server Settings &gt; Settings page of the ColdFusion
+Administrator or specified in the <samp class="codeph">cfapplication</samp> or <samp class="codeph">cffunction</samp> tags,
+the function strips the prefix before decoding the string.</p>
+</div>
+<div class="section"><h4 class="sectiontitle">Example</h4><p>The
+following example uses the <samp class="codeph">ColdFusion.JSON.decode</samp> and <samp class="codeph">ColdFusion.JSON.encode</samp> functions
+When the user clicks the “Call” link, the callMe function encodes
+the String as JSON and calls the echo CFC’s plainEcho function with
+the result. The function also sets the return format to plain, so
+that the CFC function does not automatically convert its return
+value to JSON, and sends plain text instead.</p>
+<p>The echo.cfc
+component has two functions: </p>
+<ul><li><p>The plainEcho function
+converts its argument from JSON to a ColdFusion variable, calls
+the echo function, converts the result to JSON, and returns it to the
+caller.</p>
+</li>
+<li><p>The echo function creates a structure, sets the structure’s
+entry to the input parameter, and returns the result. (You could
+call this function remotely using to see the result of calling a
+function that does not encode JSON when you request a plain return
+type. To see the results, use the cfdebug HTTP parameter when you
+run the main page.)</p>
+<p>The main page has the following lines:</p>
+<pre>&lt;cfajaxproxy cfc="echo"&gt; 
+&lt;cfajaximport&gt; 
+ 
+&lt;html&gt; 
+    &lt;head&gt; 
+        &lt;script&gt; 
+        function callme() 
+        { 
+            var e = new echo(); 
+            e.setReturnFormat('plain'); 
+            var args = {a:"Hello again!"}; 
+            var argsJSON = ColdFusion.JSON.encode(args); 
+            var json = e.plainEcho(argsJSON); 
+            var o = ColdFusion.JSON.decode(json); 
+            alert(o.A); 
+        } 
+        &lt;/script&gt; 
+    &lt;/head&gt; 
+ 
+    &lt;body&gt; 
+        &lt;a href="javascript:callme()"&gt;Call&lt;/a&gt; 
+    &lt;/body&gt; 
+&lt;/html&gt;</pre>
+<p>The echo.cfc file has the following
+lines:</p>
+<pre>&lt;cfcomponent output="false"&gt; 
+ 
+    &lt;cffunction name="echo" access="remote"&gt; 
+        &lt;cfargument name="text"&gt; 
+        &lt;cfset var ret = StructNew()&gt; 
+        &lt;cfset ret.a = text&gt; 
+        &lt;cfreturn ret&gt; 
+    &lt;/cffunction&gt; 
+     
+    &lt;cffunction name="plainEcho"

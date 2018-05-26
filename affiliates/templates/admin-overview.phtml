@@ -1,0 +1,53 @@
+>
+<td valign="top" width="NaN%" headers="d16e52868 "><p>The <samp class="codeph">key</samp> attribute specifies
+a column name that contains anything you want; for example, the
+primary key value in the database. It must be unique because this
+is the primary key in the collection. If the action is delete, the <samp class="codeph">key</samp> attribute
+is the name of a column in the query that contains the keys to delete.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d16e52865 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52868 "><p>The <samp class="codeph">body</samp> attribute is required
+and is a comma-delimited list of the names of the columns that contain
+the text data to be indexed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If you do <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">not</i> set the <samp class="codeph">query</samp> attribute,
+the <samp class="codeph">cfindex</samp> tag creates indexes as specified by
+the following attributes and their values:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d16e52951"><p>Type</p>
+</th>
+<th valign="top" width="NaN%" id="d16e52954"><p>Attribute values</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d16e52951 "><p>File</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52954 "><p>The <samp class="codeph">key</samp> attribute is required
+and is a full pathname to a file.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d16e52951 "><p>Path</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52954 "><p>The <samp class="codeph">key</samp> attribute is required
+and it is a directory pathname.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d16e52951 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52954 "><p>The <samp class="codeph">extensions</samp> and <samp class="codeph">recurse</samp> attributes,
+if specified, designate which types of files are included. If the
+action is <samp class="codeph">delete</samp>, both the keys and the document
+files are deleted.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d16e52951 "><p>Custom</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52954 "><p>The <samp class="codeph">key</samp> attribute is an
+identifier that specifies the key. If the action is <samp class="codeph">delete</samp>,
+the <samp class="codeph">key</samp> attribute is the do

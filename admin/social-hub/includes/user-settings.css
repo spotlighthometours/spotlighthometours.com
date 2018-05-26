@@ -1,0 +1,374 @@
+/* CSS Document */
+.setup-title{
+	margin-top:0px;
+}
+/* WIZARD */
+
+.wizard {
+    margin: 20px auto;
+    background: #fff;
+}
+
+.wizard .nav-tabs {
+    position: relative;
+    margin: 40px auto;
+	margin-bottom: 0;
+    border-bottom-color: #e0e0e0;
+}
+
+.wizard > div.wizard-inner {
+    position: relative;
+}
+
+.connecting-line {
+    height: 2px;
+    background: #e0e0e0;
+    position: absolute;
+    width: 80%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 44%;
+    z-index: 1;
+}
+
+.wizard .nav-tabs > li.active > a, .wizard .nav-tabs > li.active > a:hover, .wizard .nav-tabs > li.active > a:focus {
+    color: #555555;
+    cursor: default;
+    border: 0;
+    border-bottom-color: transparent;
+	margin-bottom:20px;
+}
+
+span.round-tab {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    display: inline-block;
+    border-radius: 100px;
+    background: #fff;
+    border: 2px solid #449d44;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    font-size: 25px;
+}
+li.disabled span.round-tab {
+    border: 2px solid #e0e0e0;
+}
+span.round-tab i{
+    color:#449d44;
+}
+li.disabled span.round-tab i{
+    color:#555555;
+}
+.wizard li.active span.round-tab {
+    background: #fff;
+    border: 2px solid #449d44;
+    
+}
+.wizard li.active span.round-tab i{
+    color: #449d44;
+}
+
+span.round-tab:hover {
+    color: #333;
+    border: 2px solid #449d44;
+}
+
+.wizard .nav-tabs > li {
+    width: 14%;
+}
+
+.wizard .nav-tabs .glyphicon{
+	line-height: 64px;
+}
+
+.wizard .nav-tabs li:after {
+    content: " ";
+    position: absolute;
+    left: 46%;
+    opacity: 0;
+    margin: 0 auto;
+    bottom: 0px;
+    border: 5px solid transparent;
+    border-bottom-color: #449d44;
+    transition: 0.1s ease-in-out;
+}
+
+.wizard .nav-tabs li.active:after {
+    content: " ";
+    position: absolute;
+    left: 42%;
+    opacity: 1;
+    margin: 0 auto;
+    bottom: 0px;
+    border: 10px solid transparent;
+    border-bottom-color: #449d44;
+}
+
+.wizard .nav-tabs > li a {
+    width: 70px;
+    height: 70px;
+    margin: 5px auto;
+    border-radius: 100%;
+    padding: 0;
+}
+
+.wizard .nav-tabs > li a:hover {
+    background: transparent;
+}
+
+.wizard .tab-pane {
+    position: relative;
+    padding-top: 50px;
+}
+
+.wizard h3 {
+    margin-top: 0;
+}
+
+@media( max-width : 585px ) {
+    .wizard {
+        width: 90%;
+        height: auto !important;
+    }
+    span.round-tab {
+        font-size: 16px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+    .wizard .nav-tabs > li a {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+    .wizard li.active:after {
+        content: " ";
+        position: absolute;
+        left: 35%;
+    }
+}
+
+/* Select profile */
+.user-profiles .user-profile-2 {
+    text-align: center;
+    position: relative;
+    margin-top:10px;
+}
+
+.user-profiles .box-info {
+    position: relative;
+    padding: 15px;
+    background: #fff;
+    color: #5b5b5b;
+    margin-bottom: 20px;
+    -webkit-transition: All 0.4s ease;
+    -moz-transition: All 0.4s ease;
+    -o-transition: All 0.4s ease;
+    border-bottom:4px solid #DDDDDD;
+}
+
+.user-profiles .user-profile-2 .header-cover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 130px;
+    overflow: hidden;
+    z-index: 1;
+	background-image: -webkit-linear-gradient(top,#f5f5f5 0,#e8e8e8 100%);
+    background-image: -o-linear-gradient(top,#f5f5f5 0,#e8e8e8 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#f5f5f5),to(#e8e8e8));
+    background-image: linear-gradient(to bottom,#f5f5f5 0,#e8e8e8 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffe8e8e8', GradientType=0);
+    background-repeat: repeat-x;
+}
+
+.user-profiles .user-profile-2 .user-profile-inner {
+    z-index: 2;
+    position: relative;
+}
+
+.user-profiles .user-profile-2 .user-profile-inner h4.white {
+    color:darkslategray;
+}
+
+.user-profiles .user-profile-2 .user-profile-inner img.profile-avatar {
+    box-shadow: 0 0 0 5px rgba(255,255,255,1);
+    -moz-box-shadow: 0 0 0 5px rgba(255,255,255,1);
+    -webkit-box-shadow: 0 0 0 5px rgba(255,255,255,1);
+    border: none;
+    width:100px;
+    height:100px;
+}
+
+.user-profiles .user-button {
+    margin: 15px 0;
+}
+
+.badgebox{
+    opacity: 0;
+}
+
+.badgebox + .badge{
+    /* Move the check mark away when unchecked */
+    text-indent: -999999px;
+    /* Makes the badge's width stay the same checked and unchecked */
+	width: 27px;
+}
+
+.badgebox:focus + .badge{
+    /* Set something to make the badge looks focused */
+    /* This really depends on the application, in my case it was: */
+    
+    /* Adding a light border */
+    box-shadow: inset 0px 0px 5px;
+    /* Taking the difference out of the padding */
+}
+
+.badgebox:checked + .badge{
+    /* Move the check mark back when checked */
+	text-indent: 0;
+}
+
+/* Categories */
+.list-group-item{
+	color:black;
+	text-shadow:none;
+}
+.list-group-item.cat-options .glyphicon{
+	display:none;
+}
+.list-group-item.cat-options .panel{
+	margin-bottom:0px;
+}
+.list-group-item ul{
+	margin-top:10px;
+}
+.list-group-item.upgrade-required{
+	background-color:#f6f5f5;
+}
+.list-group-item.upgrade-required:before{
+    font-family: FontAwesome, Arial;
+	content:  "\f005  ";
+	color: green;
+	font-size: 12px;
+}
+.list-group-item.upgrade-required:after{
+    font-family: FontAwesome, Arial;
+    content: " platinum upgrade required*";
+    color: red;
+    font-size: 12px;
+    text-align: right;
+}
+.list-group-item.upgrade-required ul{
+	display:none;
+}
+.list-group-item ul{
+	display:none;
+}
+.list-group-item.active > ul{
+	display:block;
+}
+
+/* Days of the week */
+.weekDays-selector input {
+  display: none!important;
+}
+
+.weekDays-selector input[type=checkbox] + label {
+  display: inline-block;
+  border-radius: 6px;
+  background: #dddddd;
+  height: 40px;
+  width: 40px;
+  margin-right: 3px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  border:1px solid grey;
+}
+
+.weekDays-selector input[type=checkbox]:checked + label, .weekDays-selector input[type=checkbox] + label:hover {
+  background: #265a88;
+  color: #ffffff;
+  border:1px solid #245580;
+}
+
+/* How man times a week */
+.num-per-week{
+	font-size:16px;
+}
+
+.num-per-week select, .num-per-week option{
+	padding:5px;
+}
+
+
+/* Misc */
+.clear{
+	clear:both;
+}
+
+h3 .fa-check-square-o{
+	color:green;
+	display:none;
+	font-size:28px;
+	margin-top: -5px;
+    margin-right: -5px;
+}
+
+.step2, .step3, .step4, .step5{
+	display:none;
+}
+ /* upgradeModal */
+#upgradeModal .card{
+	display:none;
+}
+#upgradeModal .alert{
+	display:none;
+}
+.platinum-panel{
+	position:relative;
+}
+.platinum-panel .platinum-icon{
+	position:absolute;
+	top:-20px;
+	right:-20px;
+	background:url(../images/platinum.png);
+	width:83px;
+	height:85px;
+}
+.platinum-panel{
+    text-align: center;
+}
+.platinum-panel:hover { box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), 0 1px 5px rgba(130, 130, 130, 0.35); }
+.platinum-panel .panel-body{
+    padding: 0px;
+    text-align: center;
+}
+
+.platinum-panel .the-price{
+    background-color: rgba(220,220,220,.17);
+    box-shadow: 0 1px 0 #dcdcdc, inset 0 1px 0 #fff;
+    padding: 20px;
+    margin: 0;
+}
+
+.platinum-panel .the-price h1{
+    line-height: 1em;
+    padding: 0;
+    margin: 0;
+}
+
+.platinum-panel .subscript{
+    font-size: 25px;
+}
+#upgradePaymentForm .error{
+	font-size:11px;
+	font-weight:normal;
+	color:red;
+}

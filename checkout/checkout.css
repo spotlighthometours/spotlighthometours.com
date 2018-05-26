@@ -1,0 +1,680 @@
+/*************************************************************************************************************
+* Checkout Progress Bar
+*************************************************************************************************************/
+
+.progress {
+	position: relative;
+	width: 760px;
+	height: 18px;
+	margin-left: 70px;
+	margin-top: 13px;
+	margin-bottom: 3px;
+	font-size: 12px;
+	color: #f8f8f8;
+	cursor: pointer;
+	webkit-user-select: none;  
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.progressleft {
+	position: relative;
+	float: left;
+	background-image: url("../repository_images/progress_left.png");
+	background-repeat: no-repeat;
+	width: 82px;
+	height: 18px;
+	padding-left: 6px;
+	line-height: 18px;
+	vertical-align: middle;
+	margin-right: 3px;
+	cursor: pointer;
+}
+
+.progressmid {
+	position: relative;
+	float: left;
+	background-image: url("../repository_images/progress_mid.png");
+	background-repeat: no-repeat;
+	width: 85px;
+	height: 18px;
+	padding-left: 3px;
+	line-height: 18px;
+	vertical-align: middle;
+	margin-right: 0px;
+	cursor: pointer;
+}
+
+.progressright {
+	position: relative;
+	float: left;
+	background-image: url("../repository_images/progress_right.png");
+	background-repeat: no-repeat;
+	width: 85px;
+	height: 18px;
+	padding-left: 3px;
+	line-height: 18px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.progressfaded {
+	opacity: 0.4; /* Firefox, Safari and Chrome (WebKit), Opera */
+	filter: alpha(opacity=40); /* IE */
+}
+
+/*************************************************************************************************************
+* Title Bar
+*************************************************************************************************************/
+
+.title {
+	position: relative;
+	width: 760px;
+	height: 54px;
+	margin-left: 70px;
+	margin-bottom: 34px;
+	border-top: 1px solid #adadad;
+	border-bottom: 1px solid #adadad;
+	line-height: 54px;
+	vertical-align: middle;
+}
+
+.titletext {
+	position: relative;
+	color: #000000;
+	font-size: 40px;
+	float: left;
+	height: 54px;
+	line-height: 54px;
+	vertical-align: middle;
+}
+
+.floatingtitle {
+	margin-bottom: 3px;
+}
+
+/*************************************************************************************************************
+* Floating Title Bar
+*************************************************************************************************************/
+
+.floatingbar {
+	position: fixed;
+	width: 900px;
+	background-color: #f8f8f8;
+	z-index: 2;
+}
+
+/*************************************************************************************************************
+* Check out info - part of the title bar
+*************************************************************************************************************/
+
+.checkout {
+	position: relative;
+	float: right;
+}
+
+.checkouttext {
+	position: relative;
+	color: #666666;
+	font-size: 20px;
+	float: right;
+	height: 54px;
+	line-height: 54px;
+	vertical-align: middle;
+}
+
+.checkoutamt {
+	position: relative;
+	font-size: 20px;
+	float: right;
+	color: #339933;
+	height: 54px;
+	line-height: 54px;
+	vertical-align: middle;
+	margin-left: 16px;
+	margin-right: 16px;
+}
+
+/*************************************************************************************************************
+* Tour Frame
+*************************************************************************************************************/
+
+.tourcategorybar {
+	position: relative;
+	margin-left: 70px;
+	width: 760px;
+	height: 40px;
+	margin-bottom: 17px;
+}
+
+.tourcategorycap {
+	height: 40px;
+	width: 5px;
+	background-repeat: no-repeat;
+}
+
+.tourcategorycapleft {
+	background-image: url("../repository_images/tourtypes_title_left.png");
+}
+
+.tourcategorycapright {
+	background-image: url("../repository_images/tourtypes_title_right.png");
+}
+
+.tourcategorycenter {
+	height: 40px;
+	width: 735px;
+	color: white;
+	background-color: #999999;
+	font-size: 20px;
+	line-height: 40px;
+	vertical-align: middle;
+	text-align: left;
+	padding-left: 15px;
+}
+
+
+.tourframe {
+	position: relative;
+	background-repeat: repeat-x;
+	width: 756px;
+	height: 174px;
+	margin-bottom: 17px;
+	background-image: url("../repository_images/gradient.png");
+	margin-left: 70px;
+	webkit-user-select: none;  
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.tourstd {
+	border: 2px solid #d9d9d9;
+}
+
+.tourstd:hover {
+	border: 2px solid #adadad;
+}
+
+.tourhl {
+	border: 2px solid #0087cc;
+}
+
+.removetour {
+	position: absolute;
+	left: 726px;
+	height: 30px;
+	width: 30px;
+}
+
+.tourpicture {
+	position: relative;
+	width: 128px;
+	height: 128px;
+	float: left;
+	margin-left: 15px;
+	margin-top: 24px;
+	line-height: 128px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.tourtext {
+	position: relative;
+	width: 450px;
+	height: 134px;
+	margin-left: 15px;
+	margin-top: 20px;
+	float: left;
+}
+
+.tourpricing {
+	position: relative;
+	width: 115px;
+	height: 134px;
+	margin-left: 15px;
+	margin-top: 20px;
+	float: left;
+}
+
+.tourtitle {
+	position: relative;
+	width: 450px;
+	color: #006699;
+	font-size: 30px;
+	height: 30px;
+	text-align: left;
+	margin-bottom: 5px;
+	text-shadow: #ffffff 1px 2px 1px;
+}
+
+.toursubtitle {
+	position: relative;
+	width: 445px;
+	padding-left: 5px;
+	color: #6e6d6d;
+	font-size: 14px;
+	text-align: left;
+	margin-bottom: 17px;
+}
+
+.tourdescription {
+	position: relative;
+	width: 445px;
+	height: 68px;
+	padding-left: 5px;
+	color: #333333;
+	font-size: 12px;
+	text-align: left;
+	margin-bottom: 17px;
+}
+
+.tourprice {
+	position: relative;
+	width: 115px;
+	height: 42px;
+	font-size: 20px;
+	color: #333333;
+	line-height: 42px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+/*************************************************************************************************************
+* Option Frame
+*************************************************************************************************************/
+
+.optleft {
+	float: left;
+	margin-left: 70px;
+}
+
+.optright {
+	float: right;
+	margin-right: 70px;
+}
+
+.optionframe {
+	position: relative;
+	background-repeat: repeat-x;
+	width: 362px;
+	height: 174px;
+	margin-bottom: 34px;
+	background-image: url("../repository_images/gradient.png"); 
+	webkit-user-select: none;  
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.optionstd {
+	border: 2px solid #d9d9d9;
+}
+
+.optionstd:hover {
+	border: 2px solid #adadad;
+}
+
+.optionhl {
+	border: 2px solid #487084;
+}
+
+.optionicon {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+	height: 45px;
+	width: 125px;
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+.optiontitle {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	color: #006699;
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 5px;
+	text-shadow: #ffffff 1px 2px 1px;
+}
+
+.optionsubtitle {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	color: #6e6d6d;
+	font-size: 12px;
+	text-align: center;
+}
+
+/*************************************************************************************************************
+* Option Button
+*************************************************************************************************************/
+
+.optionbutton {
+	position: relative;
+	height: 30px;
+	width: 115px;
+	text-align: center;
+	margin-top: 12px;
+	cursor: pointer;
+}
+
+.btnleft {
+	float: left;
+	margin-left: 60px;
+}
+
+.btnright {
+	float: right;
+	margin-right: 60px;
+}
+
+.btncap {
+	width: 14px;
+	height: 32px;
+	float: left;
+	background-repeat: no-repeat;
+}
+
+.btncapl {
+	background-image: url("../repository_images/btn-left.png");
+}
+
+.btncaplhl {
+	background-image: url("../repository_images/btn-left-hl.png");
+}
+
+.btncapr {
+	background-image: url("../repository_images/btn-right.png");
+}
+
+.btncaprhl{
+	background-image: url("../repository_images/btn-right-hl.png");
+}
+
+.btnicon {
+	background-color: #ececec;
+	float: left;
+	width: 15px;
+	height: 30px;
+	font-size: 18px;
+	color: #82a2b3;
+	line-height: 30px;
+	vertical-align: middle;
+	
+}
+
+.iconimage {
+	margin-top: 8px;
+}
+
+.btntxt {
+	background-color: #ececec;
+	color: #006699;
+	float: left;
+	width: 72px;
+	height: 30px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 30px;
+	vertical-align: middle;
+}
+
+.btnbody {
+	border-top: 1px solid #c4c4c4;
+	border-bottom: 1px solid #c4c4c4;
+}
+
+.btnbodyhl {
+	border-top: 1px solid #999999;
+	border-bottom: 1px solid #999999;
+}
+
+/*************************************************************************************************************
+* Option Counter
+*************************************************************************************************************/
+
+.counterframe {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 83px;
+	height: 30px;
+	border-top: 1px solid #c4c4c4;
+	border-bottom: 1px solid #c4c4c4;
+	background-color: #ececec;
+}
+
+.counterframe:hover {
+	border-top: 1px solid #999999;
+	border-bottom: 1px solid #999999;
+}
+
+.counterbutton {
+	position: absolute;
+	top: -1px;
+	width: 32px;
+	height: 32px;
+	background-repeat: no-repeat;
+}
+
+.counterplus {
+	left: 67px;
+	background-image: url("../repository_images/plus.png");
+}
+
+.counterminus {
+	left: -16px;
+	background-image: url("../repository_images/minus.png");
+}
+
+.counterinput {
+	position: absolute;
+	left: 16px;
+	border: 0px;
+	height: 28px;
+	width: 51px;
+	color: #999999;
+	background-color: #ececec;
+	font-size: 20px;
+	text-align: center;
+	line-height: 30px;
+	vertical-align: middle;
+}
+
+/*************************************************************************************************************
+* Blue Option Button
+*************************************************************************************************************/
+
+.bl_opt_cap_l {
+	background-image: url("../repository_images/bl-opt-l.png");
+}
+
+.bl_opt_cap_r {
+	background-image: url("../repository_images/bl-opt-r.png");
+}
+
+.bl_opt_text {
+	background-color: #0087cc;
+	color: white;
+	float: left;
+	width: 87px;
+	height: 30px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 30px;
+	vertical-align: middle;
+	border-top: 1px solid #005580;
+	border-bottom: 1px solid #005580;
+}
+
+
+/*************************************************************************************************************
+* Tables - Checkout
+*************************************************************************************************************/
+
+table.checkout_table {
+	width: 760px;
+	margin-left: 70px;
+	font-size: 16px;
+}
+
+table.checkout_table tr.odd {
+	background-color: blue;
+}
+
+table.checkout_table th {
+	background-color: #939393;
+	color: #ffffff;
+	font-weight: normal;
+	background-repeat: no-repeat;
+}
+
+table.checkout_table tr {
+	height: 35px;
+	line-height: 35px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+table.checkout_table tr.standard {
+	background-color: #edf3f9;
+}
+
+table.checkout_table td.total_text {
+	background-color: #e8e8e8;
+	font-weight: bold;
+	text-align: right;
+}
+
+table.checkout_table td.total_value {
+	background-color: #e8e8e8;
+}
+
+table.checkout_table th.cap_left {
+	background-image: url("../repository_images/header-left.png");
+}
+
+table.checkout_table th.cap_right {
+	background-image: url("../repository_images/header-right.png");
+	width: 120px;
+}
+
+/*************************************************************************************************************
+* Saved Credit Card Select
+*************************************************************************************************************/
+
+.ccframe {
+	position: relative;
+	width: 760px;
+	margin-left: 70px;
+	cursor: pointer;
+}
+
+.cctitletext {
+	padding-left: 12px;
+	line-height: 22px;
+	vertical-align: middle;
+	font-size: 16px;
+}
+
+.cclisting {
+	position: relative;
+	width: 330px;
+	height: 30px;
+	float: left;
+	margin-bottom: 10px;
+}
+
+.ccleftgray {
+	position: relative;
+	float: left;
+	width: 11px;
+	height: 30px;
+	background-image: url("../repository_images/grbtn-left.png");
+	background-repeat: no-repeat;
+}
+
+.cctext {
+	position: relative;
+	float: left;
+	width: 225px;
+	height: 30px;
+	background-color: #e8e8e8;
+	line-height: 30px;
+	vertical-align: middle;
+	font-size: 19px;
+}
+
+.ccgraybg {
+	background-color: #e8e8e8;
+}
+
+.ccbuttontext {
+	font-size: 11px;
+}
+
+.ccspacer {
+	margin-bottom: 10px;
+}
+
+.cceditbox {
+	position: relative;
+	padding-left: 12px;
+	line-height: 16px;
+	vertical-align: middle;
+	font-size: 14px;
+	color: #1d89c1;
+	text-decoration:underline;
+}
+
+/*************************************************************************************************************
+* Credit Card Billing
+*************************************************************************************************************/
+
+.ccbillingtitle {
+	position: relative;
+	line-height: 24px;
+	vertical-align: middle;
+	font-size: 18px;
+}
+
+.ccbillingspacer {
+	margin-top: 40px;
+}
+
+.ccresettopmargin {
+	margin-top: 0px;
+}
+
+.cctermstext {
+	position: relative;
+	height: 30px;
+	margin-left: 10px;
+	line-height: 30px;
+	vertical-align: middle;
+	margin-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.cctermshighlight {
+	color: #1d89c1;
+	text-decoration:underline;
+}
+
+
+
+
+
+
+
+

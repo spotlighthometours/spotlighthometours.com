@@ -1,0 +1,72 @@
+ring value that specifies a hierarchical
+category or category tree for searching. It is a series of categories
+separated by forward slashes ("/"). You can specify only one category
+tree.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d16e52294 "><p><samp class="codeph">custom1</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52297 "><p>Optional </p>
+<p>Verity only</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52300 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52303 "><p>Use to index discrete values in collection
+records, which lets you search for specific records using the Verity
+MATCHES operator. By contrast, values specified in the <samp class="codeph">body</samp> attribute
+are concatenated and searched as a body of text using the specified
+criteria.</p>
+<p>If <samp class="codeph">type</samp> = <samp class="codeph">query</samp>,
+a query column name. If <samp class="codeph">type</samp> = <samp class="codeph">custom</samp>,
+a data field to be indexed. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d16e52294 "><p><samp class="codeph">custom2</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52297 "><p>Optional </p>
+<p>Verity only</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52300 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52303 "><p>Usage is the same as for <samp class="codeph">custom1</samp>. </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d16e52294 "><p><samp class="codeph">custom3</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52297 "><p>Optional </p>
+<p>Verity only</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52300 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52303 "><p>Usage is the same as for <samp class="codeph">custom1</samp>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d16e52294 "><p><samp class="codeph"><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">custom4</i></samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52297 "><p>Optional </p>
+<p>Verity only</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52300 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52303 "><p>Usage is the same as for <samp class="codeph">custom1</samp>.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d16e52294 "><p><samp class="codeph">extensions</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52297 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52300 "><p>htm, </p>
+<p>html,</p>
+<p>cfm, </p>
+<p>cfml, </p>
+<p>dbm, </p>
+<p>dbml</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52303 "><p>Delimited list of file extensions that ColdFusion
+uses to index files, if <samp class="codeph">type</samp><samp class="codeph">=</samp><samp class="codeph">"Path"</samp>. </p>
+<p><samp class="codeph">"*."</samp> returns
+files with no extension. <samp class="codeph">".*" </samp> returns all files.</p>
+<p>For
+example, the following code returns files with a listed extension
+or no extension: </p>
+<p><samp class="codeph">extensions = ".htm</samp><samp class="codeph">, </s

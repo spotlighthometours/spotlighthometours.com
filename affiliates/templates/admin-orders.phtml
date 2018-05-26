@@ -1,0 +1,66 @@
+><p><samp class="codeph">file</samp>: applies <samp class="codeph">action</samp> value
+to filename, including path. Expects a filename in the <samp class="codeph">key</samp> attribute.</p>
+</li>
+<li><p><samp class="codeph">path</samp>: applies <samp class="codeph">action</samp> to
+files in a directory path that pass the <samp class="codeph">extensions</samp> filter. Expects
+a directory name in the <samp class="codeph">key</samp> attribute.</p>
+</li>
+<li><p><samp class="codeph"><i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">custom</i></samp>: applies <samp class="codeph">action</samp> to
+custom data; for example, to data from a query. </p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d16e52294 "><p><samp class="codeph">URLpath</samp></p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52297 "><p>Optional</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52300 "><p></p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52303 "><p>If <samp class="codeph">type</samp> is <samp class="codeph">file</samp> or <samp class="codeph">path</samp>,
+specifies the URL path. During indexing, this pathname is prefixed
+to filenames and returned from a search as the <samp class="codeph">url</samp>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7d04__WSc3ff6d0ea77859461172e0811cbec18a66-7fce"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7d04__WSc3ff6d0ea77859461172e0811cbec18a66-7fce"><!-- --></a><h4 class="sectiontitle">Usage</h4><p>The attributes
+settings that the <samp class="codeph">cfindex</samp> tag requires depend on
+whether you set the <samp class="codeph">query</samp> attribute. If you set
+the query attribute to a valid query name, it specifies that <samp class="codeph">cfindex</samp> is
+to index the data in the query rather than indexing documents on
+a disk. If you do <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">not</i> set the query attribute, <samp class="codeph">cfindex</samp> assumes that
+it is indexing a file (<samp class="codeph">type = file</samp>), a set of files
+in a directory path (<samp class="codeph">type</samp> = <samp class="codeph">path</samp>),
+or text that you provide in the <samp class="codeph">body</samp> attribute
+(<samp class="codeph">type</samp> = <samp class="codeph">custom</samp>). </p>
+<p>If you
+set the <samp class="codeph">query</samp> attribute to a valid query name,
+the <samp class="codeph">cfindex</samp> tag creates indexes as specified by
+the following attributes and their values: </p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d16e52865"><p>Type</p>
+</th>
+<th valign="top" width="NaN%" id="d16e52868"><p>Attribute values</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d16e52865 "><p>File</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52868 "><p>The <samp class="codeph">key</samp> attribute is the
+name of a column in the query that contains a full filename (including
+path). </p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d16e52865 "><p>Path</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e52868 "><p>The <samp class="codeph">key</samp> attribute is the
+name of a column in the query that contains a directory pathname.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d16e52865 "><p>&#160;</p>
+</td>
+<td valign="top" width="NaN%" headers="d16

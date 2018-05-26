@@ -1,0 +1,59 @@
+/* CSS Document */
+.banner{
+	position:relative !important;
+}
+.photo-gallery{
+	width:800px !important;
+	margin:auto;
+	margin-top:70px;
+	margin-bottom:20px !important;
+}
+.photo-gallery .well{
+	margin-top:10px !important;
+}
+.photo-gallery .right-arrow, .photo-gallery .left-arrow, .photo-gallery .fullscreen{
+	display:block;
+}
+/* BOOTSTRAP PHOTO CAROUSEL (USED FOR THUMB IMGS FOR PHOTO/VIDEO GALLERY) */
+.photo-gallery .carousel-control{
+	top:50% !important;
+}
+.featured-properties .carousel-control.left, .photo-gallery .carousel-control.left {
+	display: block !important;
+}
+.featured-properties .carousel-control.right, .photo-gallery .carousel-control.right {
+	display: block !important;
+	left:auto;
+}
+.photo-gallery .carousel{
+	padding:0px;
+	padding-left:3px;
+	padding-right:3px;
+}
+.photo-gallery .carousel-indicators {
+	bottom: 0px !important;
+}
+.photo-gallery .carousel-caption {
+    right: 20px;
+    bottom: 30px;
+    left: 20px;
+    padding: 5px;
+}
+.photo-gallery .carousel-caption .label{
+	font-size:16px;
+}
+ #contact-buttons-bar {
+  display:block !important;
+}
+.place_item_header h3{
+	font-size:20px;
+	margin-top:0px;
+}
+.place_item_header .place_image{
+	visibility:visible;
+}
+.business_list{
+	height:400px;
+	overflow-y:scroll;
+	margin-top:0px;
+}

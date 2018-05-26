@@ -1,0 +1,75 @@
+
+            name="gsa" \
+            id="gsa" \
+            type="checkbox" \
+            checked="checked" \
+            value="1" ><\/input>'); 
+            
+    // Leave the "Search this help system only" checkbox unckecked
+    }else{    
+        document.write('<div id="searchscope"> \
+            <input onchange="setAHSearchPref();" \
+            class="gsa" \
+            name="gsa" \
+            id="gsa" \
+            type="checkbox" \
+            value="1" ><\/input>'); 
+    }
+    document.write('<span class="gsalabel">' + terms_AHV_SEARCH_CONSTRAINT + '<\/span><\/div>'); 
+}
+document.write('<input class="searchinput" \
+    name="q" \
+    id="q" \
+    type="text" \
+    maxlength="256" \
+    value="' + terms_AHV_SEARCH_BUTTON + '" \
+    onclick="clearSearch()"><\/input><input \
+    type="button" \
+    name="searchbutton" \
+    class="searchbutton" \
+    onclick="submit()" />'); 
+ 
+ 
+/* 
+ * Start Functions 
+ */
+function clearSearch(){
+    if (document.search.q.value == terms_AHV_SEARCH_BUTTON){document.search.q.value = ""}; 
+}
+
+// set search preferences
+function setAHSearchPref(){
+    if (document.search.gsa.checked == 1){
+        setAHSearchCookie( dirname );
+    }else{
+        setAHSearchCookie( "community" );
+    }
+}
+
+// Set search preferences cookie
+function setAHSearchCookie( p ){
+    // set cookie ah_searchpref with a value of the document path
+    var expire=new Date();
+    expire.setDate(expire.getDate()+365); // Cookie expires after 1 year (365 days) 
+    document.cookie="ah_searchpref=" +p+ "; expires=" +expire.toGMTString()+ ";";
+}
+
+// ]]-->
+</script> 
+ </form>
+<!-- END SEARCH CONTENT -->    
+
+
+
+<!-- BEGIN PAGE CONTENT WRAPPER -->
+    <div id="page_content_wrapper">
+<!-- BEGIN PAGE WRAPPER -->
+<table id="page_content_table">
+<tr>
+<td id="col1">
+<!--#include virtual="navheader.ssi" -->
+<!-- BEGIN GROUP TOC WRAPPER -->
+      <div id="booklist"><p>ColdFusion 9.0 Resources</p><ul xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema"><li><p><a href="../Admin/index.html" target="_self">Configuring
+and Administering Adobe ColdFusion 9</a></p>
+</li><li><p><a href="../CFMLRef/index.html" target="_self">Adobe ColdFusion
+9 CFML 

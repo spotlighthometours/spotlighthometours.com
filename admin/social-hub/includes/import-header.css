@@ -1,0 +1,49 @@
+/* CSS Document */
+
+/* AJAX MESSAGE (TOP RIGHT) */
+
+#ajaxMessage {
+	position:fixed;
+	right:20px;
+	top:10px;
+	z-index:1500;
+	font-size:11px;
+}
+#ajaxMessage a, #ajaxMessage a:hover {
+	color:#fff;
+	text-decoration:underline
+}
+.ajaxMessage {
+	display:none;
+	z-index:1000;
+	clear:right;
+	float:right;
+	margin-top:10px;
+	padding:10px 15px;
+	text-shadow:1px 1px 0px rgba(0,0,0,.25);
+	font-weight:bold;
+	color:#fff;
+	border:1px solid #525760;
+	border-color:rgba(0,0,0,0.25);
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	opacity:0.95;
+	filter:alpha(opacity=95)
+}
+.ajaxMessage.success {
+	background-color:#3399ff;
+}
+.ajaxMessage.error {
+	background-color:#cb4a3d;
+}
+.ajaxMessage.processing {
+	padding-left:40px;
+	background-image:url('../../../repository_images/loader.gif');
+	background-position:15px 9px;
+	background-repeat:no-repeat;
+	background-color:#333
+}
+.step-2, .step-3{
+	display:none;
+}

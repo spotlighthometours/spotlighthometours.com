@@ -1,0 +1,32 @@
+ id="WSc3ff6d0ea77859461172e0811cbec22c24-7d04__WSc3ff6d0ea77859461172e0811cbec18a66-7fd4"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7d04__WSc3ff6d0ea77859461172e0811cbec18a66-7fd4"><!-- --></a><h4 class="sectiontitle">Description</h4><p>Populates
+a search engine collection with metadata and creates indexes for searching
+it. You can use both Verity and Solr search engines. The engines
+can search physical files of various types or a database query.
+Indexing database columns that result from a query lets users search
+the query data much faster than they could if you used multiple
+SQL queries to return the same data. </p>
+<p>You must define a collection
+using the ColdFusion Administrator or the <samp class="codeph">cfcollection</samp> tag
+before creating indexes for the collection.</p>
+<p>You also can index
+a collection using the ColdFusion Administrator. For Verity collections,
+you can also use a native Verity indexing tool, such as Vspider
+or MKVDK. These options, however, limit you to indexing a collection
+of files in a directory path.</p>
+<p>For more information on creating,
+indexing, and searching a collection, see <a href="http://help.adobe.com/en_US/ColdFusion/9.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-7b7e.html" target="_self">Building
+a Search Interface</a>  in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">Developing ColdFusion Applications</i>.</p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7d04__WSc3ff6d0ea77859461172e0811cbec18a66-7fd3"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7d04__WSc3ff6d0ea77859461172e0811cbec18a66-7fd3"><!-- --></a><h4 class="sectiontitle">Category</h4><p><a href="WSc3ff6d0ea77859461172e0811cbec22c24-777d.html">Extensibility tags</a></p>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7d04__WSc3ff6d0ea77859461172e0811cbec18a66-7fd2"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7d04__WSc3ff6d0ea77859461172e0811cbec18a66-7fd2"><!-- --></a><h4 class="sectiontitle">Syntax</h4><pre>&lt;cfindex  
+    action = "update|delete|purge|refresh" 
+    collection = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">collection name</i>" 
+    body = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">body</i>" 
+    category = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">category name</i>" 
+    categoryTree = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">category tree</i>" 
+    custom1 = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">custom value</i>" 
+    custom2 = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">custom value</i>" 
+    custom3 = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">custom value</i>" 
+    custom4 = "<i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">custom value</i>" 
+    extensions = "<i xmlns:fn="http://www.w3.org/2005/xpath-fu

@@ -1,0 +1,39 @@
+{
+    "event": "suiteStart",
+    "suite": "EmailNotificationsTest",
+    "tests": 2
+}{
+    "event": "testStart",
+    "suite": "EmailNotificationsTest",
+    "test": "EmailNotificationsTest::testSendNotification"
+}{
+    "event": "test",
+    "suite": "EmailNotificationsTest",
+    "test": "EmailNotificationsTest::testSendNotification",
+    "status": "fail",
+    "time": 2.0001997947693,
+    "trace": [
+        {
+            "file": "D:\\websites\\spotlighthometours\\public\\repository_inc\\classes\\phpunit\\emailnotifications\\emailnotifications.php",
+            "line": 36,
+            "function": "assertTrue",
+            "class": "PHPUnit_Framework_Assert",
+            "type": "::"
+        }
+    ],
+    "message": "Failed asserting that false is true.",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "EmailNotificationsTest",
+    "test": "EmailNotificationsTest::testGetChecklistEmail"
+}{
+    "event": "test",
+    "suite": "EmailNotificationsTest",
+    "test": "EmailNotificationsTest::testGetChecklistEmail",
+    "status": "pass",
+    "time": 0.024001836776733,
+    "trace": [],
+    "message": "",
+    "output": ""
+}

@@ -1,0 +1,52 @@
+.concierge-set-up ul li {
+	text-decoration:none;
+	list-style:none;
+	color:white;
+	font-size:18px;
+	line-height:40px;
+	background:url(../images/blue-check.png) no-repeat;
+	padding-left:50px;
+	padding-bottom:20px;
+}
+.concierge-set-up ul li img {
+	vertical-align:central;
+}
+#column-one {
+	clear:left;
+	float:left;
+	margin-left:30px;
+	margin-top:70px;
+}
+#column-two {
+	float:left;
+	margin-left:65px;
+	margin-top:70px;
+}
+#column-three {
+	float:left;
+	margin-left:65px;
+	margin-top:70px;
+}
+#starting {
+	clear:left;
+	float:left;
+	color:white;
+	font-size:20px;
+	margin-left:422px;
+	margin-top:20px;
+}
+.concierge-set-up #get-started {
+	float:left;
+	margin-left:395px;
+	margin-top:40px;
+}
+#splash-main-image{
+	position:relative;
+}
+#splash-main-image .get-started{
+	position:absolute;
+	top:200px;
+	right:70px;
+	width:220px;
+	cursor:pointer;
+}

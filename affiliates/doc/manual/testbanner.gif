@@ -1,0 +1,13 @@
+ar="both" /><div id="minitoc"><div class="t"><div class="b"><div class="l"><div class="r"><div class="bl"><div class="br"><div class="tl"><div class="tr"><div><h3>Contents [<a href="#" onclick="return toggleMiniToc('minitoc-links', this);" class="hideLink">Hide</a>]</h3><ul id="minitoc-links"><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec173d0-7ffa"><h1 class="topictitle1">Variable scope</h1>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec173d0-7ff7"><h1 class="topictitle1">Caller scope</h1>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec173d0-7ff5"><h1 class="topictitle1">CGI variables</h1>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec173d0-7ff9"><h1 class="topictitle1">Client variables</h1>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec173d0-7ff4"><h1 class="topictitle1">Server variables</h1>
+</a></p></li><li><p><a href="#WSc3ff6d0ea77859461172e0811cbec173d0-7ff3"><h1 class="topictitle1">Application and session variables</h1>
+</a></p></li></ul></div></div><br clear="both" /></div></div></div></div></div></div></div></div><br clear="both" /><div><p>ColdFusion returns variables, such as those returned in
+a <samp class="codeph">cfdirectory</samp> or <samp class="codeph">cfftp</samp> operation.
+A variable is usually referenced by <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema">scoping</i> it according
+to its type: naming it according to the code context in which it
+is available; for example, Session.varname, or Application.varname.
+For more information on ColdFusion scopes, see <a href="http://help.adobe.com/en_US/ColdFusion/9.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-7ff2.html" target="_self">Using
+ColdFusion Variables</a>  in the <i xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2

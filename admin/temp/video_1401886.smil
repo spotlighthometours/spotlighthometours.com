@@ -1,0 +1,13 @@
+<smil>
+	<head>
+		<meta base="rtmp://spotlighthometours.com/vod/" />
+	</head>
+	<body>
+		<switch>
+			<video src="mp4:spotlight/images-g/tours/56275/video_1401886.mp4" height="1080" system-bitrate="900000" width="1920" />
+			<video src="mp4:spotlight/images-g/tours/56275/video_1401886_720.mp4" height="720" system-bitrate="600000" width="1280" />
+			<video src="mp4:spotlight/images-g/tours/56275/video_1401886_480.mp4" height="480" system-bitrate="300000" width="853" />
+			<video src="mp4:spotlight/images-g/tours/56275/video_1401886_360.mp4" height="360" system-bitrate="100000" width="640" />
+		</switch>
+	</body>
+</smil>

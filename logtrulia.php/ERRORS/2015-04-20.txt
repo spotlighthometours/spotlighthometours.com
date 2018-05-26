@@ -1,0 +1,6 @@
+2015-04-20 16:22:26: SQLSTATE[HY000] [2002] No such file or directory
+2015-04-20 16:22:26: Error: Call to a member function run() on a non-object. File: /cygdrive/d/websites/spotlighthometours/public/repository_inc/classes/class.trulia.php. Line Number: 38
+2015-04-20 16:23:42: SQLSTATE[HY000] [2002] No such file or directory
+2015-04-20 16:23:42: Error: Call to a member function run() on a non-object. File: /cygdrive/d/websites/spotlighthometours/public/repository_inc/classes/class.trulia.php. Line Number: 38
+2015-04-20 17:27:18: SQLSTATE[HY000] [2002] No such file or directory
+2015-04-20 17:28:32: SQLSTATE[HY000] [2002] No such file or directory

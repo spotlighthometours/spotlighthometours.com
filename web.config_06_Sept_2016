@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+        <rewrite>
+            <rules>
+                <clear />
+                <rule name="rewrite subdomains" enabled="true">
+                    <match url="(.*)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false">
+                        <add input="{HTTP_HOST}" pattern="^((?!www).+)\.spotlighthometours\.com" />
+                    </conditions>
+                    <action type="Rewrite" url="microsites/index.php?domain={C:1}&amp;uri={R:1}" logRewrittenUrl="true" />
+                </rule>
+                <rule name="Redirect all 404 for /images/" enabled="true">
+                    <match url="^images/(.*)$" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false">
+                        <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+                        <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
+                    </conditions>
+                    <action type="Redirect" url="http://www.spotlighthometours.com/images-g/{R:1}" />
+                </rule>
+                <rule name="Redirect all 404 for /images/tours-g/" enabled="true">
+                    <match url="^images-g/(.*)$" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false">
+                        <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+                        <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
+                    </conditions>
+                    <action type="Redirect" url="http://www.spotlighthometours.com/images-f/{R:1}" />
+                </rule>
+                <rule name="Redirect all 404 for /images/tours-f/" enabled="true">
+                    <match url="^images-f/(.*)$" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false">
+                        <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+                        <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
+                    </conditions>
+                    <action type="Redirect" url="http://s3-us-west-2.amazonaws.com/spotlight-f-images-tours/{R:1}" appendQueryString="true" redirectType="Found" />
+                </rule>
+                <rule name="us">
+                    <match url="^us/([0-9a-z-]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="tours/quick_link.php?tourid={R:1}" />
+                </rule>
+                <rule name="m">
+                    <match url="^m/([0-9a-z-]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="tours/quick_link.php?tourid={R:1}" />
+                </rule>
+                <rule name="lv">
+                    <match url="^lv/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="sms/index_lv.cfm?h={R:1}" />
+                </rule>
+                <rule name="lw">
+                    <match url="^lw/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="sms/index_lw.cfm?h={R:1}" />
+                </rule>
+                <rule name="i">
+                    <match url="^i/([0-9a-z]+)/([0-9a-z]+)/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="sms/index_lv.cfm?u={R:1}&amp;tourid={R:2}&amp;k={R:3}&amp;l=1" />
+                </rule>
+                <rule name="w">
+                    <match url="^w/([0-9a-z]+)/([0-9a-z]+)/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="sms/index_lw.cfm?u={R:1}&amp;tourid={R:2}&amp;k={R:3}&amp;l=1" />
+                </rule>
+                <rule name="i0">
+                    <match url="^i0/([0-9a-z]+)/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="sms/mobile.cfm?u={R:1}&amp;k={R:2}&amp;l=1" />
+                </rule>
+                <rule name="w0">
+                    <match url="^w0/([0-9a-z]+)/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="sms/mobilewf.cfm?u={R:1}&amp;k={R:2}&amp;l=1" />
+                </rule>
+                <rule name="i1">
+                    <match url="^i1/([0-9a-z]+)/([0-9a-z]+)/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="sms/mobile.cfm?u={R:1}&amp;k={R:2}&amp;l=1&amp;type={R:3}" />
+                </rule>
+                <rule name="w1">
+                    <match url="^w1/([0-9a-z]+)/([0-9a-z]+)/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="sms/mobilewf.cfm?u={R:1}&amp;k={R:2}&amp;l=1&amp;type={R:3}" />
+                </rule>
+                <rule name="ld">
+                    <match url="^ld/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="leads/?id={R:1}" />
+                </rule>
+                <rule name="blast">
+                    <match url="^blast/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="/blast/?usrl={R:1}" />
+                </rule>
+                <rule name="alist">
+                    <match url="^alist/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="alistings/?id={R:1}" />
+                </rule>
+                <rule name="lp">
+                    <match url="^lp/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="sms/mobilewf.cfm?go=viewDetails&amp;landingpage=true&amp;id={R:1}" />
+                </rule>
+                <rule name="p" stopProcessing="false">
+                    <match url="^p/([0-9a-z-]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="tours/enterKeyword.php?id={R:1}" />
+                </rule>
+                <rule name="p1">
+                    <match url="^p1/([0-9a-z-]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="tours/tourList.php?id={R:1}" />
+                </rule></rules>
+            <rewriteMaps>
+                <rewriteMap name="test">
+                </rewriteMap>
+                <rewriteMap name="StaticRewrites">
+                    <add key="/" value="/tours/tour.php?&amp;tourid=88715" />
+                </rewriteMap>
+            </rewriteMaps>
+        </rewrite>
+        <handlers>
+            <clear />
+            <add name="php-5.5.21" path="*.php" verb="GET,HEAD,POST" modules="FastCgiModule" scriptProcessor="C:\Program Files (x86)\PHP\v5.5\php-cgi.exe" resourceType="Either" requireAccess="Script" />
+            <add name="php-5.4.14" path="*.php" verb="GET,HEAD,POST" modules="FastCgiModule" scriptProcessor="C:\Program Files (x86)\PHP\v5.4\php-cgi.exe" resourceType="Either" requireAccess="Script" />
+            <add name="PHP53_via_FastCGI" path="*.php" verb="*" modules="FastCgiModule" scriptProcessor="C:\Program Files (x86)\PHP\v5.3\php-cgi.exe" resourceType="Unspecified" requireAccess="Script" />
+            <add name="ISAPI-dll" path="*.dll" verb="*" modules="IsapiModule" resourceType="File" requireAccess="Execute" allowPathInfo="true" />
+            <add name="TraceHandler-Integrated" path="trace.axd" verb="GET,HEAD,POST,DEBUG" type="System.Web.Handlers.TraceHandler" preCondition="integratedMode" />
+            <add name="WebAdminHandler-Integrated" path="WebAdmin.axd" verb="GET,DEBUG" type="System.Web.Handlers.WebAdminHandler" preCondition="integratedMode" />
+            <add name="AssemblyResourceLoader-Integrated" path="WebResource.axd" verb="GET,DEBUG" type="System.Web.Handlers.AssemblyResourceLoader" preCondition="integratedMode" />
+            <add name="PageHandlerFactory-Integrated" path="*.aspx" verb="GET,HEAD,POST,DEBUG" type="System.Web.UI.PageHandlerFactory" preCondition="integratedMode" />
+            <add name="SimpleHandlerFactory-Integrated" path="*.ashx" verb="GET,HEAD,POST,DEBUG" type="System.Web.UI.SimpleHandlerFactory" preCondition="integratedMode" />
+            <add name="WebServiceHandlerFactory-Integrated" path="*.asmx" verb="GET,HEAD,POST,DEBUG" type="System.Web.Services.Protocols.WebServiceHandlerFactory, System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" preCondition="integratedMode" />
+            <add name="HttpRemotingHandlerFactory-rem-Integrated" path="*.rem" verb="GET,HEAD,POST,DEBUG" type="System.Runtime.Remoting.Channels.Http.HttpRemotingHandlerFactory, System.Runtime.Remoting, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" preCondition="integratedMode" />
+            <add name="HttpRemotingHandlerFactory-soap-Integrated" path="*.soap" verb="GET,HEAD,POST,DEBUG" type="System.Runtime.Remoting.Channels.Http.HttpRemotingHandlerFactory, System.Runtime.Remoting, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" preCondition="integratedMode" />
+            <add name="AXD-ISAPI-2.0" path="*.axd" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness32" responseBufferLimit="0" />
+            <add name="PageHandlerFactory-ISAPI-2.0" path="*.aspx" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness32" responseBufferLimit="0" />
+            <add name="SimpleHandlerFactory-ISAPI-2.0" path="*.ashx" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness32" responseBufferLimit="0" />
+            <add name="WebServiceHandlerFactory-ISAPI-2.0" path="*.asmx" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness32" responseBufferLimit="0" />
+            <add name="HttpRemotingHandlerFactory-rem-ISAPI-2.0" path="*.rem" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness32" responseBufferLimit="0" />
+            <add name="HttpRemotingHandlerFactory-soap-ISAPI-2.0" path="*.soap" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness32" responseBufferLimit="0" />
+            <add name="AXD-ISAPI-2.0-64" path="*.axd" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness64" responseBufferLimit="0" />
+            <add name="PageHandlerFactory-ISAPI-2.0-64" path="*.aspx" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness64" responseBufferLimit="0" />
+            <add name="SimpleHandlerFactory-ISAPI-2.0-64" path="*.ashx" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness64" responseBufferLimit="0" />
+            <add name="WebServiceHandlerFactory-ISAPI-2.0-64" path="*.asmx" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness64" responseBufferLimit="0" />
+            <add name="HttpRemotingHandlerFactory-rem-ISAPI-2.0-64" path="*.rem" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness64" responseBufferLimit="0" />
+            <add name="HttpRemotingHandlerFactory-soap-ISAPI-2.0-64" path="*.soap" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness64" responseBufferLimit="0" />
+            <add name="AboMapperCustom-690497022" path="*" verb="*" modules="IsapiModule" scriptProcessor="D:\ColdFusion9\runtime\lib\wsconfig\1\jrun_iis6_wildcard.dll" requireAccess="None" responseBufferLimit="0" />
+            <add name="AboMapperCustom-690497031" path="*.jsp" verb="*" modules="IsapiModule" scriptProcessor="D:\ColdFusion9\runtime\lib\wsconfig\jrun_iis6.dll" requireAccess="Script" responseBufferLimit="0" />
+            <add name="AboMapperCustom-690497032" path="*.jws" verb="*" modules="IsapiModule" scriptProcessor="D:\ColdFusion9\runtime\lib\wsconfig\jrun_iis6.dll" requireAccess="Script" responseBufferLimit="0" />
+            <add name="AboMapperCustom-690497033" path="*.cfm" verb="*" modules="IsapiModule" scriptProcessor="D:\ColdFusion9\runtime\lib\wsconfig\jrun_iis6.dll" requireAccess="Script" responseBufferLimit="0" />
+            <add name="AboMapperCustom-690497034" path="*.cfml" verb="*" modules="IsapiModule" scriptProcessor="D:\ColdFusion9\runtime\lib\wsconfig\jrun_iis6.dll" requireAccess="Script" responseBufferLimit="0" />
+            <add name="AboMapperCustom-690497035" path="*.cfc" verb="*" modules="IsapiModule" scriptProcessor="D:\ColdFusion9\runtime\lib\wsconfig\jrun_iis6.dll" requireAccess="Script" responseBufferLimit="0" />
+            <add name="AboMapperCustom-690497036" path="*.cfr" verb="*" modules="IsapiModule" scriptProcessor="D:\ColdFusion9\runtime\lib\wsconfig\jrun_iis6.dll" requireAccess="Script" responseBufferLimit="0" />
+            <add name="AboMapperCustom-690497037" path="*.cfswf" verb="*" modules="IsapiModule" scriptProcessor="D:\ColdFusion9\runtime\lib\wsconfig\jrun_iis6.dll" requireAccess="Script" responseBufferLimit="0" />
+            <add name="AboMapperCustom-690497038" path="*.hbmxml" verb="*" modules="IsapiModule" scriptProcessor="D:\ColdFusion9\runtime\lib\wsconfig\jrun_iis6.dll" requireAccess="Script" responseBufferLimit="0" />
+            <add name="TRACEVerbHandler" path="*" verb="TRACE" modules="ProtocolSupportModule" requireAccess="None" />
+            <add name="OPTIONSVerbHandler" path="*" verb="OPTIONS" modules="ProtocolSupportModule" requireAccess="None" />
+            <add name="StaticFile" path="*" verb="*" modules="StaticFileModule,DefaultDocumentModule,DirectoryListingModule" resourceType="Either" requireAccess="Read" />
+        </handlers>
+        <staticContent>
+            <mimeMap fileExtension=".mp4" mimeType="video/mp4" />
+        </staticContent>
+        <security>
+            <requestFiltering>
+                <requestLimits maxAllowedContentLength="524288000" />
+            </requestFiltering>
+        </security>
+        <tracing>
+            <traceFailedRequests>
+                <add path="*">
+                    <traceAreas>
+                        <add provider="ASP" verbosity="Verbose" />
+                        <add provider="ASPNET" areas="Infrastructure,Module,Page,AppServices" verbosity="Verbose" />
+                        <add provider="ISAPI Extension" verbosity="Verbose" />
+                        <add provider="WWW Server" areas="Authentication,Security,Filter,StaticFile,CGI,Compression,Cache,RequestNotifications,Module,FastCGI" verbosity="Verbose" />
+                    </traceAreas>
+                    <failureDefinitions statusCodes="400-999" />
+                </add>
+            </traceFailedRequests>
+        </tracing>
+        <defaultDocument>
+            <files>
+                <clear />
+                <add value="Default.htm" />
+                <add value="Default.asp" />
+                <add value="index.htm" />
+                <add value="index.html" />
+                <add value="iisstart.htm" />
+                <add value="default.aspx" />
+                <add value="index.cfm" />
+                <add value="index.php" />
+            </files>
+        </defaultDocument>
+		<httpCompression directory="%SystemDrive%\inetpub\temp\IIS Temporary Compressed Files">
+			<scheme name="gzip" dll="%Windir%\system32\inetsrv\gzip.dll" />
+			<dynamicTypes>
+			  <add mimeType="text/*" enabled="true" />
+			  <add mimeType="message/*" enabled="true" />
+			  <add mimeType="application/javascript" enabled="true" />
+			  <add mimeType="*/*" enabled="false" />
+			</dynamicTypes>
+			<staticTypes>
+			  <add mimeType="text/*" enabled="true" />
+			  <add mimeType="message/*" enabled="true" />
+			  <add mimeType="application/javascript" enabled="true" />
+			  <add mimeType="*/*" enabled="false" />
+			</staticTypes>
+		</httpCompression>
+		<urlCompression doStaticCompression="true" />
+        <httpRedirect enabled="false" destination="http://spotlighthometours.com/off-line.html" exactDestination="true" httpResponseStatus="Temporary" />
+    </system.webServer>
+</configuration>

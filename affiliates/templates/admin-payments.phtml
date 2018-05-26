@@ -1,0 +1,103 @@
+on:</p>
+
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0"><thead align="left"><tr><th valign="top" width="NaN%" id="d16e53080"><p>Key</p>
+</th>
+<th valign="top" width="NaN%" id="d16e53083"><p>Type</p>
+</th>
+<th valign="top" width="NaN%" id="d16e53086"><p>Description</p>
+</th>
+</tr>
+</thead>
+<tbody><tr><td valign="top" width="NaN%" headers="d16e53080 "><p>BADKEYS</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e53083 "><p>Struct</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e53086 "><p>A structure of keys with diagnostic messages
+about the indexing of these keys. If there are no bad keys, this key
+does not exist.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d16e53080 "><p>DELETED</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e53083 "><p>Number</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e53086 "><p>The number of keys deleted.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d16e53080 "><p>MESSAGES</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e53083 "><p>Array</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e53086 "><p>An array of diagnostic messages, including
+nonfatal errors and warnings, returned from the Verity K2 Index server.
+If there are no messages, this key does not exist.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d16e53080 "><p>INSERTED</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e53083 "><p>Number</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e53086 "><p>The number of keys inserted into the collection.</p>
+</td>
+</tr>
+<tr><td valign="top" width="NaN%" headers="d16e53080 "><p>UPDATED</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e53083 "><p>Number</p>
+</td>
+<td valign="top" width="NaN%" headers="d16e53086 "><p>The number of keys updated in the collection.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="WSc3ff6d0ea77859461172e0811cbec22c24-7d04__WSc3ff6d0ea77859461172e0811cbec18a66-7fcc"><a name="WSc3ff6d0ea77859461172e0811cbec22c24-7d04__WSc3ff6d0ea77859461172e0811cbec18a66-7fcc"><!-- --></a><h4 class="sectiontitle">Example</h4><pre>&lt;!--- EXAMPLE #1 Index a file, type = "file". ----------------------------&gt; 
+&lt;!--- Example dumps content of status variable (info). -------------------&gt; 
+&lt;cfindex collection="CodeColl"  
+    action="refresh"  
+    type="file" 
+    key="C:\ColdFusion\wwwroot\vw_files\cfindex.htm"  
+    urlpath="http://localhost:8500/vw_files/" 
+    language="English" 
+    title="Cfindex Reference page" 
+    status="info"&gt; 
+ 
+&lt;!--- Search for Attributes. ---&gt; 
+&lt;cfsearch 
+    name = "mySearch" 
+    collection = "CodeColl" 
+    criteria = "Attributes" 
+    contextpassages = "1" 
+    maxrows = "100"&gt; 
+&lt;cfoutput&gt; 
+    key=#mySearch.key#&lt;br /&gt; 
+    title=#mySearch.title#&lt;br /&gt; 
+    context=#mySearch.context#&lt;br /&gt; 
+    url=#mySearch.url#&lt;br /&gt; 
+&lt;/cfoutput&gt; 
+ 
+&lt;cfdump var="#info#"&gt; 
+ 
+&lt;!--- EXAMPLE #2 Index a path (type = "path"). ------------------------------&gt; 
+&lt;cfindex collection="CodeColl"  
+    action="refresh"  
+    type="path" 
+    key="C:\inetpub\wwwroot\vw_files\newspaper\sports"  
+    urlpath="http://localhost/vw_files/newspaper/sports" 
+    extensions = ".htm, .html" 
+    recurse="no" 
+    language="English" 
+    categoryTree="vw_files/newspaper/sports" 
+    category="Giants"&gt; 
+ 
+&lt;!--- Search for any references to criteria. ---&gt; 
+&lt;cfsearch 
+    name = "mySearch" 
+    collection = "CodeColl" 
+    categoryTree="vw_files/newspaper/sports" 
+    category="Giants" 
+    criteria = "Williams"  
+    contextpassages = "1" 
+    maxrows = "100"&gt; 
+&lt;cfoutput&gt; 
+    key=#mySearch.key#&lt;br /&g

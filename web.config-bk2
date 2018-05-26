@@ -1,0 +1,2373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+        <rewrite>
+            <rules>
+                <clear />
+                <rule name="rewrite subdomains" enabled="true">
+                    <match url="(.*)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false">
+                        <add input="{HTTP_HOST}" pattern="^((?!www).+)\.spotlighthometours\.com" />
+                    </conditions>
+                    <action type="Rewrite" url="microsites/index.php?domain={C:1}&amp;uri={R:1}" logRewrittenUrl="true" />
+                </rule>
+                <rule name="Redirect all 404 for /images/" enabled="true">
+                    <match url="^images/(.*)$" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false">
+                        <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+                        <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
+                    </conditions>
+                    <action type="Redirect" url="http://www.spotlighthometours.com/images-g/{R:1}" />
+                </rule>
+                <rule name="Redirect all 404 for /images/tours-g/" enabled="true">
+                    <match url="^images-g/(.*)$" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false">
+                        <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+                        <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
+                    </conditions>
+                    <action type="Redirect" url="http://www.spotlighthometours.com/images-f/{R:1}" />
+                </rule>
+                <rule name="Redirect all 404 for /images/tours-f/" enabled="true">
+                    <match url="^images-f/(.*)$" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false">
+                        <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+                        <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
+                    </conditions>
+                    <action type="Redirect" url="http://s3-us-west-2.amazonaws.com/spotlight-f-images-tours/{R:1}" appendQueryString="true" redirectType="Found" />
+                </rule>
+                <rule name="us">
+                    <match url="^us/([0-9a-z-]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="tours/quick_link.php?tourid={R:1}" />
+                </rule>
+                <rule name="m">
+                    <match url="^m/([0-9a-z-]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="tours/quick_link.php?tourid={R:1}" />
+                </rule>
+                <rule name="lv">
+                    <match url="^lv/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="sms/index_lv.cfm?h={R:1}" />
+                </rule>
+                <rule name="lw">
+                    <match url="^lw/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="sms/index_lw.cfm?h={R:1}" />
+                </rule>
+                <rule name="i">
+                    <match url="^i/([0-9a-z]+)/([0-9a-z]+)/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="sms/index_lv.cfm?u={R:1}&amp;tourid={R:2}&amp;k={R:3}&amp;l=1" />
+                </rule>
+                <rule name="w">
+                    <match url="^w/([0-9a-z]+)/([0-9a-z]+)/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="sms/index_lw.cfm?u={R:1}&amp;tourid={R:2}&amp;k={R:3}&amp;l=1" />
+                </rule>
+                <rule name="i0">
+                    <match url="^i0/([0-9a-z]+)/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="sms/mobile.cfm?u={R:1}&amp;k={R:2}&amp;l=1" />
+                </rule>
+                <rule name="w0">
+                    <match url="^w0/([0-9a-z]+)/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="sms/mobilewf.cfm?u={R:1}&amp;k={R:2}&amp;l=1" />
+                </rule>
+                <rule name="i1">
+                    <match url="^i1/([0-9a-z]+)/([0-9a-z]+)/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="sms/mobile.cfm?u={R:1}&amp;k={R:2}&amp;l=1&amp;type={R:3}" />
+                </rule>
+                <rule name="w1">
+                    <match url="^w1/([0-9a-z]+)/([0-9a-z]+)/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="sms/mobilewf.cfm?u={R:1}&amp;k={R:2}&amp;l=1&amp;type={R:3}" />
+                </rule>
+                <rule name="ld">
+                    <match url="^ld/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="leads/?id={R:1}" />
+                </rule>
+                <rule name="blast">
+                    <match url="^blast/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="/blast/?usrl={R:1}" />
+                </rule>
+                <rule name="alist">
+                    <match url="^alist/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="alistings/?id={R:1}" />
+                </rule>
+                <rule name="lp">
+                    <match url="^lp/([0-9a-z]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="sms/mobilewf.cfm?go=viewDetails&amp;landingpage=true&amp;id={R:1}" />
+                </rule>
+                <rule name="p" stopProcessing="false">
+                    <match url="^p/([0-9a-z-]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="tours/enterKeyword.php?id={R:1}" />
+                </rule>
+                <rule name="p1">
+                    <match url="^p1/([0-9a-z-]+)" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Rewrite" url="tours/tourList.php?id={R:1}" />
+                </rule>
+                <rule name="1441 s ammons street redirect" enabled="true" patternSyntax="ECMAScript" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false">
+                        <add input="{HTTP_HOST}" pattern="1441sammonsstreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1441sammonsstreet.cbrbhome.com/tours/tour.php?&amp;tourid=88715" appendQueryString="false" redirectType="Permanent" />
+                </rule>
+                <rule name="23821 Genesee Village Rd." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="23821geneseevillagerd.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://23821geneseevillagerd.cbrbhome.com/tours/tour.php?tourid=88100" appendQueryString="false" />
+                </rule>
+
+		<rule name="talal rule" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="ttt.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://ttt.cbrbhome.com/tours/tour.php?tourid=88100" appendQueryString="false" />
+                </rule>
+                
+<rule name="2727 Folsom" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2727folsom.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2727folsom.cbrbhome.com/tours/tour.php?tourid=88371" appendQueryString="false" />
+                </rule>
+
+			<rule name="Vail Point Townhomes #32" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="vailpointtownhomes32.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://vailpointtownhomes32.cbrbhome.com/tours/tour.php?tourid=88960" appendQueryString="false" />
+                </rule><rule name="10175 Dusk St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="10175duskst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://10175duskst.cbrbhome.com/tours/tour.php?tourid=86652" appendQueryString="false" />
+                </rule><rule name="6150 S Monroe Dr" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6150smonroedr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6150smonroedr.cbrbhome.com/tours/tour.php?tourid=86712" appendQueryString="false" />
+                </rule><rule name="3515 Castle Peak Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3515castlepeakave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3515castlepeakave.cbrbhome.com/tours/tour.php?tourid=86740" appendQueryString="false" />
+                </rule><rule name="7777 E 23rd Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7777e23rdave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7777e23rdave.cbrbhome.com/tours/tour.php?tourid=86786" appendQueryString="false" />
+                </rule><rule name="4242 S Blackhawk Circle" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4242sblackhawkcircle.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4242sblackhawkcircle.cbrbhome.com/tours/tour.php?tourid=87904" appendQueryString="false" />
+                </rule><rule name="304 12th St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="30412thst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://30412thst.cbrbhome.com/tours/tour.php?tourid=87993" appendQueryString="false" />
+                </rule><rule name="3203 67th Ave Pl." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="320367thavepl.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://320367thavepl.cbrbhome.com/tours/tour.php?tourid=87994" appendQueryString="false" />
+                </rule><rule name="7498 S Alkire St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7498salkirest.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7498salkirest.cbrbhome.com/tours/tour.php?tourid=87928" appendQueryString="false" />
+                </rule><rule name="2666 S Madison St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2666smadisonst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2666smadisonst.cbrbhome.com/tours/tour.php?tourid=87929" appendQueryString="false" />
+                </rule><rule name="12610 W 75th Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="12610w75thave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://12610w75thave.cbrbhome.com/tours/tour.php?tourid=87931" appendQueryString="false" />
+                </rule><rule name="4185 Dunsinane Ct" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4185dunsinanect.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4185dunsinanect.cbrbhome.com/tours/tour.php?tourid=87941" appendQueryString="false" />
+                </rule><rule name="756 Brewery Dr" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="756brewerydr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://756brewerydr.cbrbhome.com/tours/tour.php?tourid=87947" appendQueryString="false" />
+                </rule><rule name="536 Yuma Ct" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="536yumact.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://536yumact.cbrbhome.com/tours/tour.php?tourid=87949" appendQueryString="false" />
+                </rule><rule name="10310 Rowlock Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="10310rowlockway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://10310rowlockway.cbrbhome.com/tours/tour.php?tourid=87950" appendQueryString="false" />
+                </rule><rule name="3423 Sheridan Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3423sheridanave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3423sheridanave.cbrbhome.com/tours/tour.php?tourid=87992" appendQueryString="false" />
+                </rule><rule name="744 Cook St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="744cookst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://744cookst.cbrbhome.com/tours/tour.php?tourid=87995" appendQueryString="false" />
+                </rule><rule name="300 Aspen Ridge Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="300aspenridgedr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://300aspenridgedr.cbrbhome.com/tours/tour.php?tourid=87996" appendQueryString="false" />
+                </rule><rule name="311 Thundering Herd Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="311thunderingherdway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://311thunderingherdway.cbrbhome.com/tours/tour.php?tourid=87998" appendQueryString="false" />
+                </rule><rule name="4721 Arthur Mae Ln." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4721arthurmaeln.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4721arthurmaeln.cbrbhome.com/tours/tour.php?tourid=88002" appendQueryString="false" />
+                </rule><rule name="2934 S. Eaton St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2934seatonst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2934seatonst.cbrbhome.com/tours/tour.php?tourid=88003" appendQueryString="false" />
+                </rule><rule name="1 Bridlegate Ln." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1bridlegateln.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1bridlegateln.cbrbhome.com/tours/tour.php?tourid=88007" appendQueryString="false" />
+                </rule><rule name="5450 S. Niagara Court" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5450sniagaracourt.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5450sniagaracourt.cbrbhome.com/tours/tour.php?tourid=88016" appendQueryString="false" />
+                </rule><rule name="3157 W. Deer Creek Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3157wdeercreekdr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3157wdeercreekdr.cbrbhome.com/tours/tour.php?tourid=88017" appendQueryString="false" />
+                </rule><rule name="727 Rocky Mountain Pl." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="727rockymountainpl.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://727rockymountainpl.cbrbhome.com/tours/tour.php?tourid=88019" appendQueryString="false" />
+                </rule><rule name="3457 Ringsby Court" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3457ringsbycourt.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3457ringsbycourt.cbrbhome.com/tours/tour.php?tourid=88020" appendQueryString="false" />
+                </rule><rule name="140 Park Ave." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="140parkave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://140parkave.cbrbhome.com/tours/tour.php?tourid=88021" appendQueryString="false" />
+                </rule><rule name="5188 Goshawk St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5188goshawkst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5188goshawkst.cbrbhome.com/tours/tour.php?tourid=88023" appendQueryString="false" />
+                </rule><rule name="6618 Holyoke Ct." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6618holyokect.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6618holyokect.cbrbhome.com/tours/tour.php?tourid=88025" appendQueryString="false" />
+                </rule><rule name="1024 E. Lake St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1024elakest.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1024elakest.cbrbhome.com/tours/tour.php?tourid=88026" appendQueryString="false" />
+                </rule><rule name="107 N. Hollywood St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="107nhollywoodst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://107nhollywoodst.cbrbhome.com/tours/tour.php?tourid=88027" appendQueryString="false" />
+                </rule><rule name="3655 W. Eastman Ave." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3655weastmanave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3655weastmanave.cbrbhome.com/tours/tour.php?tourid=88028" appendQueryString="false" />
+                </rule><rule name="5325 S. Ingalls St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5325singallsst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5325singallsst.cbrbhome.com/tours/tour.php?tourid=88029" appendQueryString="false" />
+                </rule><rule name="17539 E. Grand Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="17539egranddr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://17539egranddr.cbrbhome.com/tours/tour.php?tourid=88030" appendQueryString="false" />
+                </rule><rule name="4662 County Rd. 34" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4662countyrd34.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4662countyrd34.cbrbhome.com/tours/tour.php?tourid=88031" appendQueryString="false" />
+                </rule><rule name="4603 Dusty Sage Ct." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4603dustysagect.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4603dustysagect.cbrbhome.com/tours/tour.php?tourid=88032" appendQueryString="false" />
+                </rule><rule name="18501 CR-1" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="18501cr1.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://18501cr1.cbrbhome.com/tours/tour.php?tourid=88033" appendQueryString="false" />
+                </rule><rule name="19883 E. Vassar Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="19883evassarave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://19883evassarave.cbrbhome.com/tours/tour.php?tourid=88034" appendQueryString="false" />
+                </rule><rule name="2086 Navajo Trail" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2086navajotrail.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2086navajotrail.cbrbhome.com/tours/tour.php?tourid=88035" appendQueryString="false" />
+                </rule><rule name="15398 Xenia Ct." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="15398xeniact.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://15398xeniact.cbrbhome.com/tours/tour.php?tourid=88036" appendQueryString="false" />
+                </rule><rule name="8022 W. Ford Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8022wforddr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8022wforddr.cbrbhome.com/tours/tour.php?tourid=88037" appendQueryString="false" />
+                </rule><rule name="21962 E. Crestline Pl." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="21962ecrestlinepl.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://21962ecrestlinepl.cbrbhome.com/tours/tour.php?tourid=88038" appendQueryString="false" />
+                </rule><rule name="965 Rain Lilly Ln." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="965rainlillyln.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://965rainlillyln.cbrbhome.com/tours/tour.php?tourid=88044" appendQueryString="false" />
+                </rule><rule name="9518 Orchard Park Trail" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="9518orchardparktrail.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://9518orchardparktrail.cbrbhome.com/tours/tour.php?tourid=88045" appendQueryString="false" />
+                </rule><rule name="1665 S. Jackson St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1665sjacksonst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1665sjacksonst.cbrbhome.com/tours/tour.php?tourid=88046" appendQueryString="false" />
+                </rule><rule name="7343 N. Windwood Circle" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7343nwindwoodcircle.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7343nwindwoodcircle.cbrbhome.com/tours/tour.php?tourid=88048" appendQueryString="false" />
+                </rule><rule name="4817 Springer Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4817springerdr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4817springerdr.cbrbhome.com/tours/tour.php?tourid=88051" appendQueryString="false" />
+                </rule><rule name="334 30th Ave." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="33430thave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://33430thave.cbrbhome.com/tours/tour.php?tourid=88053" appendQueryString="false" />
+                </rule><rule name="5259 S. Manitou Rd." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5259smanitourd.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5259smanitourd.cbrbhome.com/tours/tour.php?tourid=88054" appendQueryString="false" />
+                </rule><rule name="1327 Poplar St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1327poplarst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1327poplarst.cbrbhome.com/tours/tour.php?tourid=88057" appendQueryString="false" />
+                </rule><rule name="1755 Vine Cliff Heights" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1755vinecliffheights.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1755vinecliffheights.cbrbhome.com/tours/tour.php?tourid=88058" appendQueryString="false" />
+                </rule><rule name="302 Pearl St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="302pearlst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://302pearlst.cbrbhome.com/tours/tour.php?tourid=88059" appendQueryString="false" />
+                </rule><rule name="92 Paradise Valley Pkwy" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="92paradisevalleypkwy.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://92paradisevalleypkwy.cbrbhome.com/tours/tour.php?tourid=88093" appendQueryString="false" />
+                </rule><rule name="892 Mockingbird Ln." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="892mockingbirdln.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://892mockingbirdln.cbrbhome.com/tours/tour.php?tourid=88094" appendQueryString="false" />
+                </rule><rule name="10959 E. Maplewood Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="10959emaplewooddr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://10959emaplewooddr.cbrbhome.com/tours/tour.php?tourid=88095" appendQueryString="false" />
+                </rule><rule name="5936 W. Long Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5936wlongdr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5936wlongdr.cbrbhome.com/tours/tour.php?tourid=88097" appendQueryString="false" />
+                </rule><rule name="7900 W. 64th Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7900w64thave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7900w64thave.cbrbhome.com/tours/tour.php?tourid=88099" appendQueryString="false" />
+                </rule><rule name="665 Manhattan Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="665manhattandr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://665manhattandr.cbrbhome.com/tours/tour.php?tourid=88102" appendQueryString="false" />
+                </rule><rule name="2338 Quartz St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2338quartzst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2338quartzst.cbrbhome.com/tours/tour.php?tourid=88105" appendQueryString="false" />
+                </rule><rule name="2573 S Ensenada Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2573sensenadaway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2573sensenadaway.cbrbhome.com/tours/tour.php?tourid=88106" appendQueryString="false" />
+                </rule><rule name="360 Wellington Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="360wellingtonave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://360wellingtonave.cbrbhome.com/tours/tour.php?tourid=88107" appendQueryString="false" />
+                </rule><rule name="110 Leyden St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="110leydenst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://110leydenst.cbrbhome.com/tours/tour.php?tourid=88110" appendQueryString="false" />
+                </rule><rule name="10179 Lodestone Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="10179lodestoneway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://10179lodestoneway.cbrbhome.com/tours/tour.php?tourid=88112" appendQueryString="false" />
+                </rule><rule name="1678 S Jasmine St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1678sjasminest.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1678sjasminest.cbrbhome.com/tours/tour.php?tourid=88113" appendQueryString="false" />
+                </rule><rule name="10484 S. Colby Canyon Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="10484scolbycanyondr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://10484scolbycanyondr.cbrbhome.com/tours/tour.php?tourid=88117" appendQueryString="false" />
+                </rule><rule name="3685 Deep Haven Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3685deephavendr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3685deephavendr.cbrbhome.com/tours/tour.php?tourid=88119" appendQueryString="false" />
+                </rule><rule name="2 Adams St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2adamsst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2adamsst.cbrbhome.com/tours/tour.php?tourid=88121" appendQueryString="false" />
+                </rule><rule name="7875 Woody Creek Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7875woodycreekdr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7875woodycreekdr.cbrbhome.com/tours/tour.php?tourid=88124" appendQueryString="false" />
+                </rule><rule name="1455 Commanchero Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1455commancherodr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1455commancherodr.cbrbhome.com/tours/tour.php?tourid=88125" appendQueryString="false" />
+                </rule><rule name="4251 Niblick Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4251niblickdr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4251niblickdr.cbrbhome.com/tours/tour.php?tourid=88128" appendQueryString="false" />
+                </rule><rule name="335 S Ridge Rd" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="335sridgerd.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://335sridgerd.cbrbhome.com/tours/tour.php?tourid=88131" appendQueryString="false" />
+                </rule><rule name="8279 Horn Run Rd." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8279hornrunrd.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8279hornrunrd.cbrbhome.com/tours/tour.php?tourid=88133" appendQueryString="false" />
+                </rule><rule name="5451 S Dayton Ct." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5451sdaytonct.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5451sdaytonct.cbrbhome.com/tours/tour.php?tourid=88134" appendQueryString="false" />
+                </rule><rule name="1315 Indian Oaks Pl." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1315indianoakspl.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1315indianoakspl.cbrbhome.com/tours/tour.php?tourid=88135" appendQueryString="false" />
+                </rule><rule name="1424 Bluemoon Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1424bluemoondr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1424bluemoondr.cbrbhome.com/tours/tour.php?tourid=88137" appendQueryString="false" />
+                </rule><rule name="8432 Tibbs Rd." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8432tibbsrd.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8432tibbsrd.cbrbhome.com/tours/tour.php?tourid=88139" appendQueryString="false" />
+                </rule><rule name="1201 Fairfax St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1201fairfaxst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1201fairfaxst.cbrbhome.com/tours/tour.php?tourid=88140" appendQueryString="false" />
+                </rule><rule name="Beas Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="beasdr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://beasdr.cbrbhome.com/tours/tour.php?tourid=88144" appendQueryString="false" />
+                </rule><rule name="E 149th Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="e149thdr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://e149thdr.cbrbhome.com/tours/tour.php?tourid=88145" appendQueryString="false" />
+                </rule><rule name="1117 Woodside Road" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1117woodsideroad.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1117woodsideroad.cbrbhome.com/tours/tour.php?tourid=88174" appendQueryString="false" />
+                </rule><rule name="8159 Stoll Pl." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8159stollpl.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8159stollpl.cbrbhome.com/tours/tour.php?tourid=88181" appendQueryString="false" />
+                </rule><rule name="29 Starling Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="29starlingdr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://29starlingdr.cbrbhome.com/tours/tour.php?tourid=88182" appendQueryString="false" />
+                </rule><rule name="9457 W. 47th Ave." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="9457w47thave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://9457w47thave.cbrbhome.com/tours/tour.php?tourid=88183" appendQueryString="false" />
+                </rule><rule name="4003 Torridon Ln." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4003torridonln.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4003torridonln.cbrbhome.com/tours/tour.php?tourid=88185" appendQueryString="false" />
+                </rule><rule name="575 Blossom Field Rd." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="575blossomfieldrd.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://575blossomfieldrd.cbrbhome.com/tours/tour.php?tourid=88187" appendQueryString="false" />
+                </rule><rule name="4985 Noble Park Pl." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4985nobleparkpl.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4985nobleparkpl.cbrbhome.com/tours/tour.php?tourid=88189" appendQueryString="false" />
+                </rule><rule name="18175 Archers Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="18175archersdr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://18175archersdr.cbrbhome.com/tours/tour.php?tourid=88191" appendQueryString="false" />
+                </rule><rule name="588 Rawlins Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="588rawlinsway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://588rawlinsway.cbrbhome.com/tours/tour.php?tourid=88193" appendQueryString="false" />
+                </rule><rule name="15809 Ouray Road" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="15809ourayroad.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://15809ourayroad.cbrbhome.com/tours/tour.php?tourid=88211" appendQueryString="false" />
+                </rule><rule name="600 Grant Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="600grantstreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://600grantstreet.cbrbhome.com/tours/tour.php?tourid=88216" appendQueryString="false" />
+                </rule><rule name="6124 W Gould Dr" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6124wgoulddr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6124wgoulddr.cbrbhome.com/tours/tour.php?tourid=88220" appendQueryString="false" />
+                </rule><rule name="210 Bear Meadow Trl." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="210bearmeadowtrl.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://210bearmeadowtrl.cbrbhome.com/tours/tour.php?tourid=88234" appendQueryString="false" />
+                </rule><rule name="7321 Gilmore Avenue" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7321gilmoreavenue.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7321gilmoreavenue.cbrbhome.com/tours/tour.php?tourid=88235" appendQueryString="false" />
+                </rule><rule name="2993 Emporia Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2993emporiastreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2993emporiastreet.cbrbhome.com/tours/tour.php?tourid=88236" appendQueryString="false" />
+                </rule><rule name="11678 East Berry Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="11678eastberrydrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://11678eastberrydrive.cbrbhome.com/tours/tour.php?tourid=88280" appendQueryString="false" />
+                </rule><rule name="925 Brittany Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="925brittanyway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://925brittanyway.cbrbhome.com/tours/tour.php?tourid=88288" appendQueryString="false" />
+                </rule><rule name="6509 E Milan Pl" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6509emilanpl.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6509emilanpl.cbrbhome.com/tours/tour.php?tourid=88290" appendQueryString="false" />
+                </rule><rule name="6921 Harvest Road" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6921harvestroad.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6921harvestroad.cbrbhome.com/tours/tour.php?tourid=88344" appendQueryString="false" />
+                </rule><rule name="14365 E Coachman DR" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="14365ecoachmandr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://14365ecoachmandr.cbrbhome.com/tours/tour.php?tourid=88347" appendQueryString="false" />
+                </rule><rule name="2588 E 124th Pl" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2588e124thpl.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2588e124thpl.cbrbhome.com/tours/tour.php?tourid=88348" appendQueryString="false" />
+                </rule><rule name="9353  Weeping Willow Place" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="9353weepingwillowplace.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://9353weepingwillowplace.cbrbhome.com/tours/tour.php?tourid=88349" appendQueryString="false" />
+                </rule><rule name="2310 Country Club Loop" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2310countryclubloop.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2310countryclubloop.cbrbhome.com/tours/tour.php?tourid=88350" appendQueryString="false" />
+                </rule><rule name="47895 Foxwood Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="47895foxwooddrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://47895foxwooddrive.cbrbhome.com/tours/tour.php?tourid=88351" appendQueryString="false" />
+                </rule><rule name="1725 S Pagosa Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1725spagosaway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1725spagosaway.cbrbhome.com/tours/tour.php?tourid=88352" appendQueryString="false" />
+                </rule><rule name="3680 S Elati St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3680selatist.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3680selatist.cbrbhome.com/tours/tour.php?tourid=88353" appendQueryString="false" />
+                </rule><rule name="13071 W 6th Pl" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="13071w6thpl.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://13071w6thpl.cbrbhome.com/tours/tour.php?tourid=88354" appendQueryString="false" />
+                </rule><rule name="1116 W Eisenhower Blvd" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1116weisenhowerblvd.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1116weisenhowerblvd.cbrbhome.com/tours/tour.php?tourid=88355" appendQueryString="false" />
+                </rule><rule name="1523 Stones Peak Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1523stonespeakdrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1523stonespeakdrive.cbrbhome.com/tours/tour.php?tourid=88356" appendQueryString="false" />
+                </rule><rule name="6633 S Prescott Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6633sprescottway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6633sprescottway.cbrbhome.com/tours/tour.php?tourid=88357" appendQueryString="false" />
+                </rule><rule name="7900 W Layton Ave #854" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7900wlaytonave854.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7900wlaytonave854.cbrbhome.com/tours/tour.php?tourid=88358" appendQueryString="false" />
+                </rule><rule name="1000 Timberline Court" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1000timberlinecourt.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1000timberlinecourt.cbrbhome.com/tours/tour.php?tourid=88359" appendQueryString="false" />
+                </rule><rule name="7001 E 6th Avenue Pkwy" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7001e6thavenuepkwy.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7001e6thavenuepkwy.cbrbhome.com/tours/tour.php?tourid=88360" appendQueryString="false" />
+                </rule><rule name="954 Candlestar Loop" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="954candlestarloop.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://954candlestarloop.cbrbhome.com/tours/tour.php?tourid=88361" appendQueryString="false" />
+                </rule><rule name="13095 W Mustang Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="13095wmustangway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://13095wmustangway.cbrbhome.com/tours/tour.php?tourid=88365" appendQueryString="false" />
+                </rule><rule name="5061 S Fox St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5061sfoxst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5061sfoxst.cbrbhome.com/tours/tour.php?tourid=88366" appendQueryString="false" />
+                </rule><rule name="544 Elk Creek Dr" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="544elkcreekdr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://544elkcreekdr.cbrbhome.com/tours/tour.php?tourid=88367" appendQueryString="false" />
+                </rule><rule name="3244 S. Milwaukee St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3244smilwaukeest.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3244smilwaukeest.cbrbhome.com/tours/tour.php?tourid=88368" appendQueryString="false" />
+                </rule><rule name="12636 Linda Vista Dr" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="12636lindavistadr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://12636lindavistadr.cbrbhome.com/tours/tour.php?tourid=88380" appendQueryString="false" />
+                </rule><rule name="929 Utica Dr" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="929uticadr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://929uticadr.cbrbhome.com/tours/tour.php?tourid=88390" appendQueryString="false" />
+                </rule><rule name="9061 Hunters Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="9061huntersway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://9061huntersway.cbrbhome.com/tours/tour.php?tourid=88412" appendQueryString="false" />
+                </rule><rule name="29423 Valley View Road" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="29423valleyviewroad.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://29423valleyviewroad.cbrbhome.com/tours/tour.php?tourid=88416" appendQueryString="false" />
+                </rule><rule name="11069 Mallard Ct" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="11069mallardct.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://11069mallardct.cbrbhome.com/tours/tour.php?tourid=88418" appendQueryString="false" />
+                </rule><rule name="860 Quintana Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="860quintanalane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://860quintanalane.cbrbhome.com/tours/tour.php?tourid=88448" appendQueryString="false" />
+                </rule><rule name="7168 South Little River Court" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7168southlittlerivercourt.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7168southlittlerivercourt.cbrbhome.com/tours/tour.php?tourid=88452" appendQueryString="false" />
+                </rule><rule name="23683 E Eads Dr" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="23683eeadsdr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://23683eeadsdr.cbrbhome.com/tours/tour.php?tourid=88468" appendQueryString="false" />
+                </rule><rule name="2008 Falcon Ridge Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2008falconridgedrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2008falconridgedrive.cbrbhome.com/tours/tour.php?tourid=88471" appendQueryString="false" />
+                </rule><rule name="7400 Sunshine Canyon Dr" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7400sunshinecanyondr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7400sunshinecanyondr.cbrbhome.com/tours/tour.php?tourid=88472" appendQueryString="false" />
+                </rule><rule name="12881 Forest Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="12881forestway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://12881forestway.cbrbhome.com/tours/tour.php?tourid=88473" appendQueryString="false" />
+                </rule><rule name="19534 E Brunswick Dr" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="19534ebrunswickdr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://19534ebrunswickdr.cbrbhome.com/tours/tour.php?tourid=88474" appendQueryString="false" />
+                </rule><rule name="4470 River Run Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4470riverrunlane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4470riverrunlane.cbrbhome.com/tours/tour.php?tourid=88475" appendQueryString="false" />
+                </rule><rule name="2848 Saddleback Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2848saddlebackdrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2848saddlebackdrive.cbrbhome.com/tours/tour.php?tourid=88476" appendQueryString="false" />
+                </rule><rule name="14498 W. 57th Dr" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="14498w57thdr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://14498w57thdr.cbrbhome.com/tours/tour.php?tourid=88477" appendQueryString="false" />
+                </rule><rule name="3075 S Elmira Court" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3075selmiracourt.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3075selmiracourt.cbrbhome.com/tours/tour.php?tourid=88478" appendQueryString="false" />
+                </rule><rule name="605 S Wheeling Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="605swheelingstreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://605swheelingstreet.cbrbhome.com/tours/tour.php?tourid=88479" appendQueryString="false" />
+                </rule><rule name="4 Haystack Row" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4haystackrow.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4haystackrow.cbrbhome.com/tours/tour.php?tourid=88480" appendQueryString="false" />
+                </rule><rule name="3349 Dudley Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3349dudleyway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3349dudleyway.cbrbhome.com/tours/tour.php?tourid=88481" appendQueryString="false" />
+                </rule><rule name="8562 S Lewis Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8562slewisway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8562slewisway.cbrbhome.com/tours/tour.php?tourid=88482" appendQueryString="false" />
+                </rule><rule name="23398 Fescue Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="23398fescuedrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://23398fescuedrive.cbrbhome.com/tours/tour.php?tourid=88484" appendQueryString="false" />
+                </rule><rule name="3185 E. Yarrow Circle" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3185eyarrowcircle.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3185eyarrowcircle.cbrbhome.com/tours/tour.php?tourid=88492" appendQueryString="false" />
+                </rule><rule name="9149 E. Mansfield Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="9149emansfieldave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://9149emansfieldave.cbrbhome.com/tours/tour.php?tourid=88493" appendQueryString="false" />
+                </rule><rule name="923 S Corona St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="923scoronast.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://923scoronast.cbrbhome.com/tours/tour.php?tourid=88494" appendQueryString="false" />
+                </rule><rule name="1425 S. Depew Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1425sdepewstreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1425sdepewstreet.cbrbhome.com/tours/tour.php?tourid=88495" appendQueryString="false" />
+                </rule><rule name="10879 Glengate Circle" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="10879glengatecircle.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://10879glengatecircle.cbrbhome.com/tours/tour.php?tourid=88496" appendQueryString="false" />
+                </rule><rule name="1354 Catalpa Place" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1354catalpaplace.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1354catalpaplace.cbrbhome.com/tours/tour.php?tourid=88497" appendQueryString="false" />
+                </rule><rule name="7791 Niagara St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7791niagarast.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7791niagarast.cbrbhome.com/tours/tour.php?tourid=88498" appendQueryString="false" />
+                </rule><rule name="4141 West 89th Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4141west89thway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4141west89thway.cbrbhome.com/tours/tour.php?tourid=88499" appendQueryString="false" />
+                </rule><rule name="25581 E. 2nd Place" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="25581e2ndplace.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://25581e2ndplace.cbrbhome.com/tours/tour.php?tourid=88500" appendQueryString="false" />
+                </rule><rule name="21554 E Stroll Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="21554estrollave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://21554estrollave.cbrbhome.com/tours/tour.php?tourid=88502" appendQueryString="false" />
+                </rule><rule name="357 N Irvington St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="357nirvingtonst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://357nirvingtonst.cbrbhome.com/tours/tour.php?tourid=88504" appendQueryString="false" />
+                </rule><rule name="3850 n jackson st" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3850njacksonst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3850njacksonst.cbrbhome.com/tours/tour.php?tourid=88507" appendQueryString="false" />
+                </rule><rule name="1433 N Williams St #200" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1433nwilliamsst200.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1433nwilliamsst200.cbrbhome.com/tours/tour.php?tourid=88509" appendQueryString="false" />
+                </rule><rule name="173 Lodge Pole Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="173lodgepoleway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://173lodgepoleway.cbrbhome.com/tours/tour.php?tourid=88511" appendQueryString="false" />
+                </rule><rule name="904 East Fieldstone Place" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="904eastfieldstoneplace.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://904eastfieldstoneplace.cbrbhome.com/tours/tour.php?tourid=88516" appendQueryString="false" />
+                </rule><rule name="831 Confidence Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="831confidencedr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://831confidencedr.cbrbhome.com/tours/tour.php?tourid=88519" appendQueryString="false" />
+                </rule><rule name="13435 Marion St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="13435marionst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://13435marionst.cbrbhome.com/tours/tour.php?tourid=88542" appendQueryString="false" />
+                </rule><rule name="11230 W 102nd Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="11230w102ndave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://11230w102ndave.cbrbhome.com/tours/tour.php?tourid=88543" appendQueryString="false" />
+                </rule><rule name="7697 Bonterra LN" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7697bonterraln.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7697bonterraln.cbrbhome.com/tours/tour.php?tourid=88544" appendQueryString="false" />
+                </rule><rule name="929 S Alkire St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="929salkirest.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://929salkirest.cbrbhome.com/tours/tour.php?tourid=88545" appendQueryString="false" />
+                </rule><rule name="9637 W Chatfield Ave #E" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="9637wchatfieldavee.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://9637wchatfieldavee.cbrbhome.com/tours/tour.php?tourid=88546" appendQueryString="false" />
+                </rule><rule name="37 Becerro Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="37becerrodrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://37becerrodrive.cbrbhome.com/tours/tour.php?tourid=88547" appendQueryString="false" />
+                </rule><rule name="8832 E. 148TH LANE" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8832e148thlane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8832e148thlane.cbrbhome.com/tours/tour.php?tourid=88548" appendQueryString="false" />
+                </rule><rule name="7550 E 123rd Avenue" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7550e123rdavenue.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7550e123rdavenue.cbrbhome.com/tours/tour.php?tourid=88549" appendQueryString="false" />
+                </rule><rule name="25997 E Frost Circle" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="25997efrostcircle.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://25997efrostcircle.cbrbhome.com/tours/tour.php?tourid=88550" appendQueryString="false" />
+                </rule><rule name="8309 Pebble Creek Way #103" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8309pebblecreekway103.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8309pebblecreekway103.cbrbhome.com/tours/tour.php?tourid=88551" appendQueryString="false" />
+                </rule><rule name="17525 Wilde Ave #307" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="17525wildeave307.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://17525wildeave307.cbrbhome.com/tours/tour.php?tourid=88552" appendQueryString="false" />
+                </rule><rule name="1559 Kerr Gulch Rd." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1559kerrgulchrd.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1559kerrgulchrd.cbrbhome.com/tours/tour.php?tourid=88553" appendQueryString="false" />
+                </rule><rule name="1515 E. 9th Avenue U-214" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1515e9thavenueu214.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1515e9thavenueu214.cbrbhome.com/tours/tour.php?tourid=88554" appendQueryString="false" />
+                </rule><rule name="8484 Roaring Fork Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8484roaringforkdrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8484roaringforkdrive.cbrbhome.com/tours/tour.php?tourid=88555" appendQueryString="false" />
+                </rule><rule name="2434 Calais Dr B" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2434calaisdrb.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2434calaisdrb.cbrbhome.com/tours/tour.php?tourid=88556" appendQueryString="false" />
+                </rule><rule name="2813 Alton Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2813altonstreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2813altonstreet.cbrbhome.com/tours/tour.php?tourid=88557" appendQueryString="false" />
+                </rule><rule name="8908 W Dartmouth Place" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8908wdartmouthplace.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8908wdartmouthplace.cbrbhome.com/tours/tour.php?tourid=88558" appendQueryString="false" />
+                </rule><rule name="4484 Echo Cliff Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4484echoclifflane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4484echoclifflane.cbrbhome.com/tours/tour.php?tourid=88569" appendQueryString="false" />
+                </rule><rule name="7825 Nelson St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7825nelsonst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7825nelsonst.cbrbhome.com/tours/tour.php?tourid=88570" appendQueryString="false" />
+                </rule><rule name="212 McAfee Circle" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="212mcafeecircle.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://212mcafeecircle.cbrbhome.com/tours/tour.php?tourid=88571" appendQueryString="false" />
+                </rule><rule name="5156 Rialto Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5156rialtodrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5156rialtodrive.cbrbhome.com/tours/tour.php?tourid=88574" appendQueryString="false" />
+                </rule><rule name="12230 S Red Sky Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="12230sredskydrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://12230sredskydrive.cbrbhome.com/tours/tour.php?tourid=88575" appendQueryString="false" />
+                </rule><rule name="1771 Crestview Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1771crestviewlane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1771crestviewlane.cbrbhome.com/tours/tour.php?tourid=88576" appendQueryString="false" />
+                </rule><rule name="29115 Summit Ranch Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="29115summitranchdr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://29115summitranchdr.cbrbhome.com/tours/tour.php?tourid=88577" appendQueryString="false" />
+                </rule><rule name="334 Prospect Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="334prospectdrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://334prospectdrive.cbrbhome.com/tours/tour.php?tourid=88578" appendQueryString="false" />
+                </rule><rule name="1987 Weiler Road" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1987weilerroad.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1987weilerroad.cbrbhome.com/tours/tour.php?tourid=88579" appendQueryString="false" />
+                </rule><rule name="29482 Camelback Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="29482camelbacklane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://29482camelbacklane.cbrbhome.com/tours/tour.php?tourid=88580" appendQueryString="false" />
+                </rule><rule name="17036 Opal Hill Dr" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="17036opalhilldr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://17036opalhilldr.cbrbhome.com/tours/tour.php?tourid=88581" appendQueryString="false" />
+                </rule><rule name="6691 Saint Vrain Rd" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6691saintvrainrd.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6691saintvrainrd.cbrbhome.com/tours/tour.php?tourid=88582" appendQueryString="false" />
+                </rule><rule name="6871 Knox Court" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6871knoxcourt.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6871knoxcourt.cbrbhome.com/tours/tour.php?tourid=88583" appendQueryString="false" />
+                </rule><rule name="23360 E Berry Avenue" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="23360eberryavenue.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://23360eberryavenue.cbrbhome.com/tours/tour.php?tourid=88586" appendQueryString="false" />
+                </rule><rule name="532 Milwaukee St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="532milwaukeest.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://532milwaukeest.cbrbhome.com/tours/tour.php?tourid=88587" appendQueryString="false" />
+                </rule><rule name="820 Elgin Ct" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="820elginct.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://820elginct.cbrbhome.com/tours/tour.php?tourid=88589" appendQueryString="false" />
+                </rule><rule name="1001 Strachan" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1001strachan.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1001strachan.cbrbhome.com/tours/tour.php?tourid=88591" appendQueryString="false" />
+                </rule><rule name="2908 Bassick St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2908bassickst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2908bassickst.cbrbhome.com/tours/tour.php?tourid=88592" appendQueryString="false" />
+                </rule><rule name="10829 W 59th Place" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="10829w59thplace.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://10829w59thplace.cbrbhome.com/tours/tour.php?tourid=88593" appendQueryString="false" />
+                </rule><rule name="5336 Hickory Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5336hickoryave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5336hickoryave.cbrbhome.com/tours/tour.php?tourid=88595" appendQueryString="false" />
+                </rule><rule name="29528 Blue Moon Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="29528bluemoondrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://29528bluemoondrive.cbrbhome.com/tours/tour.php?tourid=88597" appendQueryString="false" />
+                </rule><rule name="8206 Silver Glen" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8206silverglen.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8206silverglen.cbrbhome.com/tours/tour.php?tourid=88598" appendQueryString="false" />
+                </rule><rule name="21443 E 55th Pl" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="21443e55thpl.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://21443e55thpl.cbrbhome.com/tours/tour.php?tourid=88599" appendQueryString="false" />
+                </rule><rule name="11343 Quivas Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="11343quivasway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://11343quivasway.cbrbhome.com/tours/tour.php?tourid=88600" appendQueryString="false" />
+                </rule><rule name="2079 Krameria Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2079krameriastreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2079krameriastreet.cbrbhome.com/tours/tour.php?tourid=88648" appendQueryString="false" />
+                </rule><rule name="7971 S Elati Circle" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7971selaticircle.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7971selaticircle.cbrbhome.com/tours/tour.php?tourid=88653" appendQueryString="false" />
+                </rule><rule name="24 Shetland Court" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="24shetlandcourt.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://24shetlandcourt.cbrbhome.com/tours/tour.php?tourid=88656" appendQueryString="false" />
+                </rule><rule name="7955 Pine Cone Rd" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7955pineconerd.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7955pineconerd.cbrbhome.com/tours/tour.php?tourid=88657" appendQueryString="false" />
+                </rule><rule name="29405 Kennedy Gulch Rd" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="29405kennedygulchrd.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://29405kennedygulchrd.cbrbhome.com/tours/tour.php?tourid=88658" appendQueryString="false" />
+                </rule><rule name="9496 E 4th Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="9496e4thave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://9496e4thave.cbrbhome.com/tours/tour.php?tourid=88665" appendQueryString="false" />
+                </rule><rule name="3574 Forest St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3574forestst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3574forestst.cbrbhome.com/tours/tour.php?tourid=88667" appendQueryString="false" />
+                </rule><rule name="1275 S. Corona Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1275scoronastreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1275scoronastreet.cbrbhome.com/tours/tour.php?tourid=88668" appendQueryString="false" />
+                </rule><rule name="8352 E 29th Place" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8352e29thplace.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8352e29thplace.cbrbhome.com/tours/tour.php?tourid=88670" appendQueryString="false" />
+                </rule><rule name="1055 Spruce Ridge Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1055spruceridgelane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1055spruceridgelane.cbrbhome.com/tours/tour.php?tourid=88681" appendQueryString="false" />
+                </rule><rule name="2499 Sagebrush St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2499sagebrushst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2499sagebrushst.cbrbhome.com/tours/tour.php?tourid=88705" appendQueryString="false" />
+                </rule><rule name="1011 W. Mountain Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1011wmountainave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1011wmountainave.cbrbhome.com/tours/tour.php?tourid=88706" appendQueryString="false" />
+                </rule><rule name="6240 East 122nd Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6240east122nddrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6240east122nddrive.cbrbhome.com/tours/tour.php?tourid=88707" appendQueryString="false" />
+                </rule><rule name="2448 Pine Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2448pinestreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2448pinestreet.cbrbhome.com/tours/tour.php?tourid=88710" appendQueryString="false" />
+                </rule><rule name="310 S 22nd Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="310s22ndave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://310s22ndave.cbrbhome.com/tours/tour.php?tourid=88711" appendQueryString="false" />
+                </rule><rule name="1024 Sagebrush Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1024sagebrushway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1024sagebrushway.cbrbhome.com/tours/tour.php?tourid=88712" appendQueryString="false" />
+                </rule><rule name="21837 E Alamo Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="21837ealamolane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://21837ealamolane.cbrbhome.com/tours/tour.php?tourid=88713" appendQueryString="false" />
+                </rule><rule name="12520 W Virginia Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="12520wvirginiaave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://12520wvirginiaave.cbrbhome.com/tours/tour.php?tourid=88714" appendQueryString="false" />
+                </rule><rule name="9300 E. FLORIDA AVENUE #1401" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="9300efloridaavenue1401.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://9300efloridaavenue1401.cbrbhome.com/tours/tour.php?tourid=88716" appendQueryString="false" />
+                </rule><rule name="28505 Tepees Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="28505tepeesway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://28505tepeesway.cbrbhome.com/tours/tour.php?tourid=88717" appendQueryString="false" />
+                </rule><rule name="32929 Inverness Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="32929invernessdrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://32929invernessdrive.cbrbhome.com/tours/tour.php?tourid=88718" appendQueryString="false" />
+                </rule><rule name="3111 Thundering Herd Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3111thunderingherdway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3111thunderingherdway.cbrbhome.com/tours/tour.php?tourid=88719" appendQueryString="false" />
+                </rule><rule name="562 Clarendon Loop" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="562clarendonloop.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://562clarendonloop.cbrbhome.com/tours/tour.php?tourid=88730" appendQueryString="false" />
+                </rule><rule name="12822 Bellaire St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="12822bellairest.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://12822bellairest.cbrbhome.com/tours/tour.php?tourid=88763" appendQueryString="false" />
+                </rule><rule name="1424 Clarkson Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1424clarksonstreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1424clarksonstreet.cbrbhome.com/tours/tour.php?tourid=88764" appendQueryString="false" />
+                </rule><rule name="1570 Spruce Mountain Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1570sprucemountaindrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1570sprucemountaindrive.cbrbhome.com/tours/tour.php?tourid=88765" appendQueryString="false" />
+                </rule><rule name="16062 E Tall Timber Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="16062etalltimberlane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://16062etalltimberlane.cbrbhome.com/tours/tour.php?tourid=88766" appendQueryString="false" />
+                </rule><rule name="166 Red Lily Place" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="166redlilyplace.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://166redlilyplace.cbrbhome.com/tours/tour.php?tourid=88768" appendQueryString="false" />
+                </rule><rule name="17712 E. Grand Ave." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="17712egrandave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://17712egrandave.cbrbhome.com/tours/tour.php?tourid=88770" appendQueryString="false" />
+                </rule><rule name="1856 S. Columbine St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1856scolumbinest.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1856scolumbinest.cbrbhome.com/tours/tour.php?tourid=88771" appendQueryString="false" />
+                </rule><rule name="883 N Pulpit Rock" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="883npulpitrock.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://883npulpitrock.cbrbhome.com/tours/tour.php?tourid=88772" appendQueryString="false" />
+                </rule><rule name="2007 Hibbard Ln" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2007hibbardln.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2007hibbardln.cbrbhome.com/tours/tour.php?tourid=88775" appendQueryString="false" />
+                </rule><rule name="7202 E. Davies Place" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7202edaviesplace.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7202edaviesplace.cbrbhome.com/tours/tour.php?tourid=88776" appendQueryString="false" />
+                </rule><rule name="5392 Spur Cross Trail" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5392spurcrosstrail.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5392spurcrosstrail.cbrbhome.com/tours/tour.php?tourid=88777" appendQueryString="false" />
+                </rule><rule name="1885 S. Eudora Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1885seudorastreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1885seudorastreet.cbrbhome.com/tours/tour.php?tourid=88780" appendQueryString="false" />
+                </rule><rule name="20447 E. Dartmouth Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="20447edartmouthdrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://20447edartmouthdrive.cbrbhome.com/tours/tour.php?tourid=88781" appendQueryString="false" />
+                </rule><rule name="2640 S Josephine ST" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2640sjosephinest.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2640sjosephinest.cbrbhome.com/tours/tour.php?tourid=88782" appendQueryString="false" />
+                </rule><rule name="2878 Havana Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2878havanastreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2878havanastreet.cbrbhome.com/tours/tour.php?tourid=88783" appendQueryString="false" />
+                </rule><rule name="3082 S Gilpin Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3082sgilpinstreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3082sgilpinstreet.cbrbhome.com/tours/tour.php?tourid=88784" appendQueryString="false" />
+                </rule><rule name="3095 S. CLERMONT DRIVE" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3095sclermontdrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3095sclermontdrive.cbrbhome.com/tours/tour.php?tourid=88785" appendQueryString="false" />
+                </rule><rule name="3823 S Fraser Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3823sfraserstreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3823sfraserstreet.cbrbhome.com/tours/tour.php?tourid=88786" appendQueryString="false" />
+                </rule><rule name="418 Wood Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="418woodstreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://418woodstreet.cbrbhome.com/tours/tour.php?tourid=88787" appendQueryString="false" />
+                </rule><rule name="4217 S Richfield Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4217srichfieldway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4217srichfieldway.cbrbhome.com/tours/tour.php?tourid=88788" appendQueryString="false" />
+                </rule><rule name="4631 Chestnut Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4631chestnutlane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4631chestnutlane.cbrbhome.com/tours/tour.php?tourid=88789" appendQueryString="false" />
+                </rule><rule name="5155 Zuni St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5155zunist.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5155zunist.cbrbhome.com/tours/tour.php?tourid=88791" appendQueryString="false" />
+                </rule><rule name="5260 E 120th Place" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5260e120thplace.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5260e120thplace.cbrbhome.com/tours/tour.php?tourid=88792" appendQueryString="false" />
+                </rule><rule name="5581 S Yakima St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5581syakimast.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5581syakimast.cbrbhome.com/tours/tour.php?tourid=88793" appendQueryString="false" />
+                </rule><rule name="6038 S. Kenton St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6038skentonst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6038skentonst.cbrbhome.com/tours/tour.php?tourid=88794" appendQueryString="false" />
+                </rule><rule name="6485 Olympus Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6485olympusdr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6485olympusdr.cbrbhome.com/tours/tour.php?tourid=88795" appendQueryString="false" />
+                </rule><rule name="6586 S Brentwood Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6586sbrentwoodway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6586sbrentwoodway.cbrbhome.com/tours/tour.php?tourid=88796" appendQueryString="false" />
+                </rule><rule name="7333 S Xenia Cir" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7333sxeniacir.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7333sxeniacir.cbrbhome.com/tours/tour.php?tourid=88798" appendQueryString="false" />
+                </rule><rule name="781 Snowbird Ln" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="781snowbirdln.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://781snowbirdln.cbrbhome.com/tours/tour.php?tourid=88799" appendQueryString="false" />
+                </rule><rule name="8225 Fairmount Drive #3-207" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8225fairmountdrive3207.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8225fairmountdrive3207.cbrbhome.com/tours/tour.php?tourid=88801" appendQueryString="false" />
+                </rule><rule name="9729 Canberra Dr" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="9729canberradr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://9729canberradr.cbrbhome.com/tours/tour.php?tourid=88803" appendQueryString="false" />
+                </rule><rule name="110 Latigo Circle" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="110latigocircle.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://110latigocircle.cbrbhome.com/tours/tour.php?tourid=88808" appendQueryString="false" />
+                </rule><rule name="12835 Rockbridge Cir" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="12835rockbridgecir.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://12835rockbridgecir.cbrbhome.com/tours/tour.php?tourid=88809" appendQueryString="false" />
+                </rule><rule name="27395 Mountain Park Rd" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="27395mountainparkrd.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://27395mountainparkrd.cbrbhome.com/tours/tour.php?tourid=88811" appendQueryString="false" />
+                </rule><rule name="445 Apple Ct." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="445applect.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://445applect.cbrbhome.com/tours/tour.php?tourid=88812" appendQueryString="false" />
+                </rule><rule name="4725 Old Farm Circle W" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4725oldfarmcirclew.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4725oldfarmcirclew.cbrbhome.com/tours/tour.php?tourid=88814" appendQueryString="false" />
+                </rule><rule name="8644 E 148th Avenue" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8644e148thavenue.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8644e148thavenue.cbrbhome.com/tours/tour.php?tourid=88815" appendQueryString="false" />
+                </rule><rule name="7710 E 123rd Avenue" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7710e123rdavenue.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7710e123rdavenue.cbrbhome.com/tours/tour.php?tourid=88857" appendQueryString="false" />
+                </rule><rule name="3033 Galena Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3033galenastreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3033galenastreet.cbrbhome.com/tours/tour.php?tourid=88858" appendQueryString="false" />
+                </rule><rule name="11679 Clayton St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="11679claytonst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://11679claytonst.cbrbhome.com/tours/tour.php?tourid=88862" appendQueryString="false" />
+                </rule><rule name="11856 W 37th Place" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="11856w37thplace.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://11856w37thplace.cbrbhome.com/tours/tour.php?tourid=88863" appendQueryString="false" />
+                </rule><rule name="1321 S Magnolia Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1321smagnoliaway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1321smagnoliaway.cbrbhome.com/tours/tour.php?tourid=88864" appendQueryString="false" />
+                </rule><rule name="14483 E Wagontrail Place" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="14483ewagontrailplace.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://14483ewagontrailplace.cbrbhome.com/tours/tour.php?tourid=88866" appendQueryString="false" />
+                </rule><rule name="15554 E. Prentice Ln" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="15554eprenticeln.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://15554eprenticeln.cbrbhome.com/tours/tour.php?tourid=88869" appendQueryString="false" />
+                </rule><rule name="1614 Venice Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1614venicelane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1614venicelane.cbrbhome.com/tours/tour.php?tourid=88870" appendQueryString="false" />
+                </rule><rule name="1792 Crestview Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1792crestviewlane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1792crestviewlane.cbrbhome.com/tours/tour.php?tourid=88872" appendQueryString="false" />
+                </rule><rule name="18550 E Harvard Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="18550eharvarddrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://18550eharvarddrive.cbrbhome.com/tours/tour.php?tourid=88873" appendQueryString="false" />
+                </rule><rule name="21901 Rinconada Rd." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="21901rinconadard.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://21901rinconadard.cbrbhome.com/tours/tour.php?tourid=88875" appendQueryString="false" />
+                </rule><rule name="23770 Peak to Peak Hwy" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="23770peaktopeakhwy.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://23770peaktopeakhwy.cbrbhome.com/tours/tour.php?tourid=88876" appendQueryString="false" />
+                </rule><rule name="26060 E Phillips Pl" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="26060ephillipspl.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://26060ephillipspl.cbrbhome.com/tours/tour.php?tourid=88878" appendQueryString="false" />
+                </rule><rule name="2963 Windridge Circle" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2963windridgecircle.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2963windridgecircle.cbrbhome.com/tours/tour.php?tourid=88880" appendQueryString="false" />
+                </rule><rule name="3247 Hawthorne Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3247hawthornelane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3247hawthornelane.cbrbhome.com/tours/tour.php?tourid=88881" appendQueryString="false" />
+                </rule><rule name="3265 El Charro Point" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3265elcharropoint.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3265elcharropoint.cbrbhome.com/tours/tour.php?tourid=88882" appendQueryString="false" />
+                </rule><rule name="3450 Lost Lake Pl G-4" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3450lostlakeplg4.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3450lostlakeplg4.cbrbhome.com/tours/tour.php?tourid=88883" appendQueryString="false" />
+                </rule><rule name="6075 Passing Sky Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6075passingskydrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6075passingskydrive.cbrbhome.com/tours/tour.php?tourid=88885" appendQueryString="false" />
+                </rule><rule name="6089 Buttermere Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6089buttermeredrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6089buttermeredrive.cbrbhome.com/tours/tour.php?tourid=88887" appendQueryString="false" />
+                </rule><rule name="624 S Williams St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="624swilliamsst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://624swilliamsst.cbrbhome.com/tours/tour.php?tourid=88888" appendQueryString="false" />
+                </rule><rule name="7255 Abilene Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7255abilenedrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7255abilenedrive.cbrbhome.com/tours/tour.php?tourid=88889" appendQueryString="false" />
+                </rule><rule name="7428 South Alkire Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7428southalkirestreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7428southalkirestreet.cbrbhome.com/tours/tour.php?tourid=88890" appendQueryString="false" />
+                </rule><rule name="7720 W 87th Dr #D" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7720w87thdrd.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7720w87thdrd.cbrbhome.com/tours/tour.php?tourid=88892" appendQueryString="false" />
+                </rule><rule name="7928 Red Hill Road" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7928redhillroad.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7928redhillroad.cbrbhome.com/tours/tour.php?tourid=88893" appendQueryString="false" />
+                </rule><rule name="830 Toedtli Dr" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="830toedtlidr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://830toedtlidr.cbrbhome.com/tours/tour.php?tourid=88894" appendQueryString="false" />
+                </rule><rule name="9328 Pony Gulch Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="9328ponygulchway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://9328ponygulchway.cbrbhome.com/tours/tour.php?tourid=88895" appendQueryString="false" />
+                </rule><rule name="1418 Red Oak Court" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1418redoakcourt.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1418redoakcourt.cbrbhome.com/tours/tour.php?tourid=88914" appendQueryString="false" />
+                </rule><rule name="24133 E Florida Avenue" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="24133efloridaavenue.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://24133efloridaavenue.cbrbhome.com/tours/tour.php?tourid=88922" appendQueryString="false" />
+                </rule><rule name="16528 Prospect Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="16528prospectlane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://16528prospectlane.cbrbhome.com/tours/tour.php?tourid=88928" appendQueryString="false" />
+                </rule><rule name="209 Mulligan Lake Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="209mulliganlakedrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://209mulliganlakedrive.cbrbhome.com/tours/tour.php?tourid=88929" appendQueryString="false" />
+                </rule><rule name="7484 W Saratoga Pl" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7484wsaratogapl.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7484wsaratogapl.cbrbhome.com/tours/tour.php?tourid=88944" appendQueryString="false" />
+                </rule><rule name="6084 Zang Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6084zangway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6084zangway.cbrbhome.com/tours/tour.php?tourid=88990" appendQueryString="false" />
+                </rule><rule name="8301 E. Arizona Pl." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8301earizonapl.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8301earizonapl.cbrbhome.com/tours/tour.php?tourid=88991" appendQueryString="false" />
+                </rule><rule name="231 E. 3rd Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="231e3rdstreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://231e3rdstreet.cbrbhome.com/tours/tour.php?tourid=89038" appendQueryString="false" />
+                </rule><rule name="922 Laramie Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="922laramielane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://922laramielane.cbrbhome.com/tours/tour.php?tourid=89042" appendQueryString="false" />
+                </rule><rule name="918 Daffodil St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="918daffodilst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://918daffodilst.cbrbhome.com/tours/tour.php?tourid=89043" appendQueryString="false" />
+                </rule><rule name="1727 20th Avenue" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="172720thavenue.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://172720thavenue.cbrbhome.com/tours/tour.php?tourid=89044" appendQueryString="false" />
+                </rule><rule name="8852 E. 148TH LANE" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8852e148thlane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8852e148thlane.cbrbhome.com/tours/tour.php?tourid=89045" appendQueryString="false" />
+                </rule><rule name="5436 Butterfield DR" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5436butterfielddr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5436butterfielddr.cbrbhome.com/tours/tour.php?tourid=89046" appendQueryString="false" />
+                </rule><rule name="7180 Omaha Bl" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7180omahabl.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7180omahabl.cbrbhome.com/tours/tour.php?tourid=89047" appendQueryString="false" />
+                </rule><rule name="4912 Brookside Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4912brooksidedrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4912brooksidedrive.cbrbhome.com/tours/tour.php?tourid=89048" appendQueryString="false" />
+                </rule><rule name="30549 Monarch Ct." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="30549monarchct.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://30549monarchct.cbrbhome.com/tours/tour.php?tourid=89049" appendQueryString="false" />
+                </rule><rule name="6926 Big Timber Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6926bigtimberdrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6926bigtimberdrive.cbrbhome.com/tours/tour.php?tourid=89050" appendQueryString="false" />
+                </rule><rule name="4713 S Kipling Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4713skiplingway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4713skiplingway.cbrbhome.com/tours/tour.php?tourid=89052" appendQueryString="false" />
+                </rule><rule name="6015 South Taft Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6015southtaftway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6015southtaftway.cbrbhome.com/tours/tour.php?tourid=89053" appendQueryString="false" />
+                </rule><rule name="2916 Breezy Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2916breezylane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2916breezylane.cbrbhome.com/tours/tour.php?tourid=89062" appendQueryString="false" />
+                </rule><rule name="1175 S. Rifle Cir" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1175sriflecir.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1175sriflecir.cbrbhome.com/tours/tour.php?tourid=89063" appendQueryString="false" />
+                </rule><rule name="2407 E. 110th Dr" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2407e110thdr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2407e110thdr.cbrbhome.com/tours/tour.php?tourid=89064" appendQueryString="false" />
+                </rule><rule name="4946 Eugene Ct" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4946eugenect.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4946eugenect.cbrbhome.com/tours/tour.php?tourid=89065" appendQueryString="false" />
+                </rule><rule name="14805 Maxwell Pl" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="14805maxwellpl.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://14805maxwellpl.cbrbhome.com/tours/tour.php?tourid=89066" appendQueryString="false" />
+                </rule><rule name="7883 Red Fox Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7883redfoxdrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7883redfoxdrive.cbrbhome.com/tours/tour.php?tourid=89067" appendQueryString="false" />
+                </rule><rule name="10563 Serengeti Dr" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="10563serengetidr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://10563serengetidr.cbrbhome.com/tours/tour.php?tourid=89068" appendQueryString="false" />
+                </rule><rule name="5169 Dover Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5169doverstreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5169doverstreet.cbrbhome.com/tours/tour.php?tourid=89069" appendQueryString="false" />
+                </rule><rule name="414 Monaco Pkwy" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="414monacopkwy.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://414monacopkwy.cbrbhome.com/tours/tour.php?tourid=89070" appendQueryString="false" />
+                </rule><rule name="8935 W. 68th Avenue" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8935w68thavenue.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8935w68thavenue.cbrbhome.com/tours/tour.php?tourid=89071" appendQueryString="false" />
+                </rule><rule name="6634 W Cornell Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6634wcornellave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6634wcornellave.cbrbhome.com/tours/tour.php?tourid=89072" appendQueryString="false" />
+                </rule><rule name="7091 Fox Circle" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7091foxcircle.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7091foxcircle.cbrbhome.com/tours/tour.php?tourid=89073" appendQueryString="false" />
+                </rule><rule name="22114 Pensive Court" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="22114pensivecourt.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://22114pensivecourt.cbrbhome.com/tours/tour.php?tourid=89086" appendQueryString="false" />
+                </rule><rule name="7925 South Coolidge Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7925southcoolidgeway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7925southcoolidgeway.cbrbhome.com/tours/tour.php?tourid=89099" appendQueryString="false" />
+                </rule><rule name="701 Skyline Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="701skylinedrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://701skylinedrive.cbrbhome.com/tours/tour.php?tourid=89124" appendQueryString="false" />
+                </rule><rule name="17563 W 60th Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="17563w60thlane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://17563w60thlane.cbrbhome.com/tours/tour.php?tourid=89125" appendQueryString="false" />
+                </rule><rule name="9300 E Center Ave #11C, Denver, CO 80247" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="9300ecenterave11cdenverco80247.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://9300ecenterave11cdenverco80247.cbrbhome.com/tours/tour.php?tourid=89126" appendQueryString="false" />
+                </rule><rule name="17600 E Arapahoe Rd" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="17600earapahoerd.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://17600earapahoerd.cbrbhome.com/tours/tour.php?tourid=89127" appendQueryString="false" />
+                </rule><rule name="5052 South Xenia St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5052southxeniast.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5052southxeniast.cbrbhome.com/tours/tour.php?tourid=89129" appendQueryString="false" />
+                </rule><rule name="8304 S. Upham Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8304suphamway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8304suphamway.cbrbhome.com/tours/tour.php?tourid=89154" appendQueryString="false" />
+                </rule><rule name="16411 E. Hollow Horn Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="16411ehollowhornave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://16411ehollowhornave.cbrbhome.com/tours/tour.php?tourid=89170" appendQueryString="false" />
+                </rule><rule name="10436 Black Forest Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="10436blackforestdrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://10436blackforestdrive.cbrbhome.com/tours/tour.php?tourid=89171" appendQueryString="false" />
+                </rule><rule name="20528 E. Shady Ridge Rd" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="20528eshadyridgerd.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://20528eshadyridgerd.cbrbhome.com/tours/tour.php?tourid=89172" appendQueryString="false" />
+                </rule><rule name="19926 Summerset Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="19926summersetlane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://19926summersetlane.cbrbhome.com/tours/tour.php?tourid=89176" appendQueryString="false" />
+                </rule><rule name="9155 E Center Ave #3D" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="9155ecenterave3d.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://9155ecenterave3d.cbrbhome.com/tours/tour.php?tourid=89177" appendQueryString="false" />
+                </rule><rule name="6174 Southern Hills Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6174southernhillsdrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6174southernhillsdrive.cbrbhome.com/tours/tour.php?tourid=89189" appendQueryString="false" />
+                </rule><rule name="830 Toedtli Drive" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="830toedtlidrive.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://830toedtlidrive.cbrbhome.com/tours/tour.php?tourid=89190" appendQueryString="false" />
+                </rule><rule name="3243 Green Haven Circle" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3243greenhavencircle.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3243greenhavencircle.cbrbhome.com/tours/tour.php?tourid=89192" appendQueryString="false" />
+                </rule><rule name="7837 Windwood Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7837windwoodway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7837windwoodway.cbrbhome.com/tours/tour.php?tourid=89193" appendQueryString="false" />
+                </rule><rule name="276 South Sherman Street #2" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="276southshermanstreet2.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://276southshermanstreet2.cbrbhome.com/tours/tour.php?tourid=89194" appendQueryString="false" />
+                </rule><rule name="8013 S. VALLEYHEAD WAY" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8013svalleyheadway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8013svalleyheadway.cbrbhome.com/tours/tour.php?tourid=89195" appendQueryString="false" />
+                </rule><rule name="19869 E Crooked Pine Cir." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="19869ecrookedpinecir.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://19869ecrookedpinecir.cbrbhome.com/tours/tour.php?tourid=89196" appendQueryString="false" />
+                </rule><rule name="28 Merideth Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="28meridethlane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://28meridethlane.cbrbhome.com/tours/tour.php?tourid=89197" appendQueryString="false" />
+                </rule><rule name="2083 Doyle Dr" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2083doyledr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2083doyledr.cbrbhome.com/tours/tour.php?tourid=89198" appendQueryString="false" />
+                </rule><rule name="4325 South Ceylon Way" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="4325southceylonway.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://4325southceylonway.cbrbhome.com/tours/tour.php?tourid=89199" appendQueryString="false" />
+                </rule><rule name="29270 Rudin Circle" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="29270rudincircle.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://29270rudincircle.cbrbhome.com/tours/tour.php?tourid=89201" appendQueryString="false" />
+                </rule><rule name="709 S Bellflower Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="709sbellflowerdr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://709sbellflowerdr.cbrbhome.com/tours/tour.php?tourid=89202" appendQueryString="false" />
+                </rule><rule name="973 S Beech St." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="973sbeechst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://973sbeechst.cbrbhome.com/tours/tour.php?tourid=89203" appendQueryString="false" />
+                </rule><rule name="8936 W. Dartmouth Pl." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="8936wdartmouthpl.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://8936wdartmouthpl.cbrbhome.com/tours/tour.php?tourid=89204" appendQueryString="false" />
+                </rule><rule name="3675 S. Cherokee St., #104" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3675scherokeest104.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3675scherokeest104.cbrbhome.com/tours/tour.php?tourid=89205" appendQueryString="false" />
+                </rule><rule name="6510 W 84th Circle" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6510w84thcircle.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6510w84thcircle.cbrbhome.com/tours/tour.php?tourid=89206" appendQueryString="false" />
+                </rule><rule name="15496 W 66th Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="15496w66thave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://15496w66thave.cbrbhome.com/tours/tour.php?tourid=89207" appendQueryString="false" />
+                </rule><rule name="2203 Bar Harbor Dr" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2203barharbordr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2203barharbordr.cbrbhome.com/tours/tour.php?tourid=89208" appendQueryString="false" />
+                </rule><rule name="3224 S Elmira Court" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3224selmiracourt.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3224selmiracourt.cbrbhome.com/tours/tour.php?tourid=89209" appendQueryString="false" />
+                </rule><rule name="1470 S Jasper Street" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="1470sjasperstreet.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://1470sjasperstreet.cbrbhome.com/tours/tour.php?tourid=89210" appendQueryString="false" />
+                </rule><rule name="5603 S Prescott St" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5603sprescottst.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5603sprescottst.cbrbhome.com/tours/tour.php?tourid=89211" appendQueryString="false" />
+                </rule><rule name="6744 S. Detroit Circle" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="6744sdetroitcircle.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://6744sdetroitcircle.cbrbhome.com/tours/tour.php?tourid=89212" appendQueryString="false" />
+                </rule><rule name="3585 WA Pimlico Ave" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="3585wapimlicoave.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://3585wapimlicoave.cbrbhome.com/tours/tour.php?tourid=89214" appendQueryString="false" />
+                </rule><rule name="7963 Grasmere Dr." stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="7963grasmeredr.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://7963grasmeredr.cbrbhome.com/tours/tour.php?tourid=89215" appendQueryString="false" />
+                </rule><rule name="5301 Ferret Lane" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5301ferretlane.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5301ferretlane.cbrbhome.com/tours/tour.php?tourid=89216" appendQueryString="false" />
+                </rule><rule name="25332 Westridge Road" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="25332westridgeroad.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://25332westridgeroad.cbrbhome.com/tours/tour.php?tourid=89217" appendQueryString="false" />
+                </rule><rule name="2389 S. Juniper Circle" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2389sjunipercircle.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2389sjunipercircle.cbrbhome.com/tours/tour.php?tourid=89218" appendQueryString="false" />
+                </rule><rule name="5202 Gould Cir" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="5202gouldcir.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://5202gouldcir.cbrbhome.com/tours/tour.php?tourid=89270" appendQueryString="false" />
+                </rule><rule name="2475 Clarion LN" stopProcessing="true">
+                    <match url="^tours/(.*)$" negate="true" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="2475clarionln.cbrbhome.com" />
+                    </conditions>
+                    <action type="Redirect" url="http://2475clarionln.cbrbhome.com/tours/tour.php?tourid=89312" appendQueryString="false" />
+                </rule></rules>
+            <rewriteMaps>
+                <rewriteMap name="test">
+                </rewriteMap>
+                <rewriteMap name="StaticRewrites">
+                    <add key="/" value="/tours/tour.php?&amp;tourid=88715" />
+                </rewriteMap>
+            </rewriteMaps>
+        </rewrite>
+        <handlers>
+            <clear />
+            <add name="php-5.5.21" path="*.php" verb="GET,HEAD,POST" modules="FastCgiModule" scriptProcessor="C:\Program Files (x86)\PHP\v5.5\php-cgi.exe" resourceType="Either" requireAccess="Script" />
+            <add name="php-5.4.14" path="*.php" verb="GET,HEAD,POST" modules="FastCgiModule" scriptProcessor="C:\Program Files (x86)\PHP\v5.4\php-cgi.exe" resourceType="Either" requireAccess="Script" />
+            <add name="PHP53_via_FastCGI" path="*.php" verb="*" modules="FastCgiModule" scriptProcessor="C:\Program Files (x86)\PHP\v5.3\php-cgi.exe" resourceType="Unspecified" requireAccess="Script" />
+            <add name="ISAPI-dll" path="*.dll" verb="*" modules="IsapiModule" resourceType="File" requireAccess="Execute" allowPathInfo="true" />
+            <add name="TraceHandler-Integrated" path="trace.axd" verb="GET,HEAD,POST,DEBUG" type="System.Web.Handlers.TraceHandler" preCondition="integratedMode" />
+            <add name="WebAdminHandler-Integrated" path="WebAdmin.axd" verb="GET,DEBUG" type="System.Web.Handlers.WebAdminHandler" preCondition="integratedMode" />
+            <add name="AssemblyResourceLoader-Integrated" path="WebResource.axd" verb="GET,DEBUG" type="System.Web.Handlers.AssemblyResourceLoader" preCondition="integratedMode" />
+            <add name="PageHandlerFactory-Integrated" path="*.aspx" verb="GET,HEAD,POST,DEBUG" type="System.Web.UI.PageHandlerFactory" preCondition="integratedMode" />
+            <add name="SimpleHandlerFactory-Integrated" path="*.ashx" verb="GET,HEAD,POST,DEBUG" type="System.Web.UI.SimpleHandlerFactory" preCondition="integratedMode" />
+            <add name="WebServiceHandlerFactory-Integrated" path="*.asmx" verb="GET,HEAD,POST,DEBUG" type="System.Web.Services.Protocols.WebServiceHandlerFactory, System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" preCondition="integratedMode" />
+            <add name="HttpRemotingHandlerFactory-rem-Integrated" path="*.rem" verb="GET,HEAD,POST,DEBUG" type="System.Runtime.Remoting.Channels.Http.HttpRemotingHandlerFactory, System.Runtime.Remoting, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" preCondition="integratedMode" />
+            <add name="HttpRemotingHandlerFactory-soap-Integrated" path="*.soap" verb="GET,HEAD,POST,DEBUG" type="System.Runtime.Remoting.Channels.Http.HttpRemotingHandlerFactory, System.Runtime.Remoting, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" preCondition="integratedMode" />
+            <add name="AXD-ISAPI-2.0" path="*.axd" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness32" responseBufferLimit="0" />
+            <add name="PageHandlerFactory-ISAPI-2.0" path="*.aspx" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness32" responseBufferLimit="0" />
+            <add name="SimpleHandlerFactory-ISAPI-2.0" path="*.ashx" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness32" responseBufferLimit="0" />
+            <add name="WebServiceHandlerFactory-ISAPI-2.0" path="*.asmx" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness32" responseBufferLimit="0" />
+            <add name="HttpRemotingHandlerFactory-rem-ISAPI-2.0" path="*.rem" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness32" responseBufferLimit="0" />
+            <add name="HttpRemotingHandlerFactory-soap-ISAPI-2.0" path="*.soap" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness32" responseBufferLimit="0" />
+            <add name="AXD-ISAPI-2.0-64" path="*.axd" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness64" responseBufferLimit="0" />
+            <add name="PageHandlerFactory-ISAPI-2.0-64" path="*.aspx" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness64" responseBufferLimit="0" />
+            <add name="SimpleHandlerFactory-ISAPI-2.0-64" path="*.ashx" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness64" responseBufferLimit="0" />
+            <add name="WebServiceHandlerFactory-ISAPI-2.0-64" path="*.asmx" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness64" responseBufferLimit="0" />
+            <add name="HttpRemotingHandlerFactory-rem-ISAPI-2.0-64" path="*.rem" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness64" responseBufferLimit="0" />
+            <add name="HttpRemotingHandlerFactory-soap-ISAPI-2.0-64" path="*.soap" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v2.0.50727\aspnet_isapi.dll" requireAccess="Script" preCondition="classicMode,runtimeVersionv2.0,bitness64" responseBufferLimit="0" />
+            <add name="AboMapperCustom-690497022" path="*" verb="*" modules="IsapiModule" scriptProcessor="D:\ColdFusion9\runtime\lib\wsconfig\1\jrun_iis6_wildcard.dll" requireAccess="None" responseBufferLimit="0" />
+            <add name="AboMapperCustom-690497031" path="*.jsp" verb="*" modules="IsapiModule" scriptProcessor="D:\ColdFusion9\runtime\lib\wsconfig\jrun_iis6.dll" requireAccess="Script" responseBufferLimit="0" />
+            <add name="AboMapperCustom-690497032" path="*.jws" verb="*" modules="IsapiModule" scriptProcessor="D:\ColdFusion9\runtime\lib\wsconfig\jrun_iis6.dll" requireAccess="Script" responseBufferLimit="0" />
+            <add name="AboMapperCustom-690497033" path="*.cfm" verb="*" modules="IsapiModule" scriptProcessor="D:\ColdFusion9\runtime\lib\wsconfig\jrun_iis6.dll" requireAccess="Script" responseBufferLimit="0" />
+            <add name="AboMapperCustom-690497034" path="*.cfml" verb="*" modules="IsapiModule" scriptProcessor="D:\ColdFusion9\runtime\lib\wsconfig\jrun_iis6.dll" requireAccess="Script" responseBufferLimit="0" />
+            <add name="AboMapperCustom-690497035" path="*.cfc" verb="*" modules="IsapiModule" scriptProcessor="D:\ColdFusion9\runtime\lib\wsconfig\jrun_iis6.dll" requireAccess="Script" responseBufferLimit="0" />
+            <add name="AboMapperCustom-690497036" path="*.cfr" verb="*" modules="IsapiModule" scriptProcessor="D:\ColdFusion9\runtime\lib\wsconfig\jrun_iis6.dll" requireAccess="Script" responseBufferLimit="0" />
+            <add name="AboMapperCustom-690497037" path="*.cfswf" verb="*" modules="IsapiModule" scriptProcessor="D:\ColdFusion9\runtime\lib\wsconfig\jrun_iis6.dll" requireAccess="Script" responseBufferLimit="0" />
+            <add name="AboMapperCustom-690497038" path="*.hbmxml" verb="*" modules="IsapiModule" scriptProcessor="D:\ColdFusion9\runtime\lib\wsconfig\jrun_iis6.dll" requireAccess="Script" responseBufferLimit="0" />
+            <add name="TRACEVerbHandler" path="*" verb="TRACE" modules="ProtocolSupportModule" requireAccess="None" />
+            <add name="OPTIONSVerbHandler" path="*" verb="OPTIONS" modules="ProtocolSupportModule" requireAccess="None" />
+            <add name="StaticFile" path="*" verb="*" modules="StaticFileModule,DefaultDocumentModule,DirectoryListingModule" resourceType="Either" requireAccess="Read" />
+        </handlers>
+        <staticContent>
+            <mimeMap fileExtension=".mp4" mimeType="video/mp4" />
+        </staticContent>
+        <security>
+            <requestFiltering>
+                <requestLimits maxAllowedContentLength="524288000" />
+            </requestFiltering>
+        </security>
+        <tracing>
+            <traceFailedRequests>
+                <add path="*">
+                    <traceAreas>
+                        <add provider="ASP" verbosity="Verbose" />
+                        <add provider="ASPNET" areas="Infrastructure,Module,Page,AppServices" verbosity="Verbose" />
+                        <add provider="ISAPI Extension" verbosity="Verbose" />
+                        <add provider="WWW Server" areas="Authentication,Security,Filter,StaticFile,CGI,Compression,Cache,RequestNotifications,Module,FastCGI" verbosity="Verbose" />
+                    </traceAreas>
+                    <failureDefinitions statusCodes="400-999" />
+                </add>
+            </traceFailedRequests>
+        </tracing>
+        <defaultDocument>
+            <files>
+                <clear />
+                <add value="Default.htm" />
+                <add value="Default.asp" />
+                <add value="index.htm" />
+                <add value="index.html" />
+                <add value="iisstart.htm" />
+                <add value="default.aspx" />
+                <add value="index.cfm" />
+                <add value="index.php" />
+            </files>
+        </defaultDocument>
+		<httpCompression directory="%SystemDrive%\inetpub\temp\IIS Temporary Compressed Files">
+			<scheme name="gzip" dll="%Windir%\system32\inetsrv\gzip.dll" />
+			<dynamicTypes>
+			  <add mimeType="text/*" enabled="true" />
+			  <add mimeType="message/*" enabled="true" />
+			  <add mimeType="application/javascript" enabled="true" />
+			  <add mimeType="*/*" enabled="false" />
+			</dynamicTypes>
+			<staticTypes>
+			  <add mimeType="text/*" enabled="true" />
+			  <add mimeType="message/*" enabled="true" />
+			  <add mimeType="application/javascript" enabled="true" />
+			  <add mimeType="*/*" enabled="false" />
+			</staticTypes>
+		</httpCompression>
+		<urlCompression doStaticCompression="true" />
+        <httpRedirect enabled="false" destination="http://1441sammonsstreet.cbrbhome.com/tour" exactDestination="true" httpResponseStatus="Permanent" />
+    </system.webServer>
+</configuration>

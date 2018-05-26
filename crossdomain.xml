@@ -1,0 +1,12 @@
+<?xml version="1.0"?>	
+<!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
+<cross-domain-policy>
+	<site-control permitted-cross-domain-policies="master-only" />
+	 <allow-access-from domain="*.amazonaws.com" />
+	 <allow-http-request-headers-from domain="*.amazonaws.com" />
+     <allow-access-from domain="*.youtube.com" />
+  	 <allow-access-from domain="*.jwpltx.com" />
+     <allow-access-from domain="*.spotlighthometours.com" />
+     <allow-access-from domain="*.cfdynamics.com" />
+	 <allow-http-request-headers-from domain="*.spotlighthometours.com" headers="SOAPAction"/>
+</cross-domain-policy>

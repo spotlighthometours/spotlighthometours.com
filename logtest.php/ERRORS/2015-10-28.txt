@@ -1,0 +1,2 @@
+2015-10-28 20:57:23: SQLSTATE[HY000] [2002] No such file or directory
+2015-10-28 20:57:23: Error: Call to undefined function rename_function(). File: /cygdrive/d/websites/spotlighthometours/public/repository_inc/classes/class.unlinklog.php. Line Number: 20

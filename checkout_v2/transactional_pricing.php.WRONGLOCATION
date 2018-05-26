@@ -1,0 +1,536 @@
+<?php
+/**********************************************************************************************
+Document: transactional_pricing.php
+Creator: Brandon Freeman
+Date: 05-13-11 FRIDAY THE 13TH!!! DOOM UPON THEE!!
+Purpose: Builds an order array for pricing.
+Note: This is the interface for the normal form pricing database.
+**********************************************************************************************/
+
+//=======================================================================
+// Includes
+//=======================================================================
+
+	// Connect to MySQL
+	if (!isset($dbc)) {
+		require_once ('../repository_inc/connect.php');
+	}
+	
+//=======================================================================
+// Document
+//=======================================================================
+	
+	function pricing($tourtypes, $products, $city, $zip, $brokerid, $userid, $coupon ) {
+		$taxrate = 0.0685;
+		
+		//Condense the items to a single list
+		//The old way was to have two separate lists.
+		$queryItems = array();
+		if (sizeof($tourtypes)) {
+			foreach($tourtypes as $tourtype) {
+				array_push($queryItems, array('itemType'=>'tour', 'itemID'=>$tourtype['id'], 'qty'=>$tourtype['qty']) );
+			}
+		}
+		if (sizeof($products)) {
+			foreach($products as $product) {
+			array_push($queryItems, array('itemType'=>'product', 'itemID'=>$product['id'], 'qty'=>$product['qty']) );
+			}
+		}
+		print_r($queryItems);
+		if (sizeof($queryItems)) {
+			$first = true;
+			$Qitems = '';
+			foreach($queryItems as $queryItem) {
+				if ($first) {
+					$first = !$first;
+				} else {
+					$Qitems .= ' OR ';
+				}
+				
+				$Qitems .= '(bl.itemType = "' . $queryItem['itemType'] . '" and bl.itemID = ' . $queryItem['itemID'] . ')';
+			}
+			$Qitems .= ' OR (bl.itemType = "mileage")';
+			
+			$blacklistQ = '  
+				SELECT
+				bl.itemType, bl.itemID, bl.category, bl.categoryID ,bl.permission, h.ordering
+				FROM nf_blacklist bl
+				LEFT JOIN nf_locations l ON bl.category = "region" AND bl.categoryID = l.zipID
+				LEFT JOIN nf_hierarchy h ON h.function = "blacklist" AND bl.category = h.category
+				WHERE
+				(
+					(bl.category = "region" AND l.zip_code = "' . $zip . '" AND l.city = "' . $city . '")
+					OR 
+					(bl.category = "standard")
+					OR 
+					(bl.category = "broker" AND bl.categoryID = "' . $brokerid . '")
+					OR 
+					(bl.category = "user" AND bl.categoryID = "' . $userid . '")
+				)
+				AND
+				(' . $Qitems . ')
+				ORDER BY h.ordering DESC
+			';
+			
+			$r = mysql_query($blacklistQ) or die("Query failed with error: " . mysql_error() . "<br />Query run: " . $blacklistQ);
+			
+			//Merge the list of items with their respective permissions.
+			while($result = mysql_fetch_array($r)) {
+				for ( $i = 0 ; $i < sizeof($queryItems); $i++) {
+					if($queryItems[$i]['itemType'] == $result['itemType'] && $queryItems[$i]['itemID'] == $result['itemID']) {
+						$queryItems[$i]['permission'] = $result['permission'];
+					}
+				}
+			}
+			
+			//Remove all items that have been denied by permissions.
+			$newList = array();
+			for ( $i = 0 ; $i < sizeof($queryItems); $i++) {
+				if($queryItems[$i]['permission'] != 0 || !isset($queryItems[$i]['permission'])) {
+					array_push($newList, $queryItems[$i]);
+				}
+			}
+			$queryItems = $newList;
+		}
+		
+		//All of the items may have been removed, so we check again.
+		if (sizeof($queryItems)) {	
+			//Build the query for pricing.
+			$first = true;
+			$Qitems = '';
+			foreach($queryItems as $queryItem) {
+				if ($first) {
+					$first = !$first;
+				} else {
+					$Qitems .= ' OR ';
+				}
+				
+				$Qitems .= '(p.itemType = "' . $queryItem['itemType'] . '" and p.itemID = ' . $queryItem['itemID'] . ')';
+			}
+			$Qitems .= ' OR (p.itemType = "mileage")';
+			
+			$pricingQ = '
+				SELECT 
+				p.itemType, p.itemID, p.category, p.price, 
+				b.dollar, b.percent,
+				tt.tourTypeName as tname, tt.monthly AS tmonthly, 0 AS ttaxable,
+				pr.productName AS pname, pr.monthly AS pmonthly, pr.chargeSalesTax AS ptaxable,
+				pcv.dollarValue AS c_dollar, pcv.percentValue AS c_percent, pcv.dayValue AS c_day,
+				pc.codestr AS coupon, pc.limits AS c_limit,
+				(pc.limits - COUNT(o.orderID)) as c_remaining
+				FROM nf_pricing p 
+				LEFT JOIN nf_locations l ON p.category = "region" AND l.zipID = p.categoryID
+				LEFT JOIN nf_broker_billing b ON p.itemType = b.itemType AND p.itemID = b.itemID AND b.brokerID = "' . $brokerid . '"
+				LEFT JOIN tourtypes tt ON p.itemType = "tour" AND p.itemID = tt.tourTypeID
+				LEFT JOIN products pr ON p.itemType = "product" AND p.itemID = pr.productID
+				LEFT JOIN (
+					promocode_values pcv 
+					LEFT JOIN promocodes pc ON pc.codestr = "' . $coupon . '" AND pc.expdate > DATE(NOW()) AND pc.active = 1
+					LEFT JOIN orders o ON o.coupon = pc.codestr
+				)
+            	ON p.itemType = pcv.type AND p.itemID = pcv.id AND pcv.codestr = "' . $coupon . '"
+				WHERE
+				(
+					(p.category = "region" AND l.zip_code = "' . $zip . '" AND l.city = "' . $city . '")
+					OR 
+					(p.category = "standard")
+					OR 
+					(p.category = "broker" AND p.categoryID = "' . $brokerid . '")
+					OR 
+					(p.category = "user" AND p.categoryID = "' . $userid . '")
+				)
+				AND
+				(' . $Qitems . ')
+				GROUP BY itemType, itemID, category, price
+				ORDER BY itemType, itemID, category, price
+			';
+			
+			$r = mysql_query($pricingQ) or die("Query failed with error: " . mysql_error() . "<br />Query run: " . $pricingQ);
+			
+			// Get the state of operation for the agent (only charge taxes on utah agents)
+			$query = "SELECT state FROM users WHERE userID = ".$userid;
+			$state = mysql_query($query) or die("Query failed with error: " . mysql_error() . "<br />Query run: " . $query);
+			$state = mysql_fetch_array($state);
+			
+			//Condense the results to single listings w/ prices.
+			$itemList = array();
+			while($result = mysql_fetch_array($r)) {
+				$name = '--';
+				$monthly = 0;
+				$taxable = 0;
+				if ($result['itemType'] == 'tour') {
+					$name = $result['tname'];
+					$monthly = $result['tmonthly'];
+					$taxable = $result['ttaxable'];
+				} elseif ($result['itemType'] == 'product') {
+					$name = $result['pname'];
+					$monthly = $result['pmonthly'];
+					$taxable = $result['ptaxable'];
+				} elseif ($result['itemType'] == 'mileage') {
+					$name = 'Mileage (' . $city . ', ' . $zip . ')';
+				} 
+				
+				if (trim(strtoupper($state['state'])) <> 'UT')
+					$taxable = 0;
+					
+				$found = false;
+				for ( $i = 0 ; $i < sizeof($itemList); $i++) {
+					if ($itemList[$i]['itemType'] == $result['itemType'] && $itemList[$i]['itemID'] == $result['itemID']) {
+						$found = true;
+					}
+				}
+				if(!$found) {
+//					if ($result['itemType'] == 'tour' && $result['itemID'] == 18)
+//						$result['price'] = 0;
+					
+//					array_push($itemList, array('itemType'=>$result['itemType'], 'itemID'=>intval($result['itemID']), 'name'=>$name, 'price_cat'=>$result['category'], 'price'=>floatval($result['price']), 'coupon'=>$result['coupon'], 'coupon_limit'=>intval($result['c_limit']), 'coupon_remaining'=>intval($result['c_remaining']), 'coupon_dollar'=>floatval($result['c_dollar']), 'coupon_percent'=>floatval($result['c_percent']), 'coupon_day'=>intval($result['c_day']), 'taxable'=>intval($taxable), 'monthly'=>intval($monthly), 'bb_dollar'=>floatval($result['dollar']), 'bb_percent'=>floatval($result['percent'])));
+					array_push($itemList, array('itemType'=>$result['itemType'], 'itemID'=>intval($result['itemID']), 'name'=>$name, 'price_cat'=>$result['category'], 'price'=>floatval('0.0'), 'coupon'=>$result['coupon'], 'coupon_limit'=>intval($result['c_limit']), 'coupon_remaining'=>intval($result['c_remaining']), 'coupon_dollar'=>floatval($result['c_dollar']), 'coupon_percent'=>floatval($result['c_percent']), 'coupon_day'=>intval($result['c_day']), 'taxable'=>intval($taxable), 'monthly'=>intval($monthly), 'bb_dollar'=>floatval($result['dollar']), 'bb_percent'=>floatval($result['percent'])));
+
+				}
+			}
+			
+			//Add quantitiy to our new condensed list.
+			for ( $i = 0 ; $i < sizeof($itemList); $i++) {
+				foreach($queryItems as $queryItem) {
+					if ($itemList[$i]['itemType'] == $queryItem['itemType'] && $itemList[$i]['itemID'] == $queryItem['itemID']) {
+						$itemList[$i]['qty'] = $queryItem['qty'];
+					} elseif ($itemList[$i]['itemType'] == 'mileage') {
+						$itemList[$i]['qty'] = 1;
+					}
+				}
+			}
+			
+			//We don't need this anymore.
+			unset($queryItems);
+			
+			//Calculate totals per line.
+			for ( $i = 0 ; $i < sizeof($itemList); $i++) {
+				//Apply coupon codes to the items.
+				if (strlen($itemList[$i]['coupon']) && (intval($itemList[$i]['coupon_limit']) == 0 || intval($itemList[$i]['coupon_remaining']) > 0) ) {
+					if ($itemList[$i]['coupon_dollar'] > 0) {
+						$itemList[$i]['mod_price'] = round($itemList[$i]['price'] - $itemList[$i]['coupon_dollar'],2); 
+					} elseif ($itemList[$i]['coupon_percent'] > 0) {
+						$itemList[$i]['mod_price'] = round($itemList[$i]['price'] * (1 - $itemList[$i]['coupon_percent']),2); 
+					}
+				} else {
+					$itemList[$i]['mod_price'] = $itemList[$i]['price'];
+				}
+				if ($itemList[$i]['mod_price'] > $itemList[$i]['price']) {
+					$itemList[$i]['mod_price'] = $itemList[$i]['price'];
+				} elseif ($itemList[$i]['mod_price'] < 0) {
+					$itemList[$i]['mod_price'] = 0;
+				}
+				
+				//Determine if the item is monthly billing or user/broker billing.
+				if(intval($itemList[$i]['monthly'])) {
+					$itemList[$i]['bb_item'] = 0;
+					$itemList[$i]['bb_tax'] = 0;
+					$itemList[$i]['bb_sub'] = 0;
+					$itemList[$i]['bb_total'] = 0;
+					$itemList[$i]['ub_item'] = 0;
+					$itemList[$i]['ub_tax'] = 0;
+					$itemList[$i]['ub_sub'] = 0;
+					$itemList[$i]['ub_total'] = 0;
+					
+					$itemList[$i]['mb_item'] = $itemList[$i]['mod_price'];
+					$itemList[$i]['mb_tax'] = round(($itemList[$i]['taxable'] * $taxrate) * ($itemList[$i]['mb_item'] * $itemList[$i]['qty']), 2);
+					$itemList[$i]['mb_sub'] = round($itemList[$i]['mb_item'] * $itemList[$i]['qty'], 2);
+					$itemList[$i]['mb_total'] = round($itemList[$i]['mb_tax'] + $itemList[$i]['mb_sub'], 2);
+				} else {
+					//Set broker billable amount.
+					if ($itemList[$i]['bb_dollar'] != 0) {
+						$itemList[$i]['bb_item'] = round($itemList[$i]['mod_price'] - $itemList[$i]['bb_dollar'], 2);
+					} elseif ($itemList[$i]['bb_percent'] != 0) {
+						$itemList[$i]['bb_item'] = round($itemList[$i]['bb_percent'] * $itemList[$i]['mod_price'], 2);
+					} else {
+						$itemList[$i]['bb_item'] = 0;
+					}
+					
+					if ($itemList[$i]['bb_item'] > $itemList[$i]['mod_price']) {
+						$itemList[$i]['bb_item'] = $itemList[$i]['mod_price'];
+					} elseif ($itemList[$i]['bb_item'] < 0) {
+						$itemList[$i]['bb_item'] = 0;
+					}
+					
+					//Broker billable totals.
+					$itemList[$i]['bb_tax'] = round(($itemList[$i]['taxable'] * $taxrate) * ($itemList[$i]['bb_item'] * $itemList[$i]['qty']), 2);
+					$itemList[$i]['bb_sub'] = round($itemList[$i]['bb_item'] * $itemList[$i]['qty'], 2);
+					$itemList[$i]['bb_total'] = round($itemList[$i]['bb_tax'] + $itemList[$i]['bb_sub'], 2);
+					
+					//User billable totals.
+					$itemList[$i]['ub_item'] = round($itemList[$i]['mod_price'] - $itemList[$i]['bb_item'], 2);
+					$itemList[$i]['ub_tax'] = round(($itemList[$i]['taxable'] * $taxrate) * ($itemList[$i]['ub_item'] * $itemList[$i]['qty']), 2);
+					$itemList[$i]['ub_sub'] = round($itemList[$i]['ub_item'] * $itemList[$i]['qty'], 2);
+					$itemList[$i]['ub_total'] = round($itemList[$i]['ub_tax'] + $itemList[$i]['ub_sub'], 2);
+					
+					$itemList[$i]['mb_item'] = 0;
+					$itemList[$i]['mb_tax'] = 0;
+					$itemList[$i]['mb_sub'] = 0;
+					$itemList[$i]['mb_total'] = 0;
+				}
+			}
+			
+		}
+		
+		return $itemList;
+		
+	}
+	
+	function orderNEW($tourtypes, $products, $city, $zip, $brokerid, $userid, $coupon ) {
+		$base_info = array();
+		$base_info['city'] = $city;
+		$base_info['zip'] = $zip;
+		$base_info['brokerid'] = $brokerid;
+		$base_info['userid'] = $userid;
+		$base_info['coupon'] = $coupon;
+		
+		unset($itemLines);
+		$itemLines = pricing($tourtypes, $products, $city, $zip, $brokerid, $userid, $coupon );
+		
+		$totals = array();
+		$totals['bb_sub'] = 0;
+		$totals['bb_tax'] = 0;
+		$totals['bb_total'] = 0;
+		$totals['ub_sub'] = 0;
+		$totals['ub_tax'] = 0;
+		$totals['ub_total'] = 0;
+		$totals['mb_sub'] = 0;
+		$totals['mb_tax'] = 0;
+		$totals['mb_total'] = 0;
+		
+		$mb_items = array();
+		foreach ($itemLines as $itemLine) {
+			$totals['bb_sub'] += $itemLine['bb_sub'];
+			$totals['bb_tax'] += $itemLine['bb_tax'];
+			$totals['bb_total'] += $itemLine['bb_total'];
+			$totals['ub_sub'] += $itemLine['ub_sub'];
+			$totals['ub_tax'] += $itemLine['ub_tax'];
+			$totals['ub_total'] += $itemLine['ub_total'];
+			$totals['mb_sub'] += $itemLine['mb_sub'];
+			$totals['mb_tax'] += $itemLine['mb_tax'];
+			$totals['mb_total'] += $itemLine['mb_total'];
+			
+			if($itemLine['monthly'] == 1) {
+				array_push($mb_items ,array('name'=>$itemLine['name'], 'total'=>$itemLine['mb_total'], 'day_offset'=>$itemLine['coupon_day']));
+			}
+		}
+		
+		$totals['coupon'] = '';
+		$totals['coupon_dollar'] = 0;
+		$totals['coupon_percent'] = 0;
+		$totals['f_mb_total'] = $totals['mb_total'];
+		$totals['f_ub_total'] = $totals['ub_total'];
+		$totals['f_bb_total'] = $totals['bb_total'];
+		
+		$couponQ = '
+			SELECT 
+			pc.codestr AS coupon, pc.limits AS c_limit,
+			pcv.dollarValue AS c_dollar, pcv.percentValue AS c_percent,
+			(pc.limits - COUNT(o.orderID)) as c_remaining
+			FROM promocodes pc
+			LEFT JOIN promocode_values pcv ON pc.codestr = pcv.codestr 
+			LEFT JOIN orders o ON o.coupon = pc.codestr
+			WHERE pc.active = 1
+			AND pcv.type = "order"
+			AND pc.codestr = "' . $coupon . '"
+			GROUP BY pc.codestr, pcv.type
+			LIMIT 1
+		';
+		
+		$r = mysql_query($couponQ) or die("Query failed with error: " . mysql_error() . "<br />Query run: " . $query);
+		$result = mysql_fetch_array($r);
+		
+		if(isset($result['c_remaining']) && (intval($itemList[$i]['coupon_limit']) == 0 || intval($itemList[$i]['coupon_remaining']) > 0)) {
+			$totals['coupon'] = $result['coupon'];
+			$totals['coupon_remaining'] = intval($result['c_remaining']);
+			$totals['coupon_dollar'] = floatval($result['c_dollar']);
+			$totals['coupon_percent'] = floatval($result['c_percent']);
+			
+			if($result['c_dollar'] > 0) {
+				
+				// Apply dollar discount to the order totals except montly, as those should have already been handled.
+				$discounts = $result['c_dollar'];
+				$total = $totals['ub_total'];
+				$brokertotal = $totals['bb_total'];
+				
+				if ($total > $discounts) {
+					$total -= $discounts;
+				} else {
+					$discounts -= $total;
+					$total = 0;
+					
+					if ($brokertotal > $discounts) {
+						$brokertotal -= $discounts;
+					} else {
+						$brokertotal = 0;
+					}
+				}
+				$totals['f_ub_total'] = $total;
+				$totals['f_bb_total'] = $brokertotal;
+				
+			} elseif ($result['c_percent'] > 0) {
+				
+				$totals['f_ub_total'] = round((1 - $totals['coupon_percent']) * $totals['ub_total'],2);
+				$totals['f_bb_total'] = round((1 - $totals['coupon_percent']) * $totals['bb_total'],2);
+			}
+			if($totals['f_ub_total'] < 0) {
+				$totals['f_ub_total'] = 0;
+			}
+			if($totals['f_mb_total'] < 0) {
+				$totals['f_mb_total'] = 0;
+			}
+			if($totals['f_bb_total'] < 0) {
+				$totals['f_bb_total'] = 0;
+			}
+		}
+		
+		$order = array();
+		$order['base_info'] = $base_info;
+		$order['lines'] = $itemLines;
+		$order['totals'] = $totals;
+		$order['mb_items'] = $mb_items;
+		
+	//	return $order;
+	}
+	
+	function table($order) {
+		$lines = $order['lines'];
+		$totals = $order['totals'];
+		
+		$table = '
+		<div class="pr_frame" >
+			<table class="pricing" cellpadding="0" cellspacing="0" border="0" nowrap>
+				<tr>
+					<th rowspan="2" >Items</th>
+					<th rowspan="2" >Qty</th>
+					<th rowspan="2" >Std. Price</th>
+					<th rowspan="2" >Coupon</th>
+					<th rowspan="2" >Adj. Price</th>
+					<th colspan="2" class="h_broker" >Brokerage</th>
+					<th colspan="2" class="h_monthly" >Monthly</th>
+					<th colspan="2" class="h_user" >Order</th>
+				</tr>
+				<tr>
+					
+					<th class="h_broker" >Unit</th>
+					<th class="h_broker" >Total</th>
+					<th class="h_monthly" >Unit</th>
+					<th class="h_monthly" >Total</th>
+					<th class="h_user" >Unit</th>
+					<th class="h_user" >Total</th>
+				</tr>
+		';
+		foreach ($lines as $line) {
+			$coupon = '';
+			if(strlen($line['coupon']) && (intval($line['coupon_limit']) == 0 || intval($line['coupon_remaining']) > 0)) {
+				$coupon .= $line['coupon'];
+				if ($line['coupon_dollar'] > 0) {
+					$coupon .= '<br/>-$' . number_format($line['coupon_dollar'], 2, '.', '');
+				} elseif ($line['coupon_percent'] > 0) {
+					$coupon .= '<br/>-' . round($line['coupon_percent']*100, 0) . '%';
+				} 
+				if ($line['coupon_day'] > 0 && $line['monthly'] == 1) {
+					$coupon .= '<br/>' . $line['coupon_day'] . ' days free';
+				}
+			}
+			
+			$bb_unit = '--';
+			if ($line['bb_item'] > 0) {
+				$bb_unit = '$' . number_format($line['bb_item'], 2, '.', '');
+			}
+			$bb_total = '--';
+			if ($line['bb_total'] > 0) {
+				$bb_total = '$' . number_format($line['bb_total'], 2, '.', '');
+			}
+			$mb_unit = '--';
+			if ($line['mb_item'] > 0) {
+				$mb_unit = '$' . number_format($line['mb_item'], 2, '.', '');
+			}
+			$mb_total = '--';
+			if ($line['mb_total'] > 0) {
+				$mb_total = '$' . number_format($line['mb_total'], 2, '.', '');
+			}
+			$ub_unit = '--';
+			if ($line['ub_item'] > 0) {
+				$ub_unit = '$' . number_format($line['ub_item'], 2, '.', '');
+			}
+			$ub_total = '--';
+			if ($line['ub_total'] > 0) {
+				$ub_total = '$' . number_format($line['ub_total'], 2, '.', '');
+			}
+
+
+			$table .= '
+				<tr class="' . $line['itemType'] . '" >
+					<td>' . $line['name'] . '</td>
+					<td style="text-align: center" >' . $line['qty'] . '</td>
+					<td class="dol" >$' . number_format($line['price'], 2, '.', '') . '</td>
+					<td class="l_coupon">' . $coupon . '</td>
+					<td class="dol" >$' . number_format($line['mod_price'], 2, '.', '') . '</td>
+					<td class="dol l_broker" >' . $bb_unit . '</td>
+					<td class="dol l_broker" >' . $bb_total . '</td>
+					<td class="dol l_monthly" >' . $mb_unit . '</td>
+					<td class="dol l_monthly" >' . $mb_total . '</td>
+					<td class="dol l_user" >' . $ub_unit . '</td>
+					<td class="dol l_user" >' . $ub_total . '</td>
+				</tr>
+			';
+		}
+		
+		$table .= '
+				
+				<tr>
+					<td colspan="4" rowspan="5" class="blank" ></td>
+					<th >Tax</th>
+					<td colspan="2" class="dol l_broker" >$' . number_format($totals['bb_tax'], 2, '.', '') . '</td>
+					<td colspan="2" class="dol l_monthly" >$' . number_format($totals['mb_tax'], 2, '.', '') . '</td>
+					<td colspan="2" class="dol l_user" >$' . number_format($totals['ub_tax'], 2, '.', '') . '</td>
+				</tr>
+				<tr>
+					<th >Subtotal</th>
+					<td colspan="2" class="dol l_broker" >$' . number_format($totals['bb_sub'], 2, '.', '') . '</td>
+					<td colspan="2" class="dol l_monthly" >$' . number_format($totals['mb_sub'], 2, '.', '') . '</td>
+					<td colspan="2" class="dol l_user" >$' . number_format($totals['ub_sub'], 2, '.', '') . '</td>
+				</tr>
+		';
+		if(strlen($totals['coupon']) && (intval($itemList[$i]['coupon_limit']) == 0 || intval($itemList[$i]['coupon_remaining']) > 0)) {
+			$coupon = '';
+			$coupon .= $totals['coupon'];
+			if ($totals['coupon_dollar'] > 0) {
+				$coupon .= ' -$' . number_format($totals['coupon_dollar'], 2, '.', '');
+			} elseif ($totals['coupon_percent'] > 0) {
+				$coupon .= ' -' . round($totals['coupon_percent']*100, 0) . '%';
+			} 
+			
+			$table .= '
+				<tr>
+					<th>Pretotal</th>
+					<td colspan="2" class="dol l_broker" >$' . number_format($totals['bb_total'], 2, '.', '') . '</td>
+					<td colspan="2" class="dol l_monthly" >$' . number_format($totals['mb_total'], 2, '.', '') . '</td>
+					<td colspan="2" class="dol l_user" >$' . number_format($totals['ub_total'], 2, '.', '') . '</td>
+				</tr>
+				<tr>
+					<th >Coupon</th>
+					<td colspan="6" class="l_coupon" >' . $coupon . '</td>
+				</tr>
+				
+			';
+		}
+		
+		$table .= '
+			<tr>
+				<th >Total</th>
+				<td colspan="2" class="dol l_broker l_broker_tot" >$' . number_format($totals['f_bb_total'], 2, '.', '') . '</td>
+				<td colspan="2" class="dol l_monthly l_monthly_tot" >$' . number_format($totals['f_mb_total'], 2, '.', '') . '</td>
+				<td colspan="2" class="dol l_user l_user_tot" >$' . number_format($totals['f_ub_total'], 2, '.', '') . '</td>
+			</tr>
+			</table>
+			<input id="order_total" type="hidden" value="' . $totals['f_ub_total'] . '" />
+		</div>
+		';
+		
+		return $table;
+		
+	}
+	
+?>

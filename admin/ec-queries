@@ -1,0 +1,112 @@
+2016-02-18 16:23:16::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY userID ASC  LIMIT 0,50 
+2016-02-18 16:23:17::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY state DESC  LIMIT 0,50 
+2016-02-18 16:23:36::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY userID ASC  LIMIT 0,50 
+2016-02-18 16:23:37::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY state DESC  LIMIT 0,50 
+2016-07-26 02:08:56::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY state DESC  LIMIT 0,50 
+2016-07-26 02:09:09::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY userID ASC  LIMIT 0,50 
+2016-07-26 02:09:09::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY state DESC  LIMIT 0,50 
+2016-07-26 02:09:15::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY state DESC  LIMIT 0,100 
+2016-08-12 09:17:27::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY state DESC  LIMIT 0,50 
+2016-08-12 09:17:27::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY userID ASC  LIMIT 0,50 
+2016-08-12 11:48:24::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY state DESC  LIMIT 0,50 
+2016-08-12 11:48:25::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY userID ASC  LIMIT 0,50 
+2016-08-19 15:30:16::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY userID ASC  LIMIT 0,50 
+2016-08-19 15:30:16::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY state DESC  LIMIT 0,50 
+2016-08-19 15:30:54::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY userID ASC  LIMIT 0,50 
+2016-08-19 15:30:54::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY state DESC  LIMIT 0,50 
+2016-08-19 15:35:25::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY userID ASC  LIMIT 0,50 
+2016-08-19 15:35:25::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY state DESC  LIMIT 0,50 
+2016-08-19 16:16:31::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY userID ASC  LIMIT 0,50 
+2016-08-19 16:16:31::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY state DESC  LIMIT 0,50 
+2016-08-22 14:49:24::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY userID ASC  LIMIT 0,50 
+2016-08-22 14:49:24::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY state DESC  LIMIT 0,50 
+2017-12-28 09:26:30::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY userID ASC  LIMIT 0,50 
+2017-12-28 09:26:30::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY state DESC  LIMIT 0,50 
+2018-01-23 14:33:58::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY userID ASC  LIMIT 0,50 
+2018-01-23 14:33:58::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY state DESC  LIMIT 0,50 
+2018-01-23 15:02:42::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY userID ASC  LIMIT 0,50 
+2018-01-23 15:02:42::SELECT SQL_CALC_FOUND_ROWS ec.title,ecc.campaignId, ecc.dateCreated, u.userID, CONCAT(u.lastName,', ',u.firstName) as firstName,  u.username, u.brokerageID, brokerageName, otherBrokerage, brokerageDesc,  u.city,u.state  FROM emailcampaignclicks ecc 
+			INNER JOIN emailcampaign ec ON ec.id = ecc.campaignId 
+			INNER JOIN users u ON u.userID = ecc.userId
+			INNER JOIN brokerages b ON u.brokerageID = b.brokerageID  WHERE 1=1 ORDER BY state DESC  LIMIT 0,50 

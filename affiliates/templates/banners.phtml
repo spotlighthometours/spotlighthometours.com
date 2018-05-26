@@ -1,0 +1,96 @@
+&gt; 
+&lt;cfquery name="getCourses" datasource="cfdocexamples"&gt; 
+    SELECT * FROM COURSES 
+&lt;/cfquery&gt; 
+ 
+&lt;!--- Update the collection with the above query results. ---&gt; 
+&lt;!--- key is Course_ID in the Courses table. ----&gt; 
+&lt;!--- body specifies the columns to be indexed for searching. ---&gt; 
+&lt;!--- custom1 specifies the value of the Course_Number column. ---&gt; 
+ 
+&lt;cfindex  
+    query="getCourses" 
+    collection="CodeColl" 
+    action="Update" 
+    type="Custom" 
+    key="Course_ID" 
+    title="Courses" 
+    body="Course_ID,Descript" 
+    custom1="Course_Number" 
+&gt; 
+&lt;h2&gt;Indexing Complete&lt;/h2&gt; 
+&lt;!--- cno supplies value for searching custom1; could be form input instead. ---&gt; 
+&lt;cfset cno = "540"&gt; 
+&lt;cfsearch 
+    name = "mySearch" 
+    collection = "CodeColl" 
+    criteria = "CF_CUSTOM1 &lt;MATCHES&gt; #cno#" 
+    contextpassages = "1" 
+    maxrows = "100"&gt; 
+&lt;!--- Returns indexed values (Course_ID and Descript) for  
+            Course_Number 540. ---&gt; 
+&lt;cfoutput&gt; 
+    key=#mySearch.key#&lt;br /&gt; 
+    title=#mySearch.title#&lt;br /&gt; 
+    context=#mySearch.context#&lt;br /&gt; 
+    url=#mySearch.url#&lt;br /&gt; 
+&lt;/cfoutput&gt; 
+ 
+&lt;!--- EXAMPLE #4 Index a FILE within a QUERY (type= "file"). ---------------&gt; 
+&lt;!--- Retrieve row with a column that contains a filename (Contract_File). ---&gt; 
+&lt;cfquery name="getEmps" datasource="cfdocexamples"&gt; 
+    SELECT * FROM EMPLOYEE WHERE EMP_ID = 1 
+&lt;/cfquery&gt; 
+ 
+&lt;!--- Update the collection with the above query results. ---&gt; 
+&lt;!--- key specifies the column that contains a complete filename. ---&gt; 
+&lt;!--- file is indexed in same way as if no query involved. ---&gt; 
+&lt;cfindex  
+    query="getEmps" 
+    collection="CodeColl" 
+    action="Update" 
+    type="file" 
+    key="Contract_File"     
+    title="Contract_File" 
+    body="Emp_ID,FirstName,LastName,Contract_File"&gt; 
+ 
+&lt;h2&gt;Indexing Complete&lt;/h2&gt; 
+&lt;cfsearch 
+    name = "mySearch" 
+    collection = "CodeColl" 
+    criteria = "vacation" 
+    contextpassages = "1" 
+    maxrows = "100"&gt; 
+&lt;cfoutput&gt; 
+    key=#mySearch.key#&lt;br /&gt; 
+    title=#mySearch.title#&lt;br /&gt; 
+    context=#mySearch.context#&lt;br /&gt; 
+    url=#mySearch.url#&lt;br /&gt; 
+&lt;/cfoutput&gt; 
+ 
+&lt;!--- EXAMPLE # 5 Index a PATH within a QUERY. ----------------------------&gt; 
+&lt;!--- Retrieve a row with a column that contains a path (Project_Docs). ---&gt; 
+&lt;cfquery name="getEmps" datasource="cfdocexamples"&gt; 
+    SELECT * FROM EMPLOYEE WHERE Emp_ID = 15 
+&lt;/cfquery&gt; 
+ 
+&lt;!--- Update the collection with the above query results. ---&gt; 
+&lt;!--- key specifies a column that contains a directory path. ---&gt; 
+&lt;!--- path is indexed in same way as if no query involved. ---&gt; 
+&lt;cfindex  
+    query="getEmps" 
+    collection="CodeColl" 
+    action="update" 
+    type="path" 
+    key="Project_Docs" 
+    title="Project_Docs" 
+    body="Emp_ID,FirstName,LastName,Project_Docs"&gt; 
+ 
+&lt;h2&gt;Indexing Complete&lt;/h2&gt; 
+ 
+&lt;cfsearch 
+    name = "getEmps" 
+    collection = "CodeColl" 
+    criteria = "cfsetting" 
+    contextpassages = "1" 
+    maxrows =

@@ -1,0 +1,7 @@
+socialhub_checkout.js
+	Come up with logging system for try catch. Probably shouldnt alert out errors.
+	fix old js stuff 
+
+
+social-hub.php
+	

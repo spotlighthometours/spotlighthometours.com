@@ -1,0 +1,587 @@
+#setup {
+  font-size: 25px;
+  color: rgb(255, 255, 255);
+  line-height: 3.294;
+  text-align: justifyLeft;
+  position: relative;
+  top:75px;
+  left:20px;
+}
+#inquiry {
+   color:white;
+   font-size:18px;
+   margin-top:50px;
+   line-height:30px;
+}
+#email-link:link {
+   color:lightgray;
+}
+#concierge-line {
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  width: 768px;
+  height: 1px;
+  top:60px;
+  left:20px;
+  float:left;
+}
+.packages .package-price, .brokerage-quote{
+	background-color:#007bc8;
+	padding:15px;
+	color:white;
+	border:2px solid #007bc8;
+	border-radius:7px;
+	display:block;
+	text-align:center;
+	margin-top:15px;
+	cursor:pointer;
+	width: 180px;
+	font-weight:bold;
+	display:block;
+	text-decoration:none;
+}
+.packages td{
+	position:relative;
+}
+
+.packages .demo-realtor-website{
+	position:absolute;
+	top:460px;
+	left:150px;
+	display:block;
+	width:216px;
+	height:22px;
+}
+.platinum-package{
+	position:relative;
+}
+.platinum-package .platinum-quote{
+	position:absolute;
+	top:200px;
+	left:100px;
+	display:block;
+	width:216px;
+	height:40px;
+}
+
+.platinum-package .brokerage-quote-button, .platinum-package .watch-video-button{
+	background-color:#007bc8;
+	padding:15px;
+	color:white;
+	border:2px solid #007bc8;
+	border-radius:7px;
+	display:block;
+	text-align:center;
+	margin-top:15px;
+	cursor:pointer;
+	position:absolute;
+	z-index:1;
+	top:280px;
+	left:90px;
+	font-weight:bold;
+}
+
+.platinum-package .watch-video-button{
+	top:220px;
+	width:111px;
+}
+
+.brokerage-quote{
+	display:inline-block;
+}
+.packages .package-price:hover, .packages .package-price.selected{
+	border-color:#ffffff;
+}
+.concierge-option{
+	position:relative;
+	cursor:pointer;
+}
+.concierge-option:hover .price, .concierge-option .price.selected{
+	color:green;
+}
+.concierge-option .price{
+	color:#c21626;
+	font-size:25px;
+	font-weight:bold;
+	position:absolute;
+	bottom:22px;
+	text-align:center;
+	width: 125px;
+	cursor:pointer;
+}
+.per-month-logo .price{
+	bottom:33px;
+}
+.concierge-logo {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 227px;
+  height: 142px;
+  z-index: 76;
+  float:left;
+}
+.tour-package-logo {
+  position: relative;
+  left: 185px;
+  top: 0px;
+  z-index: 71;
+  float:left;
+}
+.per-month-logo {
+  position: relative;
+  left: 80px;
+  top: 0px;
+  z-index: 71;
+  float:left;
+  clear:left;
+}
+.per-year-logo {
+  position: relative;
+  left: 130px;
+  top: 0px;
+  z-index: 71;
+  float:left;
+}
+
+#set-up-later-button {
+  position: relative;
+  left: 420px;
+  top: 160px;
+  width: 179px;
+  height: 36px;
+  z-index: 49;
+  clear:left;
+  margin-bottom:225px;
+}
+#concierge-line2 {
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  width: 975px;
+  height: 1px;
+  top:60px;
+  left:20px;
+  z-index: 74;
+  float:left;
+}
+#billing {
+	clear:left;
+	float:left;
+	width: 65%;
+	margin-top:30px;
+	display:none;
+}
+form {
+	float:left;
+}
+label {
+  font-size: 16.667px;
+  font-family: "Arial";
+  color: rgb(255, 255, 255);
+  line-height: 2.53;
+  text-align: justifyLeft;
+  -moz-transform: matrix( 0.84556574923547,0,0,0.8457981942653,0,0);
+  -webkit-transform: matrix( 0.84556574923547,0,0,0.8457981942653,0,0);
+  -ms-transform: matrix( 0.84556574923547,0,0,0.8457981942653,0,0);
+}
+/*.concierge-set-up input {
+	clear:left;
+	height:18px;
+	width:200px;
+	border-radius:7px;
+	margin:15px;
+}*/
+#card-number,  #card-type{
+	clear:left;
+	float:left;
+	margin-left:50px;
+	margin-top:90px;
+}
+#card-number{
+	margin-top:0px;
+}
+#card-number input {
+	margin-left:44px;
+	width:260px;
+}
+#card-type select{
+	margin-left:72px;
+}
+#name-on-card {
+	clear:left;
+	float:left;
+	margin-left:50px;
+	margin-top:0px;
+}
+#name-on-card input {
+	margin-left:35px;
+	width:400px;
+}
+#experation-month {
+	clear:left;
+	float:left;
+	margin-left:50px;
+	margin-top:4px;
+}
+#experation-month select {
+	margin-left:20px;
+	margin-top:3px;
+	width:120px;
+}
+#experation-year select {
+	margin-left:30px;
+	margin-top:3px;
+	width:120px;
+}
+#cvv {
+	float:left;
+	margin-left:20px;
+	margin-top:0px;
+}
+#cvv input {
+	margin-left:10px;
+	width:68px;
+}
+#address {
+	clear:left;
+	float:left;
+	margin-left:50px;
+	margin-top:0px;
+}
+#address input {
+	margin-left:77px;
+	width:400px;
+}
+#address2 {
+	clear:left;
+	float:left;
+	margin-left:50px;
+	margin-top:0px;
+}
+#address2 input {
+	margin-left:62px;
+	width:400px;
+}
+#city {
+	clear:left;
+	float:left;
+	margin-left:50px;
+	margin-top:0px;
+}
+#city input {
+	margin-left:110px;
+	width:150px;
+}
+#state {
+	float:left;
+	margin-left:0px;
+	margin-top:6px;
+}
+#state select {
+	width:60px;
+	margin-left:10px;
+}
+#zip {
+	float:left;
+	margin-left:20px;
+	margin-top:0px;
+}
+#zip input {
+	margin-left:10px;
+	width:50px;
+}
+#summary {
+	float:left;
+	width:30%;
+	margin-top:30px;
+	display:none;
+	padding-right:30px;
+}
+#billing-info {
+  font-size: 25px;
+  color: rgb(255, 255, 255);
+  line-height: 3.294;
+  text-align: justifyLeft;
+  position: relative;
+  z-index: 75;
+  top:75px;
+  left:40px;
+}
+#concierge-line3 {
+  float:left;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  width: 1px;
+  height: 50px;
+  top:90px;
+  left:0px;
+  z-index: 74;
+}
+#order-summary {
+  font-size: 25px;
+  color: rgb(255, 255, 255);
+  line-height: 3.294;
+  text-align: justifyLeft;
+  position: relative;
+  z-index: 75;
+  top:75px;
+  left:40px;
+}
+#subscription-choice {
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  line-height: 3.294;
+  text-align: right;
+  position: relative;
+  z-index: 75;
+  top:75px;
+  right:-20px;
+}
+#concierge-line5 {
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  width: 200px;
+  height: 1px;
+  top:130px;
+  left:127px;
+  z-index: 74;
+  float:left;
+}
+#order-total, #coup-discount, #coup-total{
+  font-size: 14px;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  line-height: 2.294;
+  text-align: right;
+  position: relative;
+  z-index: 75;
+  top:130px;
+  right:-20px;
+  clear:left;
+}
+#order-total span, #coup-discount span, #coup-total span{
+	font-weight:bold;
+}
+#coup-discount, #coup-total{
+	display:none;
+}
+#terms-of-service {
+  font-size: 10px;
+  font-family: "Helvetica Neue";
+  color: rgb(255, 255, 255);
+  line-height: 3.294;
+  text-align: justifyLeft;
+  position: relative;
+  z-index: 75;
+  top:180px;
+  left:160px;
+}
+#terms-of-service a{
+	color:white;
+}
+#terms-of-service input{
+	width:auto;
+	height:15px;
+	margin:0px;
+	margin-left:5px;
+}
+#place-order {
+	margin-top:190px;
+	margin-left:200px;
+}
+#order-coupon{
+	margin-left:10px;
+	margin-right:-10px;
+	position:relative;
+	top:150px;
+}
+#order-coupon input{
+	width:122px;
+}
+#order-coupon .button_new{
+	float:right;
+	margin-right:-13px;
+	margin-top:12px;
+}
+
+.platinum-package .info{
+	display:block;
+	cursor:pointer;
+	position:absolute;
+	z-index:1;
+	top:241px;
+	left:418px;
+	/*border:1px solid green;*/
+	padding:5px;
+}
+
+.platinum-package .advertising-info{
+	top:270px;
+	left:471px;
+}
+
+.platinum-package .drip-info{
+	top:296px;
+	left:451px;
+}
+
+.platinum-package .marketing-info{
+	top:323px;
+	left:456px;
+}
+
+.platinum-package .video-bio-button{
+	background-color:#c2252b;
+	padding:2px;
+	color:white;
+	border:1px solid #c2252b;
+	border-radius:3px;
+	display:block;
+	text-align:center;
+	margin-top:12px;
+	cursor:pointer;
+	width:35px;
+	position:absolute;
+	z-index:1;
+	top:230px;
+	left:600px;
+	font-size:11px;
+}
+
+.platinum-package .logo-amination-button{
+	background-color:#c2252b;
+	padding:2px;
+	color:white;
+	border:1px solid #c2252b;
+	border-radius:3px;
+	display:block;
+	text-align:center;
+	margin-top:12px;
+	cursor:pointer;
+	width:35px;
+	position:absolute;
+	z-index:1;
+	top:258px;
+	left:643px;
+	font-size:11px;
+}
+
+.platinum-package .book-end-button{
+	background-color:#c2252b;
+	padding:2px;
+	color:white;
+	border:1px solid #c2252b;
+	border-radius:3px;
+	display:block;
+	text-align:center;
+	margin-top:12px;
+	cursor:pointer;
+	width:35px;
+	position:absolute;
+	z-index:1;
+	top:283px;
+	left:715px;
+	font-size:11px;
+}
+.platinum-package .realtor-website-button{
+	background-color:#c2252b;
+	padding:2px;
+	color:white;
+	border:1px solid #c2252b;
+	border-radius:3px;
+	display:block;
+	text-align:center;
+	margin-top:12px;
+	cursor:pointer;
+	width:35px;
+	position:absolute;
+	z-index:1;
+	top:310px;
+	left:730px;
+	font-size:11px;
+}
+
+.packages .realtor-website-button2{
+	background-color:#c2252b;
+	padding:2px;
+	color:white;
+	border:1px solid #c2252b;
+	border-radius:3px;
+	display:block;
+	text-align:center;
+	margin-top:12px;
+	cursor:pointer;
+	width:35px;
+	position:absolute;
+	z-index:1;
+	top:118px;
+	left:246px;
+	font-size:11px;
+}
+
+/* POPUP VIDEOS */
+
+.popup-video{
+	display:none;
+	position:fixed;
+	top:50%;
+	left:50%;
+	margin-left:-450px;
+	margin-top:-253px;
+	z-index:1005;
+	width:900px;
+	height:507px;
+	border:3px solid #414244;
+}
+
+.modal-bg, .order-info-bg{
+	display:none;
+	position:fixed;
+	height:100%;
+	width:100%;
+	top:0px;
+	left:0px;
+	background-color:black;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+	filter: alpha(opacity=70);
+	-moz-opacity:0.7;
+	-khtml-opacity: 0.7;
+	opacity: 0.7;
+	z-index:1000;
+}
+.order-info{
+	display:none;
+	position:fixed;
+	top:5%;
+	left:50%;
+	margin-left:-500px;
+	z-index:1005;
+	width:1000px;
+	height:90%;
+	overflow:auto;
+	border:3px solid #414244;
+	background-color:white;
+	padding:10px;
+	border:5px solid #ccc;
+	z-index:1001;
+}
+.modal #backdrop{
+	z-index:1002;
+}
+.modal-window{
+	z-index:1003;
+}
+.order-info h2{
+	color: #434343;
+    font-size: 33px;
+    font-weight: normal;
+    margin: 0px;
+    text-indent: 0px;
+	margin-bottom:20px;
+}
+
+.order-info .terms_hl {
+    color: #1D89C1;
+    text-decoration: underline;
+    cursor: pointer;
+}

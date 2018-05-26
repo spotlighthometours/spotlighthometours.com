@@ -1,0 +1,6 @@
+2015-07-14 22:53:03: SQLSTATE[HY000] [2002] No such file or directory
+2015-07-14 22:53:03: SQLSTATE[HY000] [2002] No such file or directory
+2015-07-14 22:53:37: SQLSTATE[HY000] [2002] No such file or directory
+2015-07-14 22:53:37: SQLSTATE[HY000] [2002] No such file or directory
+2015-07-14 22:56:45: SQLSTATE[HY000] [2002] No such file or directory
+2015-07-14 22:56:45: SQLSTATE[HY000] [2002] No such file or directory

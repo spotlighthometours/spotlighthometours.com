@@ -1,0 +1,162 @@
+/* CSS Document */
+
+body {
+  margin: 0;
+  background-color: #fafafa;
+  text-align:center;
+  padding-top:20px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.header {
+ 	-webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    height: 60px;
+    padding: 16px;
+	border-bottom: 1px solid #efefef;
+	display: flex;
+}
+
+.prf-pic{
+	-webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex: 0;
+    -webkit-flex: none;
+    -ms-flex: none;
+    flex: none;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+	display: flex;
+}
+.prf-pic img{
+  border-radius: 50%;
+  width: 40px;
+	-webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+	background-color: #fafafa;
+    border-radius: 50%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+
+.account-name {
+  	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+	color: #262626;
+	font-weight: 600;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    margin-left: 10px;
+    overflow: hidden;
+	box-sizing: border-box;
+	-webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+	flex-direction: column;
+	margin: 0;
+    padding: 0;
+    position: relative;
+	vertical-align: baseline;
+	margin-left:10px;
+}
+
+.img-footer {
+  width: 600px;
+  margin: 0 auto;
+  border: 1px solid #efefef;
+  margin-top: 0px;
+  border-radius: 0 0 3px 3px;
+  background: white;
+}
+
+.comments-field {      /*styling for the text-box*/
+	text-align:left;
+	border-top: 1px solid #efefef;
+}
+
+.comments-field input{
+	padding:16px;
+}
+
+.text-box {        /*the place where comments are typed*/
+  width: 510px;
+  border: none;
+}
+
+.text-box:focus {
+  outline: none;
+}
+
+.post {
+  clear: both;
+  width:100%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0px;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+.feed-img {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height:auto;
+  border-style: solid;
+  border-color: #efefef;
+  border-width: 0 1px 0 1px;
+}
+
+#footer {
+  clear: both;
+  width: 1000px;
+  text-align: left;
+  margin: 0 auto;
+  font-family: Arial;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+#footer a {
+  margin-right: 1.2em;
+}
+
+.instagram-open{
+	margin-top:30px;
+}

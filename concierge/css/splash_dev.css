@@ -1,0 +1,435 @@
+/* CSS Document */
+#backdrop{
+	z-index:99999 !important;
+}
+.modal-window{
+	z-index:999999;
+}
+.wrapper{
+	width:100%;
+	background: url(../repository_images/new/background.gif) top right no-repeat #181a1c;
+	margin-bottom:0px;
+}
+.wrapper .header{
+	width:1020px;
+	margin:auto;
+	z-index:99999;
+}
+.concierge-splash .banner{
+	height:600px;
+	position:relative;
+	overflow:hidden;
+	background-image: url("../images/splash/concierge-background.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.concierge-splash .banner video {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    top: 0;
+    position: absolute;
+    transition: all 0.5s ease;
+	z-index:999;
+}
+.concierge-splash .banner .intro{
+	text-align:center;
+	position:absolute;
+	width:100%;
+	text-align:center;
+	z-index:9999;
+}
+.concierge-splash .banner .intro h1{
+	color:white;
+	font-size:42px;
+	margin-top:-10px !important;
+	margin-bottom:10px;
+	text-shadow: 2px 2px #000000;
+}
+.cta{
+	color:white;
+	cursor:pointer;
+	background-color:#08b81d;
+	padding:10px;
+	border-radius:5px;
+	width:130px;
+	margin:auto;
+	font-weight:bold;
+	font-size:16px;
+	margin-top:25px;
+	text-align:center;
+	display:block;
+	text-decoration:none;
+}
+.concierge-splash .concierge-platinum{
+	height:521px;
+	background:url(../images/splash/platinum.jpg) center no-repeat #ffffff;
+}
+.concierge-splash .concierge-platinum .center-box{
+	width:1349px;
+	height:521px;
+	margin:auto;
+	position:relative;
+}
+.concierge-splash .concierge-platinum .info{
+	position:absolute;
+	top:340px;
+	left:356px;
+	padding:8px;
+	cursor:pointer;
+}
+.concierge-splash .concierge-platinum .advertising-info{
+	top:377px;
+	left:426px;
+}
+
+.concierge-splash .concierge-platinum .drip-info{
+	top:414px;
+	left:399px;
+}
+
+.concierge-splash .concierge-platinum .marketing-info{
+	top:450px;
+	left:407px;
+}
+.concierge-splash .concierge-platinum .video-bio-button{
+	background-color:#c2252b;
+	padding:2px;
+	color:white;
+	border:1px solid #c2252b;
+	border-radius:3px;
+	display:block;
+	text-align:center;
+	margin-top:12px;
+	cursor:pointer;
+	width:35px;
+	position:absolute;
+	z-index:1;
+	top:332px;
+	left:600px;
+	font-size:11px;
+	text-decoration:none;
+}
+
+.concierge-splash .concierge-platinum .logo-amination-button{
+	background-color:#c2252b;
+	padding:2px;
+	color:white;
+	border:1px solid #c2252b;
+	border-radius:3px;
+	display:block;
+	text-align:center;
+	margin-top:12px;
+	cursor:pointer;
+	width:35px;
+	position:absolute;
+	z-index:1;
+	top:368px;
+	left:660px;
+	font-size:11px;
+	text-decoration:none;
+}
+
+.concierge-splash .concierge-platinum .book-end-button{
+	background-color:#c2252b;
+	padding:2px;
+	color:white;
+	border:1px solid #c2252b;
+	border-radius:3px;
+	display:block;
+	text-align:center;
+	margin-top:12px;
+	cursor:pointer;
+	width:35px;
+	position:absolute;
+	z-index:1;
+	top:405px;
+	left:765px;
+	font-size:11px;
+	text-decoration:none;
+}
+.concierge-splash .concierge-platinum .realtor-website-button{
+	background-color:#c2252b;
+	padding:2px;
+	color:white;
+	border:1px solid #c2252b;
+	border-radius:3px;
+	display:block;
+	text-align:center;
+	margin-top:12px;
+	cursor:pointer;
+	width:35px;
+	position:absolute;
+	z-index:1;
+	top:440px;
+	left:780px;
+	font-size:11px;
+	text-decoration:none;
+}
+.concierge-splash .auto-tour, .concierge-splash .brochure-creator, .concierge-splash .featured, .concierge-splash .agent-sites{
+	background-image: url("../images/splash-bg.jpg");
+    height: 300px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+	position:relative;
+}
+.concierge-splash .auto-tour{
+	padding-top:40px;
+	padding-bottom:40px;
+	height:380px;
+	background-image:none;
+	background-color:white;
+}
+.concierge-splash .auto-tour h2, .concierge-splash .auto-tour h3{
+	color:#353535;
+	font-size:40px;
+	text-align:center;
+	margin:0px;
+	margin-top:5px;
+	visibility:hidden;
+}
+.concierge-splash .auto-tour h3{
+	font-size:30px;
+	font-weight:normal;
+	margin-bottom:30px;
+}
+.concierge-splash .auto-tour .steps{
+	position:relative;
+	width:1020px;
+	margin:auto;
+}
+.concierge-splash .auto-tour .steps .step{
+	text-align:center;
+	width:20%;
+	padding:25px;
+	position:absolute;
+	left:0px;
+	opacity:0;
+}
+.concierge-splash .auto-tour .steps .step.mls{
+
+}
+.concierge-splash .auto-tour .steps .step.tour{
+	
+}
+.concierge-splash .auto-tour .steps .step.update{
+	
+}
+.concierge-splash .auto-tour .steps .step.hourly{
+	
+}
+.concierge-splash .auto-tour .steps .step .arrow{
+	margin-top:-180px;
+	margin-right:-250px;
+}
+.concierge-splash .auto-tour .steps .step .txt{
+	font-size:24px;
+	padding-top:10px;
+	padding-bottom:10px;
+	height:90px;
+}
+.concierge-splash .social-hub, .concierge-splash .agent-sites, .concierge-splash .brokerages{
+	background-color:#ffffff;
+	height:300px;
+}
+.concierge-splash .social-hub{
+	color:#6d6e71;
+	font-size:28px;
+	height:565px;
+}
+.concierge-splash .social-hub h2{
+	font-size:58px;
+	margin:0px;
+	margin-bottom:10px;
+}
+.concierge-splash .social-hub h3{
+	font-size:30px;
+	font-weight:normal;
+	margin:0px;
+	margin-bottom:10px;
+	padding-left: 40px;
+
+}
+.concierge-splash .content{
+	width:1020px;
+	margin:auto;
+}
+.concierge-splash .social-hub .desc{
+	width:600px;
+	padding-top:100px;
+	visibility:hidden;
+}
+.concierge-splash .social-hub .icons{
+	width:300px;
+	padding:60px;
+	padding-top:80px;
+	padding-bottom:80px;
+	position:relative;
+	visibility:hidden;
+	margin-top: 20px;
+}
+.concierge-splash .social-hub .desc, .concierge-splash .social-hub .icons{
+	float:left;
+}
+.concierge-splash .brochure-creator{
+	padding-top:40px;
+	padding-bottom:40px;
+	height:auto;
+}
+.concierge-splash .brochure-creator h2, .concierge-splash .brochure-creator h3{
+	color:#353535;
+	font-size:40px;
+	text-align:center;
+	margin:0px;
+	visibility:hidden;
+}
+.concierge-splash .brochure-creator h3{
+	font-size:36px;
+	font-weight:normal;
+	margin-top:10px;
+	margin-bottom:30px;
+}
+.concierge-splash .brochure-creator .feature{
+	float:left;
+	width:33%;
+	font-size:30px;
+	text-align:center;
+	visibility:hidden;
+}
+.concierge-splash .brochure-creator .feature img{
+	margin-bottom:20px;
+	margin-top:20px;
+}
+.concierge-splash .agent-sites{
+	color:#6d6e71;
+	font-size:28px;
+	height:auto;
+}
+.concierge-splash .agent-sites h2{
+	font-size:40px;
+	margin:0px;
+	margin-bottom:10px;
+}
+.concierge-splash .agent-sites h3{
+	font-size:36px;
+	font-weight:normal;
+	margin:0px;
+	margin-bottom:10px;
+}
+.concierge-splash .agent-sites .desc, .concierge-splash .agent-sites .screen{
+	float:left;
+}
+.concierge-splash .agent-sites .desc{
+	width:489px;
+	padding-top:100px;
+	visibility:hidden;
+}
+.concierge-splash .agent-sites .screen{
+	width:531px;
+	padding-top:80px;
+	padding-bottom:80px;
+	position:relative;
+	visibility:hidden;
+}
+.concierge-splash .agent-sites .screen iframe{
+	border:0px;
+	-ms-zoom: 0.30;
+    -moz-transform: scale(0.30);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.30);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.30);
+    -webkit-transform-origin: 0 0;
+	position:absolute;
+	top:97px;
+	left:81px;
+	pointer-events: none;
+}
+.concierge-splash .featured, .concierge-splash .brokerages{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    height: auto;
+}
+.concierge-splash .featured h2, .brokerages h2{
+	color:#353535;
+	font-size:40px;
+	text-align:center;
+	margin:0px;
+}
+.concierge-splash .featured .feature{
+	float:left;
+	width:222px;
+	text-align:center;
+	font-size:18px;
+	color:#353535;
+	padding:16px;
+	margin-top:16px;
+}
+.concierge-splash .featured .feature img{
+	text-align:center;
+	margin-bottom:10px;
+}
+.concierge-splash .featured .row1, .concierge-splash .featured .row2{
+	visibility:hidden;
+}
+.concierge-splash .brokerages{
+	height:auto;
+}
+.concierge-splash .brokerages .brokerage{
+	width:33%;
+	float:left;
+	margin-top:20px;
+	height:135px;
+	text-align:center;
+}
+.concierge-splash .brokerages .brokerage-row1, .concierge-splash .brokerages .brokerage-row2{
+	visibility:hidden
+}
+.concierge-splash .brokerages .brokerage.remax{
+	padding-top:14px;
+	height:123px;
+}
+.concierge-splash .brokerages .brokerage.coldwell{
+	padding-top:50px;
+}
+.concierge-splash .brokerages .brokerage.sotherbys{
+	padding-top:30px;
+}
+.concierge-splash .brokerages h2{
+	margin-bottom:30px;
+}
+.concierge-splash .brokerages .content{
+	padding:30px;
+}
+/* POPUP VIDEOS */
+
+.popup-video{
+	display:none;
+	position:fixed;
+	top:50%;
+	left:50%;
+	margin-left:-450px;
+	margin-top:-253px;
+	z-index:1005;
+	width:900px;
+	height:507px;
+	border:3px solid #414244;
+}
+.modal-bg{
+	display:none;
+	position:fixed;
+	height:100%;
+	width:100%;
+	top:0px;
+	left:0px;
+	background-color:black;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+	filter: alpha(opacity=70);
+	-moz-opacity:0.7;
+	-khtml-opacity: 0.7;
+	opacity: 0.7;
+	z-index:1000;
+}

@@ -1,0 +1,472 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Spotlight | Concierge Setup</title>
+
+<!-- FOR SOCIAL NETWORKS -->
+
+<meta property="og:title" content="Spotlight | Affiliate Photographer Program" />
+
+<meta property="og:description" content="Real Estate Virtual Home Tours" />
+
+<meta property="og:image" content="http://www.spotlighthometours.com/repository_images/logos/400x300-gray.gif" />
+
+<link rel="shortcut icon" href="http://www.spotlighthometours.com/repository_images/icon.ico" />
+
+<link rel="stylesheet" type="text/css" href="http://www.spotlighthometours.com/repository_css/template.css?randIt=998567108"/>
+
+<link rel="stylesheet" type="text/css" href="http://www.spotlighthometours.com/repository_css/template-v2.css?randIt=998567108"/>
+
+<script src="http://www.spotlighthometours.com/repository_inc/jquery-1.6.2.min.js?randIt=998567108"></script>
+
+<script src="http://www.spotlighthometours.com/repository_inc/template.js?randIt=998567108"></script>
+
+<script src="http://www.spotlighthometours.com/repository_inc/jquery.easing.min.js?randIt=998567108"></script>
+
+<script src="http://www.spotlighthometours.com/repository_inc/jquery-ui-1.8.16.custom.min.js?randIt=998567108"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Nunito:300" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+
+<script>
+$(document).ready(
+	function() {
+	}
+);
+var currentContent = "";
+function showContent(id){
+	if(currentContent){
+		$('#'+currentContent).slideToggle('slow', function(){
+			$('#'+id).slideToggle('slow');	
+			$('html,body').animate({scrollTop: $(".featured-content").offset().top},'slow');		
+		});
+	}else{
+		$('#'+id).slideToggle('slow');	
+		$('html,body').animate({scrollTop: $(".featured-content").offset().top},'slow');
+	}
+	currentContent = id;
+}
+</script>
+
+<link rel="stylesheet" type="text/css" href="css/spotlight-preview.css"/>
+
+
+
+</head>
+
+
+
+<body>
+
+<div class="wrapper">
+
+	<div class="header">
+
+		<a class="logo" href="http://www.spotlighthometours.com/"></a>
+
+		<ul class="nav">
+
+			<li><a href="#">Products</a>
+
+				<ul>
+
+					<li><a href="http://www.spotlighthometours.com/products/3d-home-tours.php">3D Home Tour</a></li>
+
+                    <li><a href="http://www.spotlighthometours.com/products/marketing-platform.php">Marketing Platform</a></li>
+
+					<li><a href="http://www.spotlighthometours.com/products/architectural-photography.php">Photo Tour Packages</a></li>
+
+					<li><a href="http://www.spotlighthometours.com/products/cinematic-video.php">Cinematic Video</a></li>
+
+					<li><a href="http://www.spotlighthometours.com/products/virtual-staging.php">Virtual Staging</a></li>
+
+					<li><a href="http://www.spotlighthometours.com/diy/">Do-it-Yourself Tours</a></li>
+
+					<!--<li><a href="#">Mobile Preview <span class="coming-soon">(coming soon)</span></a></li>
+
+					<li><a href="#">Concierge <span class="coming-soon">(coming soon)</span></a></li>
+
+					<li><a href="#">Web Solutions <span class="coming-soon">(coming soon)</span></a></li>
+
+					<li><a href="http://www.spotlighthometours.com/products/3d-motion-effects.php">3D Motion Tours</a></li>-->
+
+				</ul>
+
+			</li>
+
+			<li><a href="http://www.spotlighthometours.com/tour-demos/">Demos</a>
+
+            	<ul>
+
+                	<li><a href="http://www.spotlighthometours.com/tour-demos/">Tour Packages</a></li>
+
+                    <li><a href="http://www.spotlighthometours.com/tour-demos/cinematic-video.php">Cinematic Videos</a></li>
+
+                </ul>
+
+            </li>
+
+			<li><a href="https://www.spotlighthometours.com/checkout_v2/checkout.php">Order Now</a></li>
+
+			<li><a href="http://www.spotlighthometours.com/search/">Search Tours</a></li>
+
+		</ul>
+
+		<ul class="tool-bar">
+
+			<li><a href="tel:(888) 838-8810">call: (888) 838-8810</a></li>
+
+												<li class="account"><a href="javascript:GetLoginScreen()">My Account</a></li>
+
+									<li class="login"><a href="javascript:GetLoginScreen()">Login</a></li>
+
+					</ul>
+
+				<ul class="nav-right">
+
+			<li><a href="http://www.spotlighthometours.com/register/">Sign up</a></li>
+
+		</ul>
+
+			</div>
+            
+            
+	
+    
+    
+    
+    
+    <div class="concierge-set-up">
+        
+    	<div id="setup">Setup your Concierge account:</div>
+        <div id="concierge-line"><img src="images/concierge-line.png" alt="line" /></div>
+        <div id="concierge-logo"><img src="images/concierge-logo.png" alt="logo" /></div>
+        
+        <div id="topbar-logo">
+        	<div id="spotlight-preview-logo"><img src="images/spotlight-preview.png" alt="spotlight-preview" width="150px"/></div>
+        </div>
+        
+        <div id="topbar-text">
+        	<div id="spotlight-preview">Spotlight Preview</div>
+            <div id="spotlight-preview-text">This is the message your potential buyers will see five to ten minutes after they start viewing the photos.</div>
+        </div>
+        
+        <div id="concierge-line2">
+        	<img src="images/concierge-line.png" alt="line" />
+        </div>
+        
+    
+        <div id="my-channels">Lead Notification</div>
+        
+        <div id="concierge-line3">
+        	<img src="images/concierge-line.png" alt="line" />
+        </div>
+        
+        <form>
+        	<div id="cell-phone"> 
+                <label for="cell-phone">cell phone:</label>
+                <input type="text" name="cell-phone" />
+             </div>
+                   
+             <div id="cell-provider"> 
+                 <label for="cell-provider">cell-provider:</label>
+                 <select name="cell-provider">
+					          	<option value="Aliant" >Aliant</option>
+					          	<option value="AT&T" selected="selected">AT&T</option>
+					          	<option value="Bell" >Bell</option>
+					          	<option value="Cellular South US" >Cellular South US</option>
+					          	<option value="Cingular" >Cingular</option>
+					          	<option value="Fido" >Fido</option>
+					          	<option value="Koodomobile" >Koodomobile</option>
+					          	<option value="Nextel" >Nextel</option>
+					          	<option value="Otherus" >Otherus</option>
+					          	<option value="PCMobile" >PCMobile</option>
+					          	<option value="Rogers" >Rogers</option>
+					          	<option value="SaskTel" >SaskTel</option>
+					          	<option value="Sprint" >Sprint</option>
+					          	<option value="Telus" >Telus</option>
+					          	<option value="TMobile" >TMobile</option>
+					          	<option value="USCellular US" >USCellular US</option>
+					          	<option value="Verizon" >Verizon</option>
+					          	<option value="Virgin" >Virgin</option>
+					          	<option value="Virgin CA" >Virgin CA</option>
+          </select>
+             </div>
+             
+             <div id="email"> 
+                 <label for="email">email:</label>
+                 <input type="text" name="email" />
+             </div>
+             <div id="add">
+             + Add Another
+             </div>
+         </form>
+         
+         <div id="link-accounts">Auto Responder Text</div>
+        
+        <div id="concierge-line3">
+        	<img src="images/concierge-line.png" alt="line" />
+        </div>
+        
+        <form>
+        	<div id="auto-respond">
+                <textarea onblur="textCounter(this,this.form.counter,300);" onkeyup="textCounter(this,this.form.counter,300);" style="WIDTH: 608px; HEIGHT: 94px" name="message" rows="1" cols="15" ></textarea>
+                <input style="color:white; background-color:#181a1c; border:none; margin-left:70px;" onblur="textCounter(this.form.recipients,this,300);" disabled  onfocus="this.blur();" tabindex="999" maxlength="3" size="3" value="300" name="counter">
+            </div>
+        </form>
+
+       <script>
+	   function textCounter( field, countfield, maxlimit) {
+ if ( field.value.length > maxlimit ) {
+  field.value = field.value.substring( 0, maxlimit," characters remaining...");
+  field.blur();
+  field.focus();
+  return false;
+ } else {
+  countfield.value = maxlimit - field.value.length + " characters remaining...";
+ }
+}
+	   </script>
+       
+         <br />
+         <br />
+         <br />
+         
+        
+        	
+                <div id="previous-step"><a href="youtube.html"><img src="images/previous-step.png" alt="previous-step" width="150px"/></a></div>
+                <div id="save-exit"><a href="set-up.html"><img src="images/save-exit.png" alt="save-exit" width="150px"/></a></div>
+                <div id="next-step"><a href="brochure-creator.html"><img src="images/next-step.png" alt="next-step" width="150px"/></a></div>
+                
+                
+                
+<br />
+       
+            
+        
+        
+
+
+	
+
+	
+    
+	</div>
+
+
+
+
+
+
+
+	<div class="footer">
+
+		<div class="panel social">
+
+			<div>Follow us:</div>
+
+			<a href="http://www.facebook.com/pages/Spotlight-Home-Tours/153663237083" target="_blank"><img src="http://www.spotlighthometours.com/repository_images/new/icons/facebook.jpg" width="58" height="57" alt="facebook" border="0" /></a> <a href="https://twitter.com/spotlighttours" target="_blank"><img src="http://www.spotlighthometours.com/repository_images/new/icons/twitter.jpg" width="58" height="57" alt="twitter" border="0" /></a> <a href="https://plus.google.com/100500572704858869370/posts" target="_blank"><img src="http://www.spotlighthometours.com/repository_images/new/icons/google-plus.jpg" width="58" height="57" alt="google plus" border="0" /></a> </div>
+
+		<div class="panel post"> <a href="http://www.spotlighthometours.com/virtual-home-tours/?p=317">Video of the week - Who wants to own an Island?</a> <div>        
+		
+			
+				
+        				
+        				
+        					
+        					
+        					
+        			...</div><a href="http://www.spotlighthometours.com/virtual-home-tours/?p=317" class="read-more" style="margin-top:6px;">read more &rsaquo;</a></div>
+
+		<div class="panel testimonials">
+
+			<div id="footer-testimonials">
+
+				<i>"Impressive!!  I actually caught myself saying that place is very nice!  Those pictures will really..."</i><a href="http://www.spotlighthometours.com/client-testimonials.php#6" class="read-more">read more &rsaquo;</a>		
+
+			</div>
+
+		</div>
+
+		<div class="panel broker"><a href="http://www.spotlighthometours.com/new-broker.php">Click here for information on Spotlight's exclusive brokerage pricing and offers!<p align="right" class="read-more">brokerage pricing &rsaquo;</p></a></div>
+
+		<div class="panel nav">
+
+			<ul>
+
+				<li><a href="http://www.spotlighthometours.com/contact/index.php?department=support#direction">Support</a></li>
+
+				<li><a href="http://www.spotlighthometours.com/contact/">Contact</a></li>
+
+				<li><a href="http://www.spotlighthometours.com/about/">About</a></li>
+
+				<li><a href="http://www.spotlighthometours.com/affiliate-program/">Affiliate Program</a></li>
+
+			</ul>
+
+		</div>
+
+		<div class="clear"></div>
+
+	</div>
+
+	<div class="image-reel-pattern"></div>
+
+</div>
+
+<script>
+
+	$(document).ready(function(){
+
+		setupTestRotator();
+
+	 });
+
+</script>
+
+<!-- MODAL WINDOW -->
+
+<div class="modal">
+
+    <form action="" method="post" id="modalForm">
+
+        <div id="backdrop" style="display: none;" onclick="HidePopUp();"></div>
+
+        <div class="modal-window" id="pop_up_frame">
+
+            <div class="top"><a class="close" onClick="HidePopUp();"></a></div>
+
+            <div class="middle">
+
+                    <h1 id="pop_up_title"></h1>
+
+                    <div id="pop_up_content">
+
+                    </div>
+
+            </div>
+
+            <div class="bottom"></div>
+
+        </div>
+
+        <div class="hidden">
+
+          <span><div class="input_title">Username</div><input type="text" id="username" name="username" value="" /></span>
+
+          <span><div class="input_title">Password</div><input type="password" id="password" name="password" value="" /></span>
+
+          <span><div class="input_title" style="width:144px">Photographer Email</div><input style="width:315px;" type="text" id="affiliateUsername" name="affiliateUsername" value="" /></span>
+
+          <span><div class="input_title">Password</div><input type="password" id="affiliatePassword" name="affiliatePassword" value="" /></span>
+
+        </div>
+
+    </form>
+
+</div>
+
+<!-- END MODAL WINDOW --><!-- OGG CHAT WINDOW -->
+
+
+
+<div id="oggchat"></div>
+
+<div id="oggwindowholder"><span style="display:none"></span></div>
+
+<script src="../../repository_inc/ogg-chat.js" type="text/javascript"></script>
+
+
+
+<!-- END OGG CHAT WINDOW --><!-- GOOGLE ANALYTICS -->
+
+
+
+<script type="text/javascript">
+
+
+
+  var _gaq = _gaq || [];
+
+  _gaq.push(['_setAccount', 'UA-20874682-1']);
+
+  _gaq.push(['_trackPageview']);
+
+
+
+  (function() {
+
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+
+  })();
+
+
+
+</script>
+
+
+
+<!-- END GOOGLE ANALYTICS --></body>
+
+</html>
+
+<!-- Begin GOOGLE ANALYTICS -->
+
+
+
+<script type="text/javascript">
+
+
+
+  var _gaq = _gaq || [];
+
+
+
+_gaq.push(function() {
+
+  var pageTracker = _gat._getTrackerByName();
+
+  var iframe = document.getElementById('affiliateFrame');
+
+  iframe.src = pageTracker._getLinkerUrl('http://www.spotlighthometours.com/register/affiliate.php');
+
+});
+
+
+
+  _gaq.push(['_setAccount', 'UA-20874682-1']);
+
+  _gaq.push(['_trackEvent', 'affiliate', 'REGISTER']);
+
+
+
+  (function() {
+
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+
+  })();
+
+
+
+</script>
+
+
+
+<!-- END GOOGLE ANALYTICS -->
